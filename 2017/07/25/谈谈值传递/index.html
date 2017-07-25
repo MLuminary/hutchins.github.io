@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic2.jpg">
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic3.jpg">
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic4.jpg">
-<meta property="og:updated_time" content="2017-07-25T14:36:33.906Z">
+<meta property="og:updated_time" content="2017-07-25T14:59:19.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈值传递">
 <meta name="twitter:description" content="谈谈值传递ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的. 在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同 数据类型的复制基本类型12345var num1 = 10;var num2 = num1;    num2 = 11;console.log(num1);//10consol">
@@ -363,14 +363,14 @@
 <p>基本数据类型从一个复制到另一个，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上，改变其中一个不会影响另一个。</p>
 <p>本小白用拙劣的画功演示一下</p>
 <p><img src="/2017/07/25/谈谈值传递/pic1.jpg" alt="pic1"></p>
-<p>一开始声明变量num1并赋值为10,它便已图中的形式存在某种结构中，当用num1的值来初始化num2的时候，此时就相当于声明变量num2并赋值为num1中的值，该值只是num1中的一个副本，赋值结束，这两个变量便再无瓜葛，进行后面的操作也不会相互影响</p>
+<p>一开始声明变量num1并赋值为10,它便以图中的形式存在某种结构中，当用num1的值来初始化num2的时候，此时就相当于声明变量num2并赋值为num1中的值，该值只是num1中的一个副本，赋值结束，这两个变量便再无瓜葛，进行后面的操作也不会相互影响</p>
 <h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>引用类型我们采用数组，数组的声明有两种方式，一种为<code>var 数组名 = []</code>另一种为<code>var 数组名 = new array()</code></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> arr2 = arr1;</div><div class="line">    arr2[<span class="number">0</span>] = <span class="number">10</span>;</div><div class="line"><span class="built_in">console</span>.log(arr1);<span class="comment">//[10,2,3,4]</span></div><div class="line"><span class="built_in">console</span>.log(arr2);<span class="comment">//[10,2,3,4]</span></div></pre></td></tr></table></figure>
 <p>此处及下文输出省略掉数组长度,可以看出输出的结果都为[10,2,3,4]和基本数据类型完全不同.</p>
 <p><img src="/2017/07/25/谈谈值传递/pic2.jpg" alt="pic2"></p>
-<p>当声明数组变量并赋值的时候，同样也会存入一个结构当中，但是这个结构不能存[1,2,3,4]这种数据，要存到堆中去，就是图片右边那个圆形的区域，但是存入的数还是要找到它，每个存储位置都有相应的地址，所以它在左边那个结构中存入的是一个指向数组数据的这样的一个地址。</p>
+<p>当声明数组变量并赋值的时候，同样也会存入一个结构当中，但是这个结构不能存[1,2,3,4]这种数据，要存到堆中去，就是图片右边那个圆形的区域，但是存入的数还是要找到它，每个存储位置都有相应的地址，所以它在左边那个结构中存入的是一个指向数组对象的这样的一个地址。</p>
 <p><img src="/2017/07/25/谈谈值传递/pic3.jpg" alt="pic3"></p>
-<p>当复制引用类型变量的时候，同样也会将存储在左边结构中的值复制一份放到为新变量分配的空间中去，这不过因为这个值的副本是一个指向堆中原数组数据的地址，两个变量名就相当于引用了同一个地址中的内容。因此，改变其中的一个变量，就会影响另一个</p>
+<p>当复制引用类型变量的时候，同样也会将存储在左边结构中的值复制一份放到为新变量分配的空间中去，这不过因为这个值的副本是一个指向堆中原数组对象的地址，两个变量名就相当于引用了同一个地址中的内容。因此，改变其中的一个变量，就会影响另一个</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr3=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> arr4=arr3;</div><div class="line">arr4=[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="built_in">console</span>.log(arr3);<span class="comment">//[1,2,3,4]</span></div><div class="line"><span class="built_in">console</span>.log(arr4);<span class="comment">//[5,6,7,8]</span></div></pre></td></tr></table></figure>
 <p>这个相比于前面那个，只是在第三行代码中出现了不同,<code>arr4=[5,6,7,8]</code>将一个新的数组对象赋给变量arr4,这时arr4后的地址就改变了,也就指向了新的数组对象，这两个变量也就完全不相同了.</p>
 <p><img src="/2017/07/25/谈谈值传递/pic4.jpg" alt="pic4"></p>
