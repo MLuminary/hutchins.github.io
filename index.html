@@ -266,6 +266,167 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/25/谈谈值传递/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/25/谈谈值传递/" itemprop="url">谈谈值传递</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T22:32:03+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="谈谈值传递"><a href="#谈谈值传递" class="headerlink" title="谈谈值传递"></a>谈谈值传递</h1><p>ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的.</p>
+<p>在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同</p>
+<h2 id="数据类型的复制"><a href="#数据类型的复制" class="headerlink" title="数据类型的复制"></a>数据类型的复制</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> num2 = num1;</div><div class="line">    num2 = <span class="number">11</span>;</div><div class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//10</span></div><div class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//11</span></div></pre></td></tr></table></figure>
+<p>基本数据类型从一个复制到另一个，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上，改变其中一个不会影响另一个。</p>
+<p>本小白用拙劣的画功演示一下</p>
+<p><img src="/2017/07/25/谈谈值传递/pic1.jpg" alt="pic1"></p>
+<p>一开始声明变量num1并赋值为10,它便已图中的形式存在某种结构中，当用num1的值来初始化num2的时候，此时就相当于声明变量num2并赋值为num1中的值，该值只是num1中的一个副本，赋值结束，这两个变量便再无瓜葛，进行后面的操作也不会相互影响</p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>引用类型我们采用数组，数组的声明有两种方式，一种为<code>var 数组名 = []</code>另一种为<code>var 数组名 = new array()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> arr2 = arr1;</div><div class="line">    arr2[<span class="number">0</span>] = <span class="number">10</span>;</div><div class="line"><span class="built_in">console</span>.log(arr1);<span class="comment">//[10,2,3,4]</span></div><div class="line"><span class="built_in">console</span>.log(arr2);<span class="comment">//[10,2,3,4]</span></div></pre></td></tr></table></figure>
+<p>此处及下文输出省略掉数组长度,可以看出输出的结果都为[10,2,3,4]和基本数据类型完全不同.</p>
+<p><img src="/2017/07/25/谈谈值传递/pic2.jpg" alt="pic2"></p>
+<p>当声明数组变量并赋值的时候，同样也会存入一个结构当中，但是这个结构不能存[1,2,3,4]这种数据，要存到堆中去，就是图片右边那个圆形的区域，但是存入的数还是要找到它，每个存储位置都有相应的地址，所以它在左边那个结构中存入的是一个指向数组数据的这样的一个地址。</p>
+<p><img src="/2017/07/25/谈谈值传递/pic3.jpg" alt="pic3"></p>
+<p>当复制引用类型变量的时候，同样也会将存储在左边结构中的值复制一份放到为新变量分配的空间中去，这不过因为这个值的副本是一个指向堆中原数组数据的地址，两个变量名就相当于引用了同一个地址中的内容。因此，改变其中的一个变量，就会影响另一个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr3=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> arr4=arr3;</div><div class="line">arr4=[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="built_in">console</span>.log(arr3);<span class="comment">//[1,2,3,4]</span></div><div class="line"><span class="built_in">console</span>.log(arr4);<span class="comment">//[5,6,7,8]</span></div></pre></td></tr></table></figure>
+<p>这个相比于前面那个，只是在第三行代码中出现了不同,<code>arr4=[5,6,7,8]</code>将一个新的数组对象赋给变量arr4,这时arr4后的地址就改变了,也就指向了新的数组对象，这两个变量也就完全不相同了.</p>
+<p><img src="/2017/07/25/谈谈值传递/pic4.jpg" alt="pic4"></p>
+<p>可以实验一下<code>console.log(new Array(1,2)===new Array(1,2))</code>，这个在控制台返回的是<code>false</code></p>
+<p>那好，现在有了这些铺垫，我们再来谈我们今天的主要内容.</p>
+<h2 id="数据类型的值传递"><a href="#数据类型的值传递" class="headerlink" title="数据类型的值传递"></a>数据类型的值传递</h2><h3 id="基本类型-1"><a href="#基本类型-1" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  num = <span class="number">11</span>;</div><div class="line">  <span class="built_in">console</span>.log(num);<span class="comment">//11</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">change(num);</div><div class="line"><span class="built_in">console</span>.log(num);<span class="comment">//10</span></div></pre></td></tr></table></figure>
+<p>在像参数传递基本类型的值时，被传递的值会被先复制给一个局部变量，其实就可以理解为基本数据类型的赋值。以上的代码也可以写为这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="number">10</span>;<span class="comment">//look</span></div><div class="line">  num = <span class="number">11</span>;</div><div class="line">  <span class="built_in">console</span>.log(num);<span class="comment">//11</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">change(num);</div><div class="line"><span class="built_in">console</span>.log(num);<span class="comment">//10</span></div></pre></td></tr></table></figure>
+<p>在look处，函数会将参数先声明并赋值，值就为下面传入的参数的值，num的值为10,因此赋得值也为10。但此时函数中的num和函数外部的num其实是毫不相关的,因此并不会相互影响</p>
+<h3 id="引用类型-1"><a href="#引用类型-1" class="headerlink" title="引用类型"></a>引用类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  arr[<span class="number">0</span>] = <span class="number">10</span>;</div><div class="line">  <span class="built_in">console</span>.log(arr);<span class="comment">//[10,2,3,4]</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">change(arr);</div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">//[10,2,3,4]</span></div></pre></td></tr></table></figure>
+<p>引用类型也如此，也可以理解为引用类型的复制操作，在函数的开头就会将arr赋值为传来的数值，虽然也是一开始声明的引用类型的副本，但是因为引用类型传来的数值是地址，因此函数中的arr和函数外面的arr都将引用同一个地址中的数组对象，因为arr指向的数组对象在堆中只有一个，又是全局变量，因此这两个arr是相同的，同样我们再看那一种声明数组并赋值的.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  arr=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line">  <span class="built_in">console</span>.log(arr);<span class="comment">//[4,5,6,7]</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">change(arr);</div><div class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[1,2,3,4]</span></div></pre></td></tr></table></figure>
+<p>那这个也就应该可以理解了，虽然在传参的时候传入的确实是一开始声明的数组对象的地址的副本，但是因为在函数内部又声明了一个新的数组对象，在这里arr引用的就是一个局部的数组对象了，而这个局部对象就会在函数结束后立即被销毁，不会影响函数外部的数组对象</p>
+<p>本小白大二学生…自学前端一年,水平有限，就先解释这么多了，如果有不对的还请大佬们指点，本小白定当悔过自新，重新做人.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/18/关于css实现div居中问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -361,28 +522,28 @@
 <h2 id="当需要居中的div设置了固定宽度"><a href="#当需要居中的div设置了固定宽度" class="headerlink" title="当需要居中的div设置了固定宽度"></a>当需要居中的div设置了固定宽度</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> atuo;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>auto可以理解为一样的意思，如果左右都设置auto，意思就是这个div离左面的距离和右面的距离是一样的,但是此方法只适用于设置了宽度的块级元素，当设置了<code>position:absolute</code>或者<code>float</code>或者<code>display:inline</code>时,<code>margin:0 auto</code>便会失效。</p>
 <h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>块级元素始终独占一行，无论是否设置了宽度，未设置宽度时他会自动充满，设置了宽度时，虽然他看起来这一行并不都是他的地盘，但是你如果在他后面添加元素的时候，你会发现元素会被挤到下一行去。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  咋回事啊</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><img src="关于css实现div居中问题/pic2.png" alt="pic2"></p>
+<p><img src="/2017/07/18/关于css实现div居中问题/pic2.png" alt="pic2"></p>
 <p>怎么肥四，为森么会发生这种情况呢</p>
-<p><img src="关于css实现div居中问题/pic3.png" alt="pic3"></p>
+<p><img src="/2017/07/18/关于css实现div居中问题/pic3.png" alt="pic3"></p>
 <p>可以看到，虽然div设置了宽度，但是他有一种无形的力量占据了整个他所在的行，以至于其它元素无法与其在一行。而这一块也就是<code>margin:0 auto</code>可调控范围，<code>margin: 0 auto</code>会根据这一部分的大小分配及时分配左右的距离，达到居中的效果，当设置了绝对定位、浮动或将其设置为行内元素的时候，他这种威慑力便会消失，此时就不会留下范围让<code>margin: 0 auto</code>分配。</p>
-<p><img src="关于css实现div居中问题/pic4.png" alt="pic4"></p>
+<p><img src="/2017/07/18/关于css实现div居中问题/pic4.png" alt="pic4"></p>
 <p>可以看到，此时那块黄色的区域已经消失，<code>margin: 0 atuo</code>也就失效了</p>
 <p>不过也有一种例外<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;  </div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> atuo;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>此时虽然已经设置绝对定位，他已经脱离了标准文档流，但是<code>left:0 right:0</code>又让其左右充满父容器，具有了<code>margin:0 auto</code>可调控的距离</p>
-<p><img src="关于css实现div居中问题/pic5.png" alt="pic5"></p>
+<p><img src="/2017/07/18/关于css实现div居中问题/pic5.png" alt="pic5"></p>
 <h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;  </div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>设置绝对定位让其拥有left属性，然后设定<code>left:50%</code>，此div便会<code>left</code>值就为距离最近的可参考的祖上元素的宽度的一办，那什么是可参考元素呢，就是说设定了<code>position</code>属性的，如果祖上元素都没有的话，就参考body、html。</p>
 <p>此时div就会跑到中央去，但是因为此div本身还有宽度，因此还要添加<code>margin-left:-此div宽度的一半px;</code>让其真正的居中</p>
 <h2 id="需要居中的元素没有宽度"><a href="#需要居中的元素没有宽度" class="headerlink" title="需要居中的元素没有宽度"></a>需要居中的元素没有宽度</h2><p>很多状况下我们要居中的元素是不知道宽度的，有时候可能宽度也不是固定的，因为里面的内容有可能以后要增加，或者随着浏览器的变化此宽度可能也要跟随变化，此效果用js、jq可以实现，但我们本次只谈css</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="关于css实现div居中问题/pic6.png" alt="pic6"></p>
+<p><img src="/2017/07/18/关于css实现div居中问题/pic6.png" alt="pic6"></p>
 <p>可以看到，当不设置宽度的时候，此div默认是充满整个浏览器的，这样的话就无所谓居中或不居中了，通常我们要居中这个div，是想让这个div中的一些信息居中，为了便于演示，我在html和css中都添加了几行代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱前端<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱编程<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱生活<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>渴望知识<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">list-style</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">margin-left</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="关于css实现div居中问题/pic7.png" alt="pic7"></p>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="/2017/07/18/关于css实现div居中问题/pic7.png" alt="pic7"></p>
 <p>此时我们应该想办法让div的宽度不是充满整个浏览器，让它的宽度仅仅就是里面内容的宽度，这样我们才能让它居中。在块状元素下，如果不设置宽度，它始终是要充满整个宽度的。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="关于css实现div居中问题/pic8.png" alt="pic8"><br>当设置<code>nav</code>为行内元素，或者table元素的时候他的宽度就默认不是最大化，而是根据包裹的内容改变，也就是最小化。设置为<code>position</code>或者<code>display:table</code>也一样。</p>
+<p><img src="/2017/07/18/关于css实现div居中问题/pic8.png" alt="pic8"><br>当设置<code>nav</code>为行内元素，或者table元素的时候他的宽度就默认不是最大化，而是根据包裹的内容改变，也就是最小化。设置为<code>position</code>或者<code>display:table</code>也一样。</p>
 <h3 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h3><p>用<code>text-align:center</code>实现元素居中，这个属性不是只能让文本居中，它可以让行内元素居中，所以只要把要居中的元素设置为行内元素，然后把其父元素设置<code>text-align:center</code>，它就会在其父元素中居中<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">background</span>: red;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">display</span>: inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h3><p>设置nav为<code>display:table</code>,nav就相当与说就具有了<code>table</code>的属性，那我们都知道<code>table</code>的宽度是根据其内容的多少而变化的，也就是宽度最小化，而此时nav便也可以使用<code>margin:0 auto</code>来居中</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">background</span>: red;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">display</span>: table;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -841,7 +1002,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -852,7 +1013,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -863,7 +1024,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
