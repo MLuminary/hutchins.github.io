@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="一丶数据库概述服务器端 : 负责永久存储数据、维护数据，人不能直接观看。 客户端 : 用于向服务器端发起“增删改查”命令. 二丶使用MySQL服务器的步骤 服务器端：安装启动MySQL服务器端软件 ×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。 启动后，后台会有mysqld运行port端口号:1~65535     命令行中输入netstat -an">
+<meta name="description" content="数据库概述服务器端 : 负责永久存储数据、维护数据，人不能直接观看。 客户端 : 用于向服务器端发起“增删改查”命令. 使用MySQL服务器的步骤服务器端：安装启动MySQL服务器端软件×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。 启动后，后台会有mysqld运行port端口号:1~65535     命令行中输入netstat -ano可以查看占">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅尝数据库">
 <meta property="og:url" content="http://github.com/2017/07/06/浅尝数据库/index.html">
 <meta property="og:site_name" content="Hutchins">
-<meta property="og:description" content="一丶数据库概述服务器端 : 负责永久存储数据、维护数据，人不能直接观看。 客户端 : 用于向服务器端发起“增删改查”命令. 二丶使用MySQL服务器的步骤 服务器端：安装启动MySQL服务器端软件 ×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。 启动后，后台会有mysqld运行port端口号:1~65535     命令行中输入netstat -an">
-<meta property="og:updated_time" content="2017-07-09T03:55:23.052Z">
+<meta property="og:description" content="数据库概述服务器端 : 负责永久存储数据、维护数据，人不能直接观看。 客户端 : 用于向服务器端发起“增删改查”命令. 使用MySQL服务器的步骤服务器端：安装启动MySQL服务器端软件×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。 启动后，后台会有mysqld运行port端口号:1~65535     命令行中输入netstat -ano可以查看占">
+<meta property="og:updated_time" content="2017-07-29T11:49:52.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅尝数据库">
-<meta name="twitter:description" content="一丶数据库概述服务器端 : 负责永久存储数据、维护数据，人不能直接观看。 客户端 : 用于向服务器端发起“增删改查”命令. 二丶使用MySQL服务器的步骤 服务器端：安装启动MySQL服务器端软件 ×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。 启动后，后台会有mysqld运行port端口号:1~65535     命令行中输入netstat -an">
+<meta name="twitter:description" content="数据库概述服务器端 : 负责永久存储数据、维护数据，人不能直接观看。 客户端 : 用于向服务器端发起“增删改查”命令. 使用MySQL服务器的步骤服务器端：安装启动MySQL服务器端软件×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。 启动后，后台会有mysqld运行port端口号:1~65535     命令行中输入netstat -ano可以查看占">
 
 
 
@@ -352,41 +352,30 @@
       
 
       
-        <h2 id="一丶数据库概述"><a href="#一丶数据库概述" class="headerlink" title="一丶数据库概述"></a>一丶数据库概述</h2><p><strong>服务器端</strong> : 负责永久存储数据、维护数据，人不能直接观看。</p>
+        <h1 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h1><p><strong>服务器端</strong> : 负责永久存储数据、维护数据，人不能直接观看。</p>
 <p><strong>客户端</strong> : 用于向服务器端发起“增删改查”命令.</p>
-<h2 id="二丶使用MySQL服务器的步骤"><a href="#二丶使用MySQL服务器的步骤" class="headerlink" title="二丶使用MySQL服务器的步骤"></a>二丶使用MySQL服务器的步骤</h2><ol>
-<li><p>服务器端：安装启动MySQL服务器端软件</p>
-<p>×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。</p>
+<h1 id="使用MySQL服务器的步骤"><a href="#使用MySQL服务器的步骤" class="headerlink" title="使用MySQL服务器的步骤"></a>使用MySQL服务器的步骤</h1><h2 id="服务器端：安装启动MySQL服务器端软件"><a href="#服务器端：安装启动MySQL服务器端软件" class="headerlink" title="服务器端：安装启动MySQL服务器端软件"></a>服务器端：安装启动MySQL服务器端软件</h2><p>×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。</p>
 <p>启动后，后台会有mysqld运行<br>port端口号:1~65535     命令行中输入netstat -ano可以查看占用的端口号,mysql默认端口号为3306。</p>
-</li>
-<li><p>安装一款MySQL客户端软件</p>
-<p>phpstudy和xampp都可以，不过xampp只有32位，当然64位电脑也是可以支持32位的,两种都是MySQL源代码的一个分支</p>
+<h2 id="安装一款MySQL客户端软件"><a href="#安装一款MySQL客户端软件" class="headerlink" title="安装一款MySQL客户端软件"></a>安装一款MySQL客户端软件</h2><p>phpstudy和xampp都可以，不过xampp只有32位，当然64位电脑也是可以支持32位的,两种都是MySQL源代码的一个分支</p>
 <h4 id="phpstudy"><a href="#phpstudy" class="headerlink" title="phpstudy"></a>phpstudy</h4><p>phpstudy的mysql是oracle的mysql,进入数据库服务器的时候命令行中显示的是<code>mysql&gt;</code></p>
 <h4 id="xampp"><a href="#xampp" class="headerlink" title="xampp"></a>xampp</h4><p>xampp的mysql是MariaDB,进入数据库服务器的时候命令行中显示的是<code>MariaDB[(none)]</code>这个有个好处是,你使用<code>use mysql</code>的时候,<code>MariaDB[(none)]</code>会变成<code>MariaDB[(mysql)]</code>,会告诉你现在在mysql这个数据库中，便于以后的操作.</p>
-</li>
-<li><p>客户端：运行客户端程序连接到远程的服务器</p>
-<ol>
+<h2 id="客户端：运行客户端程序连接到远程的服务器"><a href="#客户端：运行客户端程序连接到远程的服务器" class="headerlink" title="客户端：运行客户端程序连接到远程的服务器"></a>客户端：运行客户端程序连接到远程的服务器</h2><ol>
 <li><p>找到数据库中bin下的mysql.exe文件,用命令行方式登录的话,可以把文件拖到命令行中,一般端口号默认都是3306，就可以在路径后面直接敲入<code>-uroot -p</code>,然后他会提示你输入密码,xmapp默认密码为空,直接enter就ok了。如果提示密码不对的话可以去phpstudy里MySQL管理工具里面重置密码。</p>
 </li>
 <li><p>在xampp中用Shell打开<br>用 <code>mysql -uroot -p</code>登录</p>
 </li>
 </ol>
-</li>
-</ol>
-<h2 id="三丶MySQL常用管理命令"><a href="#三丶MySQL常用管理命令" class="headerlink" title="三丶MySQL常用管理命令"></a>三丶MySQL常用管理命令</h2><blockquote>
+<h1 id="MySQL常用管理命令"><a href="#MySQL常用管理命令" class="headerlink" title="MySQL常用管理命令"></a>MySQL常用管理命令</h1><blockquote>
 <ol>
 <li>MySQL命令大小写都可以，推荐在编写关键字的时候用大写字母；非关键字可以小写</li>
 <li>都要以英文分号结尾</li>
 </ol>
 </blockquote>
  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SHOW DATABASES;#显示服务器中当前所有的数据库名</div><div class="line">USE 库名;#进入指定的数据库  后面可以不写分号</div><div class="line">SHOW TABLES;#显示当前库中有哪些基本的表</div><div class="line">DESC 表名;#显示表结构，字段类型，主键，是否为空等，但不显示外键</div><div class="line">QUIT;#退出数据库,同理于ctrl+z</div><div class="line">SHOW CREATE TABLE 表名;#显示创建表的过程</div></pre></td></tr></table></figure>
-<h2 id="四丶SQL语言"><a href="#四丶SQL语言" class="headerlink" title="四丶SQL语言"></a>四丶SQL语言</h2><blockquote>
+<h1 id="SQL语言"><a href="#SQL语言" class="headerlink" title="SQL语言"></a>SQL语言</h1><blockquote>
 <p>结构化查询语言，专用于操作（增删改查）数据<br>服务器中的数据。是一门国际标准化语言</p>
 </blockquote>
-<ol>
-<li><h3 id="SQL常用语句"><a href="#SQL常用语句" class="headerlink" title="SQL常用语句"></a>SQL常用语句</h3><ol>
-<li><p>DDL(数据定义语言)</p>
-<ul>
+<h2 id="SQL常用语句"><a href="#SQL常用语句" class="headerlink" title="SQL常用语句"></a>SQL常用语句</h2><h3 id="DDL-数据定义语言"><a href="#DDL-数据定义语言" class="headerlink" title="DDL(数据定义语言)"></a>DDL(数据定义语言)</h3><ul>
 <li><p>CREATE</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#创建新的数据库 其中的字符使用指定的编码</div><div class="line">CREATE DATABASE 数据库名 CHARSET=UTF8;</div><div class="line">#保证select的返回与编程编码一致</div><div class="line">set names utf8;</div><div class="line">#创建表(为方便演示,表名用 xz_user代替)</div><div class="line">CREATE TABLE xz_user(</div><div class="line">    ur_id int,            #用户编号</div><div class="line">    ur_name varchar(20),  #用户名字</div><div class="line">    ur_pwd varchar(32),   #用户密码</div><div class="line">    ur_email varchar(64), #用户邮箱</div><div class="line">    ur_tel varchar(20)    #用户电话</div><div class="line">);</div></pre></td></tr></table></figure>
 </li>
@@ -400,9 +389,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#数据强制清除(直接将表删除后重建空表)</div><div class="line">TRUNCATE TABLE table_name;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-<li><p>DML(数据操作语言)</p>
-<ul>
+<h3 id="DML-数据操作语言"><a href="#DML-数据操作语言" class="headerlink" title="DML(数据操作语言)"></a>DML(数据操作语言)</h3><ul>
 <li><p>INSERT</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#向用户表中插入数据</div><div class="line">INSERT INTO xz_user VALUES (101,'Tom','10010','10010@qq.com','10000000000');</div><div class="line">INSERT INTO xz_user(ur_id,ur_name) VALUES (101,'Tom')#剩下如果没有特殊的设置默认值的话为NULL</div><div class="line">INSERT INTO xz_user VALUES(101,'Tom',</div><div class="line">default,'10010@qq.com','100000000')#default处会是默认值</div></pre></td></tr></table></figure>
 </li>
@@ -413,12 +400,8 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#修改数据</div><div class="line">UPDATE 表名 SET 列=值,列=值,...;#这样会改所有的行(慎用)</div><div class="line">UPDATE 表名 SET 列=值,列=值,...WHERE 列=值;#修改满足列的行 </div><div class="line">UPDATE xz_user SET ur_id = 100 where ur_name = 'Tom';#将xz_user中ur_name为Tom的那一行的ur_id设置为100;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-<li><p>DQL(数据查询语言)</p>
-  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#查询出表中已有的所有数据行</div><div class="line">SELECT * FROM xz_user;</div></pre></td></tr></table></figure>
-</li>
-<li><p>DCL(数据控制语言)</p>
-<ul>
+<h3 id="DQL-数据查询语言"><a href="#DQL-数据查询语言" class="headerlink" title="DQL(数据查询语言)"></a>DQL(数据查询语言)</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#查询出表中已有的所有数据行</div><div class="line">SELECT * FROM xz_user;</div></pre></td></tr></table></figure>
+<h3 id="DCL-数据控制语言"><a href="#DCL-数据控制语言" class="headerlink" title="DCL(数据控制语言)"></a>DCL(数据控制语言)</h3><ul>
 <li><p>GRANT</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GRANT</span> 权限 <span class="keyword">on</span> 数据库对象 <span class="keyword">to</span> 用户</div></pre></td></tr></table></figure>
 </li>
@@ -426,120 +409,67 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">REVOKE</span> 权限名 <span class="keyword">FROM</span> 用户</div></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-</ol>
-</li>
-<li><h3 id="MYSQL中的常用的列类型"><a href="#MYSQL中的常用的列类型" class="headerlink" title="MYSQL中的常用的列类型"></a>MYSQL中的常用的列类型</h3><ol>
-<li><p>数字类型</p>
-<ul>
-<li>整形<ul>
+<h2 id="MYSQL中的常用的列类型"><a href="#MYSQL中的常用的列类型" class="headerlink" title="MYSQL中的常用的列类型"></a>MYSQL中的常用的列类型</h2><h3 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h3><h4 id="整形"><a href="#整形" class="headerlink" title="整形"></a>整形</h4><ul>
 <li>TINYINT:占1个字节 -128~127</li>
 <li>SMALLINT:占2个字节 -32768~32767</li>
 <li>INT：占4个字节 -2147483648~2147483647</li>
 <li>BIGINT: Windows下为8个字节.有些系统也为4个字节</li>
 </ul>
-</li>
-<li><p>浮点型</p>
-<ul>
+<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><ul>
 <li>FLOAT(m,d) 单精度浮点型</li>
 <li>DOUBLE(m,d) 双精度浮点型</li>
 <li>DECIMAL(m,d) 严格定点数，用于精确计算</li>
 </ul>
 <p>m表示总有效位数，d表示小数点后允许的有效位数</p>
-</li>
-</ul>
-</li>
-<li><p>字符串类型</p>
-<ul>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><ul>
 <li>CHAR(M) 固定长度字符串，M最大255</li>
 <li>VARCHAR(M) 长度可变的字符串，M最大为65535</li>
-<li><p>TEXT(M) 长度可变的字符串，M最大可以到2^32，即4G个字符</p>
-<h3 id="CHAR-8-和VARCHAR-8-有什么区别？"><a href="#CHAR-8-和VARCHAR-8-有什么区别？" class="headerlink" title="CHAR(8)和VARCHAR(8)有什么区别？"></a>CHAR(8)和VARCHAR(8)有什么区别？</h3><p><strong>CHAR(8)</strong>：’a’实际存储为:’a\0\0\0\0\0\0\0’//\0代表空格</p>
+<li>TEXT(M) 长度可变的字符串，M最大可以到2^32，即4G个字符</li>
+</ul>
+<h4 id="CHAR-8-和VARCHAR-8-有什么区别？"><a href="#CHAR-8-和VARCHAR-8-有什么区别？" class="headerlink" title="CHAR(8)和VARCHAR(8)有什么区别？"></a>CHAR(8)和VARCHAR(8)有什么区别？</h4><p><strong>CHAR(8)</strong>：’a’实际存储为:’a\0\0\0\0\0\0\0’//\0代表空格</p>
 <p><strong>VARCHAR(8)</strong>：’a’实际存储为’a\0’,’abcdefgk’存储为’abcdefgk’</p>
 <p>CHAR可能会产生空间浪费，但是读取稍快,VARCHAR读取速度稍慢，因为不知道字符串的真实长度.</p>
-</li>
-</ul>
-</li>
-<li>日期时间类型<ul>
+<h3 id="日期时间类型"><a href="#日期时间类型" class="headerlink" title="日期时间类型"></a>日期时间类型</h3><ul>
 <li>DATE ‘yyyy-mm-dd’</li>
 <li>TIME ‘hh:mm:ss’</li>
 <li>DATETIME ‘yyyy-mm-dd hh:mm:ss’</li>
 </ul>
-</li>
-<li>布尔类型<ul>
+<h3 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h3><ul>
 <li>BOOL/BOOLEAN:只能表示TRUE(等价于1)或    FALSE(等价于0)</li>
 </ul>
-</li>
-</ol>
-</li>
-<li><h3 id="MySQL列约束"><a href="#MySQL列约束" class="headerlink" title="MySQL列约束"></a>MySQL列约束</h3><ol>
-<li><p>主键约束(PRIMARY KEY)</p>
-<p> <strong>语法</strong>： <code>列名 类型 PRIMARYKEY</code><br><br> 声明为“主键”的列上不能出现NULL值，且不能重，所有的记录行自动按照主键列上的值排序,因此，主键只能有一个。</p>
-</li>
-<li><p>唯一约束(UNIQUE)</p>
-<p> <strong>语法</strong>： <code>列名 类型 UNIQUE</code><br><br> 声明为“唯一”约束的列上不能出现重复值,但可以出现多可NULL</p>
-</li>
-<li><p>非空约束(NOT NULL)</p>
-<p> <strong>语法</strong>： <code>列名 类型 NOT NULL</code><br><br> 声明为“非空”的列上不能出现NULL，但可以重复</p>
-</li>
-<li><p>检查约束(CHECK)//MYSQL不支持</p>
-<p> 限定指定列上的值必须满足特定条件</p>
-</li>
-<li><p>默认值约束(DEFAULT)</p>
-<p> <strong>语法</strong>： <code>列名 类型 DEFAULT 默认值</code><br><br> 声明了默认值的列若未指定值，则使用默认值</p>
-</li>
-<li><p>外键约束(FOREIGN KEY)    </p>
-<p> <strong>语法</strong>： <code>FOREIGN KEY(列名) REFERENCES 表名（列名）</code><br><br> 可重复可为空，外键列上出现的值必须在其参考的表的主键列上出现过</p>
+<h2 id="MySQL列约束"><a href="#MySQL列约束" class="headerlink" title="MySQL列约束"></a>MySQL列约束</h2><h3 id="主键约束-PRIMARY-KEY"><a href="#主键约束-PRIMARY-KEY" class="headerlink" title="主键约束(PRIMARY KEY)"></a>主键约束(PRIMARY KEY)</h3><p><strong>语法</strong>： <code>列名 类型 PRIMARYKEY</code><br><br>声明为“主键”的列上不能出现NULL值，且不能重，所有的记录行自动按照主键列上的值排序,因此，主键只能有一个。</p>
+<h3 id="唯一约束-UNIQUE"><a href="#唯一约束-UNIQUE" class="headerlink" title="唯一约束(UNIQUE)"></a>唯一约束(UNIQUE)</h3><p><strong>语法</strong>： <code>列名 类型 UNIQUE</code><br><br>声明为“唯一”约束的列上不能出现重复值,但可以出现多可NULL</p>
+<h3 id="非空约束-NOT-NULL"><a href="#非空约束-NOT-NULL" class="headerlink" title="非空约束(NOT NULL)"></a>非空约束(NOT NULL)</h3><p><strong>语法</strong>： <code>列名 类型 NOT NULL</code><br><br>声明为“非空”的列上不能出现NULL，但可以重复</p>
+<h3 id="检查约束-CHECK-MYSQL不支持"><a href="#检查约束-CHECK-MYSQL不支持" class="headerlink" title="检查约束(CHECK)//MYSQL不支持"></a>检查约束(CHECK)//MYSQL不支持</h3><p>限定指定列上的值必须满足特定条件</p>
+<h3 id="默认值约束-DEFAULT"><a href="#默认值约束-DEFAULT" class="headerlink" title="默认值约束(DEFAULT)"></a>默认值约束(DEFAULT)</h3><p><strong>语法</strong>： <code>列名 类型 DEFAULT 默认值</code><br><br>声明了默认值的列若未指定值，则使用默认值</p>
+<h3 id="外键约束-FOREIGN-KEY"><a href="#外键约束-FOREIGN-KEY" class="headerlink" title="外键约束(FOREIGN KEY)"></a>外键约束(FOREIGN KEY)</h3><p><strong>语法</strong>： <code>FOREIGN KEY(列名) REFERENCES 表名（列名）</code><br><br>可重复可为空，外键列上出现的值必须在其参考的表的主键列上出现过</p>
 <blockquote>
-<p>如果为员工表添加了一个参考部门表的外键列，增加、修改员工都要查询一下部门表，操作效率会降低，老版本的MySQL是不支持的。<br><br>多个约束的话直接在后面写就可以。</p>
+<p>如果为员工表添加了一个参考部门表的外键列，增加、修改员工都要查询一下部门表，操作效率会降低，老版本的MySQL是不支持的。<br>多个约束的话直接在后面写就可以。</p>
 </blockquote>
-</li>
-</ol>
-</li>
-<li><h3 id="MySQL数据库中专有的“自增列”"><a href="#MySQL数据库中专有的“自增列”" class="headerlink" title="MySQL数据库中专有的“自增列”"></a>MySQL数据库中专有的“自增列”</h3><p> AUTO_INCREMENT,只有MySQL支持，用于实现自增列.</p>
-<p> 插入时主键列如果没有给值，主键列的值会相应的设定为比当前已有的最大值多1的数字</p>
-<p>   <strong>语法</strong>：</p>
-<pre><code><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> xx(</div><div class="line">主键列名 <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">    ...</div><div class="line">);</div></pre></td></tr></table></figure>
-</code></pre><blockquote>
+<h2 id="MySQL数据库中专有的“自增列”"><a href="#MySQL数据库中专有的“自增列”" class="headerlink" title="MySQL数据库中专有的“自增列”"></a>MySQL数据库中专有的“自增列”</h2><p>AUTO_INCREMENT,只有MySQL支持，用于实现自增列.</p>
+<p>插入时主键列如果没有给值，主键列的值会相应的设定为比当前已有的最大值多1的数字</p>
+<p><strong>语法</strong>：<br>  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> xx(</div><div class="line">主键列名 <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">    ...</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<blockquote>
 <p>提示：自增列只能用于主键列，且必须是整数型主键。自增列也可以手工赋值.</p>
 </blockquote>
-</li>
-<li><h3 id="select查询"><a href="#select查询" class="headerlink" title="select查询"></a>select查询</h3><ul>
-<li><p>只查特定的列</p>
-<p><strong>语法</strong>: <code>SELECT 列名,列名... FROM 表名;</code></p>
-</li>
-<li><p>给列取别名</p>
-<p><strong>语法</strong>: <code>SELECT 列名 AS 别名,... FROM 表名;</code> 或者 <code>SELECT 列名 别名,... FROM 表名;</code></p>
-</li>
-<li><p>只显示列上不同的值（即合并相同的值）  </p>
-<p><strong>语法</strong>: <code>SELECT DISTINCT 列名,列名... FROM 表名;</code></p>
-</li>
-<li><p>按照指定列上的值排序</p>
-<p><strong>语法</strong>: <code>SELECT ... FROM 表名 ORDER BY 列名 [ASC];#升序（默认）</code> 或者 <code>SELECT ... FROM 表名 ORDER BY 列名 DESC;#降序</code><br>可以多次排序：<code>SELECT ... FROM 表名 ORDER BY 列名1,列名2;</code>#先根据第一个列排序，然后在这基础上再按照第二个排序</p>
-</li>
-<li><p>查询时进行运算</p>
-<p>直接在select后的列名上进行加减运算</p>
-</li>
-<li><p>查询出满足特定条件的记录行</p>
-<p><strong>语法</strong>：<code>SELECT ... FROM ... WHERE 条件;</code></p>
-<p>条件可以是多种表达式 : &gt; = != &lt; ….</p>
-<p>条件还可以是多种表达式的组合：AND OR NOT<br><br>BETWEEN()AND() #在两个条件中间<br><br>num IN(20,80,60) #num为20或80或60<br><br>num not in (20,80,60) #num不是20,80,60</p>
+<h2 id="select查询"><a href="#select查询" class="headerlink" title="select查询"></a>select查询</h2><h3 id="只查特定的列"><a href="#只查特定的列" class="headerlink" title="只查特定的列"></a>只查特定的列</h3><p>  <strong>语法</strong>: <code>SELECT 列名,列名... FROM 表名;</code></p>
+<h3 id="给列取别名"><a href="#给列取别名" class="headerlink" title="给列取别名"></a>给列取别名</h3><p>  <strong>语法</strong>: <code>SELECT 列名 AS 别名,... FROM 表名;</code> 或者 <code>SELECT 列名 别名,... FROM 表名;</code></p>
+<h3 id="只显示列上不同的值（即合并相同的值）"><a href="#只显示列上不同的值（即合并相同的值）" class="headerlink" title="只显示列上不同的值（即合并相同的值）"></a>只显示列上不同的值（即合并相同的值）</h3><p>  <strong>语法</strong>: <code>SELECT DISTINCT 列名,列名... FROM 表名;</code></p>
+<h3 id="按照指定列上的值排序"><a href="#按照指定列上的值排序" class="headerlink" title="按照指定列上的值排序"></a>按照指定列上的值排序</h3><p>  <strong>语法</strong>: <code>SELECT ... FROM 表名 ORDER BY 列名 [ASC];#升序（默认）</code> 或者 <code>SELECT ... FROM 表名 ORDER BY 列名 DESC;#降序</code><br>  可以多次排序：<code>SELECT ... FROM 表名 ORDER BY 列名1,列名2;</code>#先根据第一个列排序，然后在这基础上再按照第二个排序</p>
+<h3 id="查询时进行运算"><a href="#查询时进行运算" class="headerlink" title="查询时进行运算"></a>查询时进行运算</h3><p>  直接在select后的列名上进行加减运算</p>
+<h3 id="查询出满足特定条件的记录行"><a href="#查询出满足特定条件的记录行" class="headerlink" title="查询出满足特定条件的记录行"></a>查询出满足特定条件的记录行</h3><p>  <strong>语法</strong>：<code>SELECT ... FROM ... WHERE 条件;</code></p>
+<p>  条件可以是多种表达式 : &gt; = != &lt; ….</p>
+<p>  条件还可以是多种表达式的组合：AND OR NOT<br><br>  BETWEEN()AND() #在两个条件中间<br><br>  num IN(20,80,60) #num为20或80或60<br><br>  num not in (20,80,60) #num不是20,80,60</p>
 <blockquote>
 <p><strong>注意</strong> : 和null比较的时候要用is 或者 is not<br><br>比如：<code>select * from price where pic is null;</code></p>
 </blockquote>
-</li>
-<li><p>分页查询 — LIMIT</p>
-<p><strong>语法</strong>：<code>SELECT ... FROM ... WHERE ... ORDER BY... LIMIT start,count;</code></p>
-<p>start:表示从满足条件的那一行记录开始读取，第一行称为0<br><br>count：此次最多读取多少行记录<br><br>假设每一页显示5条记录:<br><br>第1页:..LIMIT 0,5;<br>第2页:..LIMIT 5,5;<br><br>个人理解名字应该为区间查询。start是开始行，count为结束行..</p>
-</li>
-<li><p>模糊查询 — LIKE</p>
-<p><strong>语法</strong>：<code>SELECT ... FROM ... WHERE 列名 LIKE &#39;%e&#39;;#查询出以字母e结尾的信息</code></p>
+<h3 id="分页查询-—-LIMIT"><a href="#分页查询-—-LIMIT" class="headerlink" title="分页查询 — LIMIT"></a>分页查询 — LIMIT</h3><p>  <strong>语法</strong>：<code>SELECT ... FROM ... WHERE ... ORDER BY... LIMIT start,count;</code></p>
+<p>  start:表示从满足条件的那一行记录开始读取，第一行称为0<br><br>  count：此次最多读取多少行记录<br><br>  假设每一页显示5条记录:<br><br>  第1页:..LIMIT 0,5;<br>  第2页:..LIMIT 5,5;<br>  <br>个人理解名字应该为区间查询。start是开始行，count为结束行..</p>
+<h3 id="模糊查询-—-LIKE"><a href="#模糊查询-—-LIKE" class="headerlink" title="模糊查询 — LIKE"></a>模糊查询 — LIKE</h3><p>  <strong>语法</strong>：<code>SELECT ... FROM ... WHERE 列名 LIKE &#39;%e&#39;;#查询出以字母e结尾的信息</code></p>
 <blockquote>
 <p>在SQL查询中，%代表任意多个任意字符,_ 代表任意一个字符.</p>
 </blockquote>
-</li>
-<li><p>分组查询(group by)</p>
-<ul>
+<h3 id="分组查询-group-by"><a href="#分组查询-group-by" class="headerlink" title="分组查询(group by)"></a>分组查询(group by)</h3><ul>
 <li><p>COUNT:查询出满足条件的记录行数<br><br><strong>语法</strong>：<code>SELECT COUNT(列名) FROM 表名</code><br><br>计算对应列名中有多少行有效信息(非空);</p>
 </li>
 <li><p>MAX:查询指定列上的最大值<br><br><strong>语法</strong>：<code>SELECT MAX(列名) FROM 表名</code><br></p>
@@ -549,50 +479,35 @@
 <li><p>AVG:查询指定列的平均值<br><br><strong>语法</strong>：<code>SELECT AVG(列名) FROM 表名</code><br></p>
 </li>
 <li><p>SUM:查询指定列和<br><br><strong>语法</strong>：<code>SELECT SUM(列名) FROM 表名</code><br></p>
-</li>
-</ul>
 <blockquote>
 <p>select … group by 列名; #按照列名分类</p>
 </blockquote>
 </li>
-<li><p>子查询</p>
-<p>  一条查询语句中再嵌入另一条查询，被嵌入的查询称为子查询</p>
-</li>
-<li><p>跨表查询</p>
-<ul>
-<li><p>sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。</p>
-<p><strong>语法</strong>：<code>SELECT 列名1,列名2 FROM 表1,表2 WHERE 表1.行1 = 表2.行1</code><br><br>跨表/多表查询，一次查询得到的结果集中的列来自于不同的表;跨表查询一定要防止出现笛卡尔积. 列名1来自表1，列名2来自表2，为防止笛卡尔积，要限制这两个表中的联系相等。</p>
-</li>
-<li><p>sql-99中标准</p>
-<ul>
+</ul>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>  一条查询语句中再嵌入另一条查询，被嵌入的查询称为子查询</p>
+<h3 id="跨表查询"><a href="#跨表查询" class="headerlink" title="跨表查询"></a>跨表查询</h3><h4 id="sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。"><a href="#sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。" class="headerlink" title="sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。"></a>sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。</h4><p><strong>语法</strong>：<code>SELECT 列名1,列名2 FROM 表1,表2 WHERE 表1.行1 = 表2.行1</code><br><br>跨表/多表查询，一次查询得到的结果集中的列来自于不同的表;跨表查询一定要防止出现笛卡尔积. 列名1来自表1，列名2来自表2，为防止笛卡尔积，要限制这两个表中的联系相等。</p>
+<h4 id="sql-99中标准"><a href="#sql-99中标准" class="headerlink" title="sql-99中标准"></a>sql-99中标准</h4><ul>
 <li>内连接（相当于sql-92语句的作用）<br><br><code>SELECT 列名1,列名2 FROM 表1 INNER JOIN 表2 ON 表1.行1 = 表2.行1</code></li>
 <li>左外连接（会显示出左侧表中所有记录）<br><br><code>SELECT 列名1,列名2 FROM 表1 LEFT OUTER JOIN 表2 ON 表1.行1 = 表2.行1</code></li>
 <li>右外连接（会显示出右侧表中所有记录）<br><br><code>SELECT 列名1,列名2 FROM 表1 RIGHT OUTER JOIN 表2 ON 表1.行1 = 表2.行1</code></li>
-<li>全连接（会显示两侧表中的记录）<br><br><code>SELECT 列名1,列名2 FROM 表1 FULL JOIN 表2 ON 表1.行1 = 表2.行1</code></li>
-</ul>
+<li><p>全连接（会显示两侧表中的记录）<br><br><code>SELECT 列名1,列名2 FROM 表1 FULL JOIN 表2 ON 表1.行1 = 表2.行1</code></p>
 <blockquote>
 <p>mysql不支持全连接</p>
 </blockquote>
 </li>
 </ul>
-</li>
-<li><p>结果集合并</p>
-<ul>
+<h3 id="结果集合并"><a href="#结果集合并" class="headerlink" title="结果集合并"></a>结果集合并</h3><ul>
 <li>合并结果集，结果只显示一次<br><br><code>SELECT 列名 FROM 表名 UNION SELECT 列名 FROM 表名</code></li>
 <li>合并结果集，结果出现重复数据<br><br><code>SELECT 列名 FROM 表名 UNION ALL SELECT 列名 FROM 表名</code></li>
 </ul>
+<h2 id="五丶-执行sql脚本文件"><a href="#五丶-执行sql脚本文件" class="headerlink" title="五丶 执行sql脚本文件"></a>五丶 执行sql脚本文件</h2><ul>
+<li><p>使用cmd命令执行(windows下，unix或linux在其控制台下)<br>   【Mysql的bin目录】\mysql –u用户名 –p密码 –D数据库&lt;【sql脚本文件路径全名】，示例：<br>   D:\mysql\bin\mysql –uroot –p123456  -Dtest&lt;d:\test\ss.sql<br>   <strong>注意</strong>：<br>   A、如果在sql脚本文件中使用了use 数据库，则-D数据库选项可以忽略<br>   B、如果【Mysql的bin目录】中包含空格，则需要使用“”包含，如：“C:\Program Files\mysql\bin\mysql” –u用户名 –p密码 –D数据库&lt;【sql脚本文件路径全名】</p>
 </li>
-</ul>
-</li>
-</ol>
-<h2 id="五丶-执行sql脚本文件"><a href="#五丶-执行sql脚本文件" class="headerlink" title="五丶 执行sql脚本文件"></a>五丶 执行sql脚本文件</h2><ol>
-<li><p>使用cmd命令执行(windows下，unix或linux在其控制台下)<br>【Mysql的bin目录】\mysql –u用户名 –p密码 –D数据库&lt;【sql脚本文件路径全名】，示例：<br>D:\mysql\bin\mysql –uroot –p123456  -Dtest&lt;d:\test\ss.sql<br><strong>注意</strong>：<br>A、如果在sql脚本文件中使用了use 数据库，则-D数据库选项可以忽略<br>B、如果【Mysql的bin目录】中包含空格，则需要使用“”包含，如：“C:\Program Files\mysql\bin\mysql” –u用户名 –p密码 –D数据库&lt;【sql脚本文件路径全名】</p>
-</li>
-<li><p>进入mysql的控制台后，使用source命令执行<br>Mysql&gt;source 【sql脚本文件的路径全名】 或 Mysql&gt;. 【sql脚本文件的路径全名】，示例：<br>source d:\test\ss.sql 或者 . d:\test\ss.sql</p>
+<li><p>进入mysql的控制台后，使用source命令执行<br> Mysql&gt;source 【sql脚本文件的路径全名】 或 Mysql&gt;. 【sql脚本文件的路径全名】，示例：<br> source d:\test\ss.sql 或者 . d:\test\ss.sql</p>
 </li>
 <li><p>用xampp的话,可以用面板的shell进入命令行中,用<code>mysql -uroot -p &lt; sql脚本文件名</code>（默认无密码,有密码按提示输入密码就ok了）</p>
 </li>
-</ol>
+</ul>
 <h2 id="六丶-中文乱码问题"><a href="#六丶-中文乱码问题" class="headerlink" title="六丶 中文乱码问题"></a>六丶 <b>中文乱码问题</b></h2><p><code>CREATE DATABASE 库名 CHARSET=UTF8</code>后只是数据库中应用UTF-8模式，此时sql语句也应该设置编码格式为UTF-8,在代码一开始要设置<code>SET NAMES UTF8</code>,此时用命令行进入数据库再敲入<code>select * from 表名</code>或者打开phpmyadmin查看,中文显示正常。但是你从外部导入sql文件查看的话永远都是乱码，但此时数据已经没问题了。</p>
 <p>此问题只限于windows系统,因为windows的命令行默认编码为gbk,从外部导入sql直接查询的时候命令行并不会识别,虽然此时数据已经正常，但他显示的还是乱码，后来再进行操作的话便会显示正常。</p>
 
@@ -785,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一丶数据库概述"><span class="nav-number">1.</span> <span class="nav-text">一丶数据库概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二丶使用MySQL服务器的步骤"><span class="nav-number">2.</span> <span class="nav-text">二丶使用MySQL服务器的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#phpstudy"><span class="nav-number">2.0.1.</span> <span class="nav-text">phpstudy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xampp"><span class="nav-number">2.0.2.</span> <span class="nav-text">xampp</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三丶MySQL常用管理命令"><span class="nav-number">3.</span> <span class="nav-text">三丶MySQL常用管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四丶SQL语言"><span class="nav-number">4.</span> <span class="nav-text">四丶SQL语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL常用语句"><span class="nav-number">4.1.</span> <span class="nav-text">SQL常用语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL中的常用的列类型"><span class="nav-number">4.2.</span> <span class="nav-text">MYSQL中的常用的列类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CHAR-8-和VARCHAR-8-有什么区别？"><span class="nav-number">4.3.</span> <span class="nav-text">CHAR(8)和VARCHAR(8)有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL列约束"><span class="nav-number">4.4.</span> <span class="nav-text">MySQL列约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL数据库中专有的“自增列”"><span class="nav-number">4.5.</span> <span class="nav-text">MySQL数据库中专有的“自增列”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select查询"><span class="nav-number">4.6.</span> <span class="nav-text">select查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五丶-执行sql脚本文件"><span class="nav-number">5.</span> <span class="nav-text">五丶 执行sql脚本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六丶-中文乱码问题"><span class="nav-number">6.</span> <span class="nav-text">六丶 中文乱码问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库概述"><span class="nav-number">1.</span> <span class="nav-text">数据库概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用MySQL服务器的步骤"><span class="nav-number">2.</span> <span class="nav-text">使用MySQL服务器的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端：安装启动MySQL服务器端软件"><span class="nav-number">2.1.</span> <span class="nav-text">服务器端：安装启动MySQL服务器端软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装一款MySQL客户端软件"><span class="nav-number">2.2.</span> <span class="nav-text">安装一款MySQL客户端软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#phpstudy"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">phpstudy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xampp"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">xampp</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端：运行客户端程序连接到远程的服务器"><span class="nav-number">2.3.</span> <span class="nav-text">客户端：运行客户端程序连接到远程的服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL常用管理命令"><span class="nav-number">3.</span> <span class="nav-text">MySQL常用管理命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL语言"><span class="nav-number">4.</span> <span class="nav-text">SQL语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL常用语句"><span class="nav-number">4.1.</span> <span class="nav-text">SQL常用语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DDL-数据定义语言"><span class="nav-number">4.1.1.</span> <span class="nav-text">DDL(数据定义语言)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DML-数据操作语言"><span class="nav-number">4.1.2.</span> <span class="nav-text">DML(数据操作语言)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DQL-数据查询语言"><span class="nav-number">4.1.3.</span> <span class="nav-text">DQL(数据查询语言)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DCL-数据控制语言"><span class="nav-number">4.1.4.</span> <span class="nav-text">DCL(数据控制语言)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL中的常用的列类型"><span class="nav-number">4.2.</span> <span class="nav-text">MYSQL中的常用的列类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字类型"><span class="nav-number">4.2.1.</span> <span class="nav-text">数字类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整形"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">整形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点型"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">浮点型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串类型"><span class="nav-number">4.2.2.</span> <span class="nav-text">字符串类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CHAR-8-和VARCHAR-8-有什么区别？"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">CHAR(8)和VARCHAR(8)有什么区别？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期时间类型"><span class="nav-number">4.2.3.</span> <span class="nav-text">日期时间类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔类型"><span class="nav-number">4.2.4.</span> <span class="nav-text">布尔类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL列约束"><span class="nav-number">4.3.</span> <span class="nav-text">MySQL列约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主键约束-PRIMARY-KEY"><span class="nav-number">4.3.1.</span> <span class="nav-text">主键约束(PRIMARY KEY)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一约束-UNIQUE"><span class="nav-number">4.3.2.</span> <span class="nav-text">唯一约束(UNIQUE)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非空约束-NOT-NULL"><span class="nav-number">4.3.3.</span> <span class="nav-text">非空约束(NOT NULL)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查约束-CHECK-MYSQL不支持"><span class="nav-number">4.3.4.</span> <span class="nav-text">检查约束(CHECK)//MYSQL不支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值约束-DEFAULT"><span class="nav-number">4.3.5.</span> <span class="nav-text">默认值约束(DEFAULT)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键约束-FOREIGN-KEY"><span class="nav-number">4.3.6.</span> <span class="nav-text">外键约束(FOREIGN KEY)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库中专有的“自增列”"><span class="nav-number">4.4.</span> <span class="nav-text">MySQL数据库中专有的“自增列”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select查询"><span class="nav-number">4.5.</span> <span class="nav-text">select查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#只查特定的列"><span class="nav-number">4.5.1.</span> <span class="nav-text">只查特定的列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给列取别名"><span class="nav-number">4.5.2.</span> <span class="nav-text">给列取别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只显示列上不同的值（即合并相同的值）"><span class="nav-number">4.5.3.</span> <span class="nav-text">只显示列上不同的值（即合并相同的值）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按照指定列上的值排序"><span class="nav-number">4.5.4.</span> <span class="nav-text">按照指定列上的值排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询时进行运算"><span class="nav-number">4.5.5.</span> <span class="nav-text">查询时进行运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询出满足特定条件的记录行"><span class="nav-number">4.5.6.</span> <span class="nav-text">查询出满足特定条件的记录行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页查询-—-LIMIT"><span class="nav-number">4.5.7.</span> <span class="nav-text">分页查询 — LIMIT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模糊查询-—-LIKE"><span class="nav-number">4.5.8.</span> <span class="nav-text">模糊查询 — LIKE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组查询-group-by"><span class="nav-number">4.5.9.</span> <span class="nav-text">分组查询(group by)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子查询"><span class="nav-number">4.5.10.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨表查询"><span class="nav-number">4.5.11.</span> <span class="nav-text">跨表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。"><span class="nav-number">4.5.11.1.</span> <span class="nav-text">sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql-99中标准"><span class="nav-number">4.5.11.2.</span> <span class="nav-text">sql-99中标准</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果集合并"><span class="nav-number">4.5.12.</span> <span class="nav-text">结果集合并</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五丶-执行sql脚本文件"><span class="nav-number">4.6.</span> <span class="nav-text">五丶 执行sql脚本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六丶-中文乱码问题"><span class="nav-number">4.7.</span> <span class="nav-text">六丶 中文乱码问题</span></a></li></ol></li></ol></div>
             
 
           </div>
