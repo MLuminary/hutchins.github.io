@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://github.com/2017/07/06/浅尝数据库/index.html">
 <meta property="og:site_name" content="Hutchins">
 <meta property="og:description" content="数据库概述服务器端 : 负责永久存储数据、维护数据，人不能直接观看。 客户端 : 用于向服务器端发起“增删改查”命令. 使用MySQL服务器的步骤服务器端：安装启动MySQL服务器端软件×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。 启动后，后台会有mysqld运行port端口号:1~65535     命令行中输入netstat -ano可以查看占">
-<meta property="og:updated_time" content="2017-07-29T11:49:52.158Z">
+<meta property="og:updated_time" content="2017-07-30T05:00:39.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅尝数据库">
 <meta name="twitter:description" content="数据库概述服务器端 : 负责永久存储数据、维护数据，人不能直接观看。 客户端 : 用于向服务器端发起“增删改查”命令. 使用MySQL服务器的步骤服务器端：安装启动MySQL服务器端软件×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。 启动后，后台会有mysqld运行port端口号:1~65535     命令行中输入netstat -ano可以查看占">
@@ -359,6 +359,7 @@
 <h2 id="安装一款MySQL客户端软件"><a href="#安装一款MySQL客户端软件" class="headerlink" title="安装一款MySQL客户端软件"></a>安装一款MySQL客户端软件</h2><p>phpstudy和xampp都可以，不过xampp只有32位，当然64位电脑也是可以支持32位的,两种都是MySQL源代码的一个分支</p>
 <h4 id="phpstudy"><a href="#phpstudy" class="headerlink" title="phpstudy"></a>phpstudy</h4><p>phpstudy的mysql是oracle的mysql,进入数据库服务器的时候命令行中显示的是<code>mysql&gt;</code></p>
 <h4 id="xampp"><a href="#xampp" class="headerlink" title="xampp"></a>xampp</h4><p>xampp的mysql是MariaDB,进入数据库服务器的时候命令行中显示的是<code>MariaDB[(none)]</code>这个有个好处是,你使用<code>use mysql</code>的时候,<code>MariaDB[(none)]</code>会变成<code>MariaDB[(mysql)]</code>,会告诉你现在在mysql这个数据库中，便于以后的操作.</p>
+<a id="more"></a>
 <h2 id="客户端：运行客户端程序连接到远程的服务器"><a href="#客户端：运行客户端程序连接到远程的服务器" class="headerlink" title="客户端：运行客户端程序连接到远程的服务器"></a>客户端：运行客户端程序连接到远程的服务器</h2><ol>
 <li><p>找到数据库中bin下的mysql.exe文件,用命令行方式登录的话,可以把文件拖到命令行中,一般端口号默认都是3306，就可以在路径后面直接敲入<code>-uroot -p</code>,然后他会提示你输入密码,xmapp默认密码为空,直接enter就ok了。如果提示密码不对的话可以去phpstudy里MySQL管理工具里面重置密码。</p>
 </li>
@@ -720,7 +721,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
@@ -741,6 +744,9 @@
     NexT.Muse
   </a>
 </div>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
 
 
         

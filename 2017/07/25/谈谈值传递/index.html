@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic2.jpg">
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic3.jpg">
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic4.jpg">
-<meta property="og:updated_time" content="2017-07-30T04:39:15.015Z">
+<meta property="og:updated_time" content="2017-07-30T05:02:01.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈值传递">
 <meta name="twitter:description" content="ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的. 在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同 数据类型的复制基本类型12345var num1 = 10;var num2 = num1;    num2 = 11;console.log(num1);//10console.log">
@@ -363,6 +363,7 @@
 <p>基本数据类型从一个复制到另一个，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上，改变其中一个不会影响另一个。</p>
 <p>本小白用拙劣的画功演示一下</p>
 <p><img src="/2017/07/25/谈谈值传递/pic1.jpg" alt="pic1"></p>
+<a id="more"></a>
 <p>一开始声明变量num1并赋值为10,它便以图中的形式存在某种结构中，当用num1的值来初始化num2的时候，此时就相当于声明变量num2并赋值为num1中的值，该值只是num1中的一个副本，赋值结束，这两个变量便再无瓜葛，进行后面的操作也不会相互影响</p>
 <h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>引用类型我们采用数组，数组的声明有两种方式，一种为<code>var 数组名 = []</code>另一种为<code>var 数组名 = new array()</code></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> arr2 = arr1;</div><div class="line">    arr2[<span class="number">0</span>] = <span class="number">10</span>;</div><div class="line"><span class="built_in">console</span>.log(arr1);<span class="comment">//[10,2,3,4]</span></div><div class="line"><span class="built_in">console</span>.log(arr2);<span class="comment">//[10,2,3,4]</span></div></pre></td></tr></table></figure>
@@ -601,7 +602,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
@@ -622,6 +625,9 @@
     NexT.Muse
   </a>
 </div>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
 
 
         

@@ -355,8 +355,7 @@
 
       
         
-          
-            <h2 id="PHP连接MySQL数据库的准备"><a href="#PHP连接MySQL数据库的准备" class="headerlink" title="PHP连接MySQL数据库的准备"></a>PHP连接MySQL数据库的准备</h2><p>PHP为连接MySQL数据库提供了多套扩展函数库，使用其中的任何一套库，都必须保证如下两点</p>
+          <h2 id="PHP连接MySQL数据库的准备"><a href="#PHP连接MySQL数据库的准备" class="headerlink" title="PHP连接MySQL数据库的准备"></a>PHP连接MySQL数据库的准备</h2><p>PHP为连接MySQL数据库提供了多套扩展函数库，使用其中的任何一套库，都必须保证如下两点</p>
 <ol>
 <li><p>函数库的定义文件在php根目录的的ext目录下</p>
 </li>
@@ -366,67 +365,13 @@
 </ol>
 <h2 id="使用PHP连接数据库"><a href="#使用PHP连接数据库" class="headerlink" title="使用PHP连接数据库"></a>使用PHP连接数据库</h2><p>我目前所知道的有两种函数库,mysql.dll和mysqli.dll.</p>
 <h3 id="mysql-dll"><a href="#mysql-dll" class="headerlink" title="mysql.dll"></a>mysql.dll</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_connect(servername,username,password);</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>servername</td>
-<td>可选，服务器名或ip地址，默认为”localhost:3306”，最好手动              写为”127.0.0.1:3306”</td>
-</tr>
-<tr>
-<td>username</td>
-<td>可选，登录的用户名，默认值是拥有服务器进程的用户的名称</td>
-</tr>
-<tr>
-<td>password</td>
-<td>可选，登录密码,默认为””</td>
-</tr>
-</tbody>
-</table>
-<h4 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$conn = mysql_connect(<span class="string">"127.0.0.1:3306"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);<span class="comment">//连接数据库</span></div><div class="line">mysql_select_db(<span class="string">"myDatabase"</span>);<span class="comment">//选择一个数据库</span></div><div class="line"></div><div class="line">$sql = <span class="string">"set names utf8"</span>;</div><div class="line">mysql_query($sql,$conn);<span class="comment">//先设置编码，避免出现中文乱码</span></div><div class="line"></div><div class="line">$sql = <span class="string">"select * from myDatabase"</span>;<span class="comment">//写一个sql语句</span></div><div class="line">$result = mysql_query($sql,$conn);<span class="comment">//执行sql语句</span></div><div class="line"></div><div class="line"><span class="comment">//处理结果</span></div><div class="line">$row = mysql_fetch_array($result);<span class="comment">//只能获取一行数据</span></div><div class="line"><span class="keyword">while</span>($row = mysql_fetch_array($result))&#123;<span class="comment">//可以获取全部行数据</span></div><div class="line">  var_dump($row);<span class="comment">//输出查看</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//提前关闭连接(可选)</span></div><div class="line">mysql_close($conn);</div></pre></td></tr></table></figure>
-<h3 id="mysqli-dll"><a href="#mysqli-dll" class="headerlink" title="mysqli.dll"></a>mysqli.dll</h3><p>PHP MySQLI = PHP MySQL Improved </p>
-<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$conn = mysqli_connect(servername,username,password,database,port,socket);</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>servername</td>
-<td>可选,服务器名或ip地址,推荐用”127.0.0.1”</td>
-</tr>
-<tr>
-<td>username</td>
-<td>可选,登录的用户名</td>
-</tr>
-<tr>
-<td>password</td>
-<td>可选,登录的密码</td>
-</tr>
-<tr>
-<td>database</td>
-<td>可选,要进入的数据库名称</td>
-</tr>
-<tr>
-<td>port</td>
-<td>可选,端口号,默认为3306</td>
-</tr>
-<tr>
-<td>socket</td>
-<td>可选。规定 socket 或要使用的已命名 pipe。</td>
-</tr>
-</tbody>
-</table>
-<h4 id="举个栗子-1"><a href="#举个栗子-1" class="headerlink" title="举个栗子"></a>举个栗子</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 链接数据库</span></div><div class="line">$conn = mysqli_connect(<span class="string">"127.0.0.1"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>,<span class="string">"myDatabase"</span>,<span class="number">3306</span>);<span class="comment">//连接数据库</span></div><div class="line"></div><div class="line">$sql = <span class="string">"set names utf8"</span>;</div><div class="line"><span class="comment">//注意,这里的参数相比于mysql_query()互换了参数位置</span></div><div class="line">mysqli_query($conn,$sql);<span class="comment">//设置编码，避免中文乱码</span></div><div class="line"></div><div class="line">$sql = <span class="string">"INSERT/DELETE/UPDATE/SELECT..."</span>;<span class="comment">//此处sql语句中不需要添加分号</span></div><div class="line">$result = mysqli_query($conn,$sql);</div><div class="line"></div><div class="line"><span class="comment">//处理结果</span></div><div class="line">mysqli_affected_rows($conn);<span class="comment">//获取影响的行数</span></div><div class="line">mysqli_fetch_array($result);<span class="comment">//获取一行</span></div><div class="line">mysqli_fetch_all($result);<span class="comment">//以索引数组的形式返回所有行</span></div><div class="line">mysqli_fetch_all($result,MYSQLI_ASSOC);<span class="comment">//以关联数组的形式获取所有行</span></div><div class="line"></div><div class="line"><span class="comment">//提前关闭连接</span></div><div class="line">mysqli_close($conn);</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/30/php连接MySQL数据库/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -557,37 +502,19 @@
 
       
         
-          
-            <p>ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的.</p>
+          <p>ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的.</p>
 <p>在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同</p>
 <h2 id="数据类型的复制"><a href="#数据类型的复制" class="headerlink" title="数据类型的复制"></a>数据类型的复制</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> num2 = num1;</div><div class="line">    num2 = <span class="number">11</span>;</div><div class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//10</span></div><div class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//11</span></div></pre></td></tr></table></figure>
 <p>基本数据类型从一个复制到另一个，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上，改变其中一个不会影响另一个。</p>
 <p>本小白用拙劣的画功演示一下</p>
 <p><img src="/2017/07/25/谈谈值传递/pic1.jpg" alt="pic1"></p>
-<p>一开始声明变量num1并赋值为10,它便以图中的形式存在某种结构中，当用num1的值来初始化num2的时候，此时就相当于声明变量num2并赋值为num1中的值，该值只是num1中的一个副本，赋值结束，这两个变量便再无瓜葛，进行后面的操作也不会相互影响</p>
-<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>引用类型我们采用数组，数组的声明有两种方式，一种为<code>var 数组名 = []</code>另一种为<code>var 数组名 = new array()</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> arr2 = arr1;</div><div class="line">    arr2[<span class="number">0</span>] = <span class="number">10</span>;</div><div class="line"><span class="built_in">console</span>.log(arr1);<span class="comment">//[10,2,3,4]</span></div><div class="line"><span class="built_in">console</span>.log(arr2);<span class="comment">//[10,2,3,4]</span></div></pre></td></tr></table></figure>
-<p>此处及下文输出省略掉数组长度,可以看出输出的结果都为[10,2,3,4]和基本数据类型完全不同.</p>
-<p><img src="/2017/07/25/谈谈值传递/pic2.jpg" alt="pic2"></p>
-<p>当声明数组变量并赋值的时候，同样也会存入一个结构当中，但是这个结构不能存[1,2,3,4]这种数据，要存到堆中去，就是图片右边那个圆形的区域，但是存入的数还是要找到它，每个存储位置都有相应的地址，所以它在左边那个结构中存入的是一个指向数组对象的这样的一个地址。</p>
-<p><img src="/2017/07/25/谈谈值传递/pic3.jpg" alt="pic3"></p>
-<p>当复制引用类型变量的时候，同样也会将存储在左边结构中的值复制一份放到为新变量分配的空间中去，这不过因为这个值的副本是一个指向堆中原数组对象的地址，两个变量名就相当于引用了同一个地址中的内容。因此，改变其中的一个变量，就会影响另一个</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr3=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> arr4=arr3;</div><div class="line">arr4=[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="built_in">console</span>.log(arr3);<span class="comment">//[1,2,3,4]</span></div><div class="line"><span class="built_in">console</span>.log(arr4);<span class="comment">//[5,6,7,8]</span></div></pre></td></tr></table></figure>
-<p>这个相比于前面那个，只是在第三行代码中出现了不同,<code>arr4=[5,6,7,8]</code>将一个新的数组对象赋给变量arr4,这时arr4后的地址就改变了,也就指向了新的数组对象，这两个变量也就完全不相同了.</p>
-<p><img src="/2017/07/25/谈谈值传递/pic4.jpg" alt="pic4"></p>
-<p>可以实验一下<code>console.log(new Array(1,2)===new Array(1,2))</code>，这个在控制台返回的是<code>false</code></p>
-<p>那好，现在有了这些铺垫，我们再来谈我们今天的主要内容.</p>
-<h2 id="数据类型的值传递"><a href="#数据类型的值传递" class="headerlink" title="数据类型的值传递"></a>数据类型的值传递</h2><h3 id="基本类型-1"><a href="#基本类型-1" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  num = <span class="number">11</span>;</div><div class="line">  <span class="built_in">console</span>.log(num);<span class="comment">//11</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">change(num);</div><div class="line"><span class="built_in">console</span>.log(num);<span class="comment">//10</span></div></pre></td></tr></table></figure>
-<p>在像参数传递基本类型的值时，被传递的值会被先复制给一个局部变量，其实就可以理解为基本数据类型的赋值。以上的代码也可以写为这样</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="number">10</span>;<span class="comment">//look</span></div><div class="line">  num = <span class="number">11</span>;</div><div class="line">  <span class="built_in">console</span>.log(num);<span class="comment">//11</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">change(num);</div><div class="line"><span class="built_in">console</span>.log(num);<span class="comment">//10</span></div></pre></td></tr></table></figure>
-<p>在look处，函数会将参数先声明并赋值，值就为下面传入的参数的值，num的值为10,因此赋得值也为10。但此时函数中的num和函数外部的num其实是毫不相关的,因此并不会相互影响</p>
-<h3 id="引用类型-1"><a href="#引用类型-1" class="headerlink" title="引用类型"></a>引用类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  arr[<span class="number">0</span>] = <span class="number">10</span>;</div><div class="line">  <span class="built_in">console</span>.log(arr);<span class="comment">//[10,2,3,4]</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">change(arr);</div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">//[10,2,3,4]</span></div></pre></td></tr></table></figure>
-<p>引用类型也如此，也可以理解为引用类型的复制操作，在函数的开头就会将arr赋值为传来的数值，虽然也是一开始声明的引用类型的副本，但是因为引用类型传来的数值是地址，因此函数中的arr和函数外面的arr都将引用同一个地址中的数组对象，因为arr指向的数组对象在堆中只有一个，又是全局变量，因此这两个arr是相同的，同样我们再看那一种声明数组并赋值的.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  arr=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line">  <span class="built_in">console</span>.log(arr);<span class="comment">//[4,5,6,7]</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">change(arr);</div><div class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[1,2,3,4]</span></div></pre></td></tr></table></figure>
-<p>那这个也就应该可以理解了，虽然在传参的时候传入的确实是一开始声明的数组对象的地址的副本，但是因为在函数内部又声明了一个新的数组对象，在这里arr引用的就是一个局部的数组对象了，而这个局部对象就会在函数结束后立即被销毁，不会影响函数外部的数组对象</p>
-<p>本小白大二学生…自学前端一年,水平有限，就先解释这么多了，如果有不对的还请大佬们指点，本小白定当悔过自新，重新做人.</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/25/谈谈值传递/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -718,39 +645,15 @@
 
       
         
-          
-            <h1 id="用css实现divs水平居中的几种方法"><a href="#用css实现divs水平居中的几种方法" class="headerlink" title="用css实现divs水平居中的几种方法"></a>用css实现divs水平居中的几种方法</h1><h2 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+          <h1 id="用css实现divs水平居中的几种方法"><a href="#用css实现divs水平居中的几种方法" class="headerlink" title="用css实现divs水平居中的几种方法"></a>用css实现divs水平居中的几种方法</h1><h2 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="当需要居中的div设置了固定宽度"><a href="#当需要居中的div设置了固定宽度" class="headerlink" title="当需要居中的div设置了固定宽度"></a>当需要居中的div设置了固定宽度</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> atuo;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>auto可以理解为一样的意思，如果左右都设置auto，意思就是这个div离左面的距离和右面的距离是一样的,但是此方法只适用于设置了宽度的块级元素，当设置了<code>position:absolute</code>或者<code>float</code>或者<code>display:inline</code>时,<code>margin:0 auto</code>便会失效。</p>
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>块级元素始终独占一行，无论是否设置了宽度，未设置宽度时他会自动充满，设置了宽度时，虽然他看起来这一行并不都是他的地盘，但是你如果在他后面添加元素的时候，你会发现元素会被挤到下一行去。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  咋回事啊</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><img src="/2017/07/18/关于css实现div居中问题/pic2.png" alt="pic2"></p>
-<p>怎么肥四，为森么会发生这种情况呢</p>
-<p><img src="/2017/07/18/关于css实现div居中问题/pic3.png" alt="pic3"></p>
-<p>可以看到，虽然div设置了宽度，但是他有一种无形的力量占据了整个他所在的行，以至于其它元素无法与其在一行。而这一块也就是<code>margin:0 auto</code>可调控范围，<code>margin: 0 auto</code>会根据这一部分的大小分配及时分配左右的距离，达到居中的效果，当设置了绝对定位、浮动或将其设置为行内元素的时候，他这种威慑力便会消失，此时就不会留下范围让<code>margin: 0 auto</code>分配。</p>
-<p><img src="/2017/07/18/关于css实现div居中问题/pic4.png" alt="pic4"></p>
-<p>可以看到，此时那块黄色的区域已经消失，<code>margin: 0 atuo</code>也就失效了</p>
-<p>不过也有一种例外<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;  </div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> atuo;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时虽然已经设置绝对定位，他已经脱离了标准文档流，但是<code>left:0 right:0</code>又让其左右充满父容器，具有了<code>margin:0 auto</code>可调控的距离</p>
-<p><img src="/2017/07/18/关于css实现div居中问题/pic5.png" alt="pic5"></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;  </div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>设置绝对定位让其拥有left属性，然后设定<code>left:50%</code>，此div便会<code>left</code>值就为距离最近的可参考的祖上元素的宽度的一办，那什么是可参考元素呢，就是说设定了<code>position</code>属性的，如果祖上元素都没有的话，就参考body、html。</p>
-<p>此时div就会跑到中央去，但是因为此div本身还有宽度，因此还要添加<code>margin-left:-此div宽度的一半px;</code>让其真正的居中</p>
-<h2 id="需要居中的元素没有宽度"><a href="#需要居中的元素没有宽度" class="headerlink" title="需要居中的元素没有宽度"></a>需要居中的元素没有宽度</h2><p>很多状况下我们要居中的元素是不知道宽度的，有时候可能宽度也不是固定的，因为里面的内容有可能以后要增加，或者随着浏览器的变化此宽度可能也要跟随变化，此效果用js、jq可以实现，但我们本次只谈css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/2017/07/18/关于css实现div居中问题/pic6.png" alt="pic6"></p>
-<p>可以看到，当不设置宽度的时候，此div默认是充满整个浏览器的，这样的话就无所谓居中或不居中了，通常我们要居中这个div，是想让这个div中的一些信息居中，为了便于演示，我在html和css中都添加了几行代码</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱前端<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱编程<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱生活<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>渴望知识<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">list-style</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">margin-left</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="/2017/07/18/关于css实现div居中问题/pic7.png" alt="pic7"></p>
-<p>此时我们应该想办法让div的宽度不是充满整个浏览器，让它的宽度仅仅就是里面内容的宽度，这样我们才能让它居中。在块状元素下，如果不设置宽度，它始终是要充满整个宽度的。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/2017/07/18/关于css实现div居中问题/pic8.png" alt="pic8"><br>当设置<code>nav</code>为行内元素，或者table元素的时候他的宽度就默认不是最大化，而是根据包裹的内容改变，也就是最小化。设置为<code>position</code>或者<code>display:table</code>也一样。</p>
-<h3 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h3><p>用<code>text-align:center</code>实现元素居中，这个属性不是只能让文本居中，它可以让行内元素居中，所以只要把要居中的元素设置为行内元素，然后把其父元素设置<code>text-align:center</code>，它就会在其父元素中居中<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">background</span>: red;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">display</span>: inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h3><p>设置nav为<code>display:table</code>,nav就相当与说就具有了<code>table</code>的属性，那我们都知道<code>table</code>的宽度是根据其内容的多少而变化的，也就是宽度最小化，而此时nav便也可以使用<code>margin:0 auto</code>来居中</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">background</span>: red;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">70px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">display</span>: table;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/18/关于css实现div居中问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -881,167 +784,20 @@
 
       
         
-          
-            <h1 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h1><p><strong>服务器端</strong> : 负责永久存储数据、维护数据，人不能直接观看。</p>
+          <h1 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h1><p><strong>服务器端</strong> : 负责永久存储数据、维护数据，人不能直接观看。</p>
 <p><strong>客户端</strong> : 用于向服务器端发起“增删改查”命令.</p>
 <h1 id="使用MySQL服务器的步骤"><a href="#使用MySQL服务器的步骤" class="headerlink" title="使用MySQL服务器的步骤"></a>使用MySQL服务器的步骤</h1><h2 id="服务器端：安装启动MySQL服务器端软件"><a href="#服务器端：安装启动MySQL服务器端软件" class="headerlink" title="服务器端：安装启动MySQL服务器端软件"></a>服务器端：安装启动MySQL服务器端软件</h2><p>×××/mysql/bin/mysqld.exe //deamon:精灵，守护者，服务器程序。</p>
 <p>启动后，后台会有mysqld运行<br>port端口号:1~65535     命令行中输入netstat -ano可以查看占用的端口号,mysql默认端口号为3306。</p>
 <h2 id="安装一款MySQL客户端软件"><a href="#安装一款MySQL客户端软件" class="headerlink" title="安装一款MySQL客户端软件"></a>安装一款MySQL客户端软件</h2><p>phpstudy和xampp都可以，不过xampp只有32位，当然64位电脑也是可以支持32位的,两种都是MySQL源代码的一个分支</p>
 <h4 id="phpstudy"><a href="#phpstudy" class="headerlink" title="phpstudy"></a>phpstudy</h4><p>phpstudy的mysql是oracle的mysql,进入数据库服务器的时候命令行中显示的是<code>mysql&gt;</code></p>
 <h4 id="xampp"><a href="#xampp" class="headerlink" title="xampp"></a>xampp</h4><p>xampp的mysql是MariaDB,进入数据库服务器的时候命令行中显示的是<code>MariaDB[(none)]</code>这个有个好处是,你使用<code>use mysql</code>的时候,<code>MariaDB[(none)]</code>会变成<code>MariaDB[(mysql)]</code>,会告诉你现在在mysql这个数据库中，便于以后的操作.</p>
-<h2 id="客户端：运行客户端程序连接到远程的服务器"><a href="#客户端：运行客户端程序连接到远程的服务器" class="headerlink" title="客户端：运行客户端程序连接到远程的服务器"></a>客户端：运行客户端程序连接到远程的服务器</h2><ol>
-<li><p>找到数据库中bin下的mysql.exe文件,用命令行方式登录的话,可以把文件拖到命令行中,一般端口号默认都是3306，就可以在路径后面直接敲入<code>-uroot -p</code>,然后他会提示你输入密码,xmapp默认密码为空,直接enter就ok了。如果提示密码不对的话可以去phpstudy里MySQL管理工具里面重置密码。</p>
-</li>
-<li><p>在xampp中用Shell打开<br>用 <code>mysql -uroot -p</code>登录</p>
-</li>
-</ol>
-<h1 id="MySQL常用管理命令"><a href="#MySQL常用管理命令" class="headerlink" title="MySQL常用管理命令"></a>MySQL常用管理命令</h1><blockquote>
-<ol>
-<li>MySQL命令大小写都可以，推荐在编写关键字的时候用大写字母；非关键字可以小写</li>
-<li>都要以英文分号结尾</li>
-</ol>
-</blockquote>
- <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SHOW DATABASES;#显示服务器中当前所有的数据库名</div><div class="line">USE 库名;#进入指定的数据库  后面可以不写分号</div><div class="line">SHOW TABLES;#显示当前库中有哪些基本的表</div><div class="line">DESC 表名;#显示表结构，字段类型，主键，是否为空等，但不显示外键</div><div class="line">QUIT;#退出数据库,同理于ctrl+z</div><div class="line">SHOW CREATE TABLE 表名;#显示创建表的过程</div></pre></td></tr></table></figure>
-<h1 id="SQL语言"><a href="#SQL语言" class="headerlink" title="SQL语言"></a>SQL语言</h1><blockquote>
-<p>结构化查询语言，专用于操作（增删改查）数据<br>服务器中的数据。是一门国际标准化语言</p>
-</blockquote>
-<h2 id="SQL常用语句"><a href="#SQL常用语句" class="headerlink" title="SQL常用语句"></a>SQL常用语句</h2><h3 id="DDL-数据定义语言"><a href="#DDL-数据定义语言" class="headerlink" title="DDL(数据定义语言)"></a>DDL(数据定义语言)</h3><ul>
-<li><p>CREATE</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#创建新的数据库 其中的字符使用指定的编码</div><div class="line">CREATE DATABASE 数据库名 CHARSET=UTF8;</div><div class="line">#保证select的返回与编程编码一致</div><div class="line">set names utf8;</div><div class="line">#创建表(为方便演示,表名用 xz_user代替)</div><div class="line">CREATE TABLE xz_user(</div><div class="line">    ur_id int,            #用户编号</div><div class="line">    ur_name varchar(20),  #用户名字</div><div class="line">    ur_pwd varchar(32),   #用户密码</div><div class="line">    ur_email varchar(64), #用户邮箱</div><div class="line">    ur_tel varchar(20)    #用户电话</div><div class="line">);</div></pre></td></tr></table></figure>
-</li>
-<li><p>DROP</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#丢弃一个已有的数据库（如果存在的话）</div><div class="line">DROP DATABASE IF EXISTS 数据库名;</div></pre></td></tr></table></figure>
-</li>
-<li><p>ALTER</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#删加列</div><div class="line">ALTER table_name DROP column column_name;</div><div class="line">ALTER table_name ADD column_name datatype;</div></pre></td></tr></table></figure>
-</li>
-<li><p>TRUNCATE</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#数据强制清除(直接将表删除后重建空表)</div><div class="line">TRUNCATE TABLE table_name;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="DML-数据操作语言"><a href="#DML-数据操作语言" class="headerlink" title="DML(数据操作语言)"></a>DML(数据操作语言)</h3><ul>
-<li><p>INSERT</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#向用户表中插入数据</div><div class="line">INSERT INTO xz_user VALUES (101,'Tom','10010','10010@qq.com','10000000000');</div><div class="line">INSERT INTO xz_user(ur_id,ur_name) VALUES (101,'Tom')#剩下如果没有特殊的设置默认值的话为NULL</div><div class="line">INSERT INTO xz_user VALUES(101,'Tom',</div><div class="line">default,'10010@qq.com','100000000')#default处会是默认值</div></pre></td></tr></table></figure>
-</li>
-<li><p>DELETE</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#删除数据</div><div class="line">DELETE FROM xz_user;#删除xz_user表中的所有内容(慎用)</div><div class="line">DELETE FROM xz_user WHERE ur_id = 15;#删除xz_user表中满足ur_id=15的行</div></pre></td></tr></table></figure>
-</li>
-<li><p>UPDATE</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#修改数据</div><div class="line">UPDATE 表名 SET 列=值,列=值,...;#这样会改所有的行(慎用)</div><div class="line">UPDATE 表名 SET 列=值,列=值,...WHERE 列=值;#修改满足列的行 </div><div class="line">UPDATE xz_user SET ur_id = 100 where ur_name = 'Tom';#将xz_user中ur_name为Tom的那一行的ur_id设置为100;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="DQL-数据查询语言"><a href="#DQL-数据查询语言" class="headerlink" title="DQL(数据查询语言)"></a>DQL(数据查询语言)</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#查询出表中已有的所有数据行</div><div class="line">SELECT * FROM xz_user;</div></pre></td></tr></table></figure>
-<h3 id="DCL-数据控制语言"><a href="#DCL-数据控制语言" class="headerlink" title="DCL(数据控制语言)"></a>DCL(数据控制语言)</h3><ul>
-<li><p>GRANT</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GRANT</span> 权限 <span class="keyword">on</span> 数据库对象 <span class="keyword">to</span> 用户</div></pre></td></tr></table></figure>
-</li>
-<li><p>REVOKE</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">REVOKE</span> 权限名 <span class="keyword">FROM</span> 用户</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="MYSQL中的常用的列类型"><a href="#MYSQL中的常用的列类型" class="headerlink" title="MYSQL中的常用的列类型"></a>MYSQL中的常用的列类型</h2><h3 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h3><h4 id="整形"><a href="#整形" class="headerlink" title="整形"></a>整形</h4><ul>
-<li>TINYINT:占1个字节 -128~127</li>
-<li>SMALLINT:占2个字节 -32768~32767</li>
-<li>INT：占4个字节 -2147483648~2147483647</li>
-<li>BIGINT: Windows下为8个字节.有些系统也为4个字节</li>
-</ul>
-<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><ul>
-<li>FLOAT(m,d) 单精度浮点型</li>
-<li>DOUBLE(m,d) 双精度浮点型</li>
-<li>DECIMAL(m,d) 严格定点数，用于精确计算</li>
-</ul>
-<p>m表示总有效位数，d表示小数点后允许的有效位数</p>
-<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><ul>
-<li>CHAR(M) 固定长度字符串，M最大255</li>
-<li>VARCHAR(M) 长度可变的字符串，M最大为65535</li>
-<li>TEXT(M) 长度可变的字符串，M最大可以到2^32，即4G个字符</li>
-</ul>
-<h4 id="CHAR-8-和VARCHAR-8-有什么区别？"><a href="#CHAR-8-和VARCHAR-8-有什么区别？" class="headerlink" title="CHAR(8)和VARCHAR(8)有什么区别？"></a>CHAR(8)和VARCHAR(8)有什么区别？</h4><p><strong>CHAR(8)</strong>：’a’实际存储为:’a\0\0\0\0\0\0\0’//\0代表空格</p>
-<p><strong>VARCHAR(8)</strong>：’a’实际存储为’a\0’,’abcdefgk’存储为’abcdefgk’</p>
-<p>CHAR可能会产生空间浪费，但是读取稍快,VARCHAR读取速度稍慢，因为不知道字符串的真实长度.</p>
-<h3 id="日期时间类型"><a href="#日期时间类型" class="headerlink" title="日期时间类型"></a>日期时间类型</h3><ul>
-<li>DATE ‘yyyy-mm-dd’</li>
-<li>TIME ‘hh:mm:ss’</li>
-<li>DATETIME ‘yyyy-mm-dd hh:mm:ss’</li>
-</ul>
-<h3 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h3><ul>
-<li>BOOL/BOOLEAN:只能表示TRUE(等价于1)或    FALSE(等价于0)</li>
-</ul>
-<h2 id="MySQL列约束"><a href="#MySQL列约束" class="headerlink" title="MySQL列约束"></a>MySQL列约束</h2><h3 id="主键约束-PRIMARY-KEY"><a href="#主键约束-PRIMARY-KEY" class="headerlink" title="主键约束(PRIMARY KEY)"></a>主键约束(PRIMARY KEY)</h3><p><strong>语法</strong>： <code>列名 类型 PRIMARYKEY</code><br><br>声明为“主键”的列上不能出现NULL值，且不能重，所有的记录行自动按照主键列上的值排序,因此，主键只能有一个。</p>
-<h3 id="唯一约束-UNIQUE"><a href="#唯一约束-UNIQUE" class="headerlink" title="唯一约束(UNIQUE)"></a>唯一约束(UNIQUE)</h3><p><strong>语法</strong>： <code>列名 类型 UNIQUE</code><br><br>声明为“唯一”约束的列上不能出现重复值,但可以出现多可NULL</p>
-<h3 id="非空约束-NOT-NULL"><a href="#非空约束-NOT-NULL" class="headerlink" title="非空约束(NOT NULL)"></a>非空约束(NOT NULL)</h3><p><strong>语法</strong>： <code>列名 类型 NOT NULL</code><br><br>声明为“非空”的列上不能出现NULL，但可以重复</p>
-<h3 id="检查约束-CHECK-MYSQL不支持"><a href="#检查约束-CHECK-MYSQL不支持" class="headerlink" title="检查约束(CHECK)//MYSQL不支持"></a>检查约束(CHECK)//MYSQL不支持</h3><p>限定指定列上的值必须满足特定条件</p>
-<h3 id="默认值约束-DEFAULT"><a href="#默认值约束-DEFAULT" class="headerlink" title="默认值约束(DEFAULT)"></a>默认值约束(DEFAULT)</h3><p><strong>语法</strong>： <code>列名 类型 DEFAULT 默认值</code><br><br>声明了默认值的列若未指定值，则使用默认值</p>
-<h3 id="外键约束-FOREIGN-KEY"><a href="#外键约束-FOREIGN-KEY" class="headerlink" title="外键约束(FOREIGN KEY)"></a>外键约束(FOREIGN KEY)</h3><p><strong>语法</strong>： <code>FOREIGN KEY(列名) REFERENCES 表名（列名）</code><br><br>可重复可为空，外键列上出现的值必须在其参考的表的主键列上出现过</p>
-<blockquote>
-<p>如果为员工表添加了一个参考部门表的外键列，增加、修改员工都要查询一下部门表，操作效率会降低，老版本的MySQL是不支持的。<br>多个约束的话直接在后面写就可以。</p>
-</blockquote>
-<h2 id="MySQL数据库中专有的“自增列”"><a href="#MySQL数据库中专有的“自增列”" class="headerlink" title="MySQL数据库中专有的“自增列”"></a>MySQL数据库中专有的“自增列”</h2><p>AUTO_INCREMENT,只有MySQL支持，用于实现自增列.</p>
-<p>插入时主键列如果没有给值，主键列的值会相应的设定为比当前已有的最大值多1的数字</p>
-<p><strong>语法</strong>：<br>  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> xx(</div><div class="line">主键列名 <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">    ...</div><div class="line">);</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>提示：自增列只能用于主键列，且必须是整数型主键。自增列也可以手工赋值.</p>
-</blockquote>
-<h2 id="select查询"><a href="#select查询" class="headerlink" title="select查询"></a>select查询</h2><h3 id="只查特定的列"><a href="#只查特定的列" class="headerlink" title="只查特定的列"></a>只查特定的列</h3><p>  <strong>语法</strong>: <code>SELECT 列名,列名... FROM 表名;</code></p>
-<h3 id="给列取别名"><a href="#给列取别名" class="headerlink" title="给列取别名"></a>给列取别名</h3><p>  <strong>语法</strong>: <code>SELECT 列名 AS 别名,... FROM 表名;</code> 或者 <code>SELECT 列名 别名,... FROM 表名;</code></p>
-<h3 id="只显示列上不同的值（即合并相同的值）"><a href="#只显示列上不同的值（即合并相同的值）" class="headerlink" title="只显示列上不同的值（即合并相同的值）"></a>只显示列上不同的值（即合并相同的值）</h3><p>  <strong>语法</strong>: <code>SELECT DISTINCT 列名,列名... FROM 表名;</code></p>
-<h3 id="按照指定列上的值排序"><a href="#按照指定列上的值排序" class="headerlink" title="按照指定列上的值排序"></a>按照指定列上的值排序</h3><p>  <strong>语法</strong>: <code>SELECT ... FROM 表名 ORDER BY 列名 [ASC];#升序（默认）</code> 或者 <code>SELECT ... FROM 表名 ORDER BY 列名 DESC;#降序</code><br>  可以多次排序：<code>SELECT ... FROM 表名 ORDER BY 列名1,列名2;</code>#先根据第一个列排序，然后在这基础上再按照第二个排序</p>
-<h3 id="查询时进行运算"><a href="#查询时进行运算" class="headerlink" title="查询时进行运算"></a>查询时进行运算</h3><p>  直接在select后的列名上进行加减运算</p>
-<h3 id="查询出满足特定条件的记录行"><a href="#查询出满足特定条件的记录行" class="headerlink" title="查询出满足特定条件的记录行"></a>查询出满足特定条件的记录行</h3><p>  <strong>语法</strong>：<code>SELECT ... FROM ... WHERE 条件;</code></p>
-<p>  条件可以是多种表达式 : &gt; = != &lt; ….</p>
-<p>  条件还可以是多种表达式的组合：AND OR NOT<br><br>  BETWEEN()AND() #在两个条件中间<br><br>  num IN(20,80,60) #num为20或80或60<br><br>  num not in (20,80,60) #num不是20,80,60</p>
-<blockquote>
-<p><strong>注意</strong> : 和null比较的时候要用is 或者 is not<br><br>比如：<code>select * from price where pic is null;</code></p>
-</blockquote>
-<h3 id="分页查询-—-LIMIT"><a href="#分页查询-—-LIMIT" class="headerlink" title="分页查询 — LIMIT"></a>分页查询 — LIMIT</h3><p>  <strong>语法</strong>：<code>SELECT ... FROM ... WHERE ... ORDER BY... LIMIT start,count;</code></p>
-<p>  start:表示从满足条件的那一行记录开始读取，第一行称为0<br><br>  count：此次最多读取多少行记录<br><br>  假设每一页显示5条记录:<br><br>  第1页:..LIMIT 0,5;<br>  第2页:..LIMIT 5,5;<br>  <br>个人理解名字应该为区间查询。start是开始行，count为结束行..</p>
-<h3 id="模糊查询-—-LIKE"><a href="#模糊查询-—-LIKE" class="headerlink" title="模糊查询 — LIKE"></a>模糊查询 — LIKE</h3><p>  <strong>语法</strong>：<code>SELECT ... FROM ... WHERE 列名 LIKE &#39;%e&#39;;#查询出以字母e结尾的信息</code></p>
-<blockquote>
-<p>在SQL查询中，%代表任意多个任意字符,_ 代表任意一个字符.</p>
-</blockquote>
-<h3 id="分组查询-group-by"><a href="#分组查询-group-by" class="headerlink" title="分组查询(group by)"></a>分组查询(group by)</h3><ul>
-<li><p>COUNT:查询出满足条件的记录行数<br><br><strong>语法</strong>：<code>SELECT COUNT(列名) FROM 表名</code><br><br>计算对应列名中有多少行有效信息(非空);</p>
-</li>
-<li><p>MAX:查询指定列上的最大值<br><br><strong>语法</strong>：<code>SELECT MAX(列名) FROM 表名</code><br></p>
-</li>
-<li><p>MIN:查询指定列上的最小值<br><br><strong>语法</strong>：<code>SELECT MIN(列名) FROM 表名</code><br></p>
-</li>
-<li><p>AVG:查询指定列的平均值<br><br><strong>语法</strong>：<code>SELECT AVG(列名) FROM 表名</code><br></p>
-</li>
-<li><p>SUM:查询指定列和<br><br><strong>语法</strong>：<code>SELECT SUM(列名) FROM 表名</code><br></p>
-<blockquote>
-<p>select … group by 列名; #按照列名分类</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>  一条查询语句中再嵌入另一条查询，被嵌入的查询称为子查询</p>
-<h3 id="跨表查询"><a href="#跨表查询" class="headerlink" title="跨表查询"></a>跨表查询</h3><h4 id="sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。"><a href="#sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。" class="headerlink" title="sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。"></a>sql-92标准中的跨表查询无法显示连接条件为NULL的记录行。</h4><p><strong>语法</strong>：<code>SELECT 列名1,列名2 FROM 表1,表2 WHERE 表1.行1 = 表2.行1</code><br><br>跨表/多表查询，一次查询得到的结果集中的列来自于不同的表;跨表查询一定要防止出现笛卡尔积. 列名1来自表1，列名2来自表2，为防止笛卡尔积，要限制这两个表中的联系相等。</p>
-<h4 id="sql-99中标准"><a href="#sql-99中标准" class="headerlink" title="sql-99中标准"></a>sql-99中标准</h4><ul>
-<li>内连接（相当于sql-92语句的作用）<br><br><code>SELECT 列名1,列名2 FROM 表1 INNER JOIN 表2 ON 表1.行1 = 表2.行1</code></li>
-<li>左外连接（会显示出左侧表中所有记录）<br><br><code>SELECT 列名1,列名2 FROM 表1 LEFT OUTER JOIN 表2 ON 表1.行1 = 表2.行1</code></li>
-<li>右外连接（会显示出右侧表中所有记录）<br><br><code>SELECT 列名1,列名2 FROM 表1 RIGHT OUTER JOIN 表2 ON 表1.行1 = 表2.行1</code></li>
-<li><p>全连接（会显示两侧表中的记录）<br><br><code>SELECT 列名1,列名2 FROM 表1 FULL JOIN 表2 ON 表1.行1 = 表2.行1</code></p>
-<blockquote>
-<p>mysql不支持全连接</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="结果集合并"><a href="#结果集合并" class="headerlink" title="结果集合并"></a>结果集合并</h3><ul>
-<li>合并结果集，结果只显示一次<br><br><code>SELECT 列名 FROM 表名 UNION SELECT 列名 FROM 表名</code></li>
-<li>合并结果集，结果出现重复数据<br><br><code>SELECT 列名 FROM 表名 UNION ALL SELECT 列名 FROM 表名</code></li>
-</ul>
-<h2 id="五丶-执行sql脚本文件"><a href="#五丶-执行sql脚本文件" class="headerlink" title="五丶 执行sql脚本文件"></a>五丶 执行sql脚本文件</h2><ul>
-<li><p>使用cmd命令执行(windows下，unix或linux在其控制台下)<br>   【Mysql的bin目录】\mysql –u用户名 –p密码 –D数据库&lt;【sql脚本文件路径全名】，示例：<br>   D:\mysql\bin\mysql –uroot –p123456  -Dtest&lt;d:\test\ss.sql<br>   <strong>注意</strong>：<br>   A、如果在sql脚本文件中使用了use 数据库，则-D数据库选项可以忽略<br>   B、如果【Mysql的bin目录】中包含空格，则需要使用“”包含，如：“C:\Program Files\mysql\bin\mysql” –u用户名 –p密码 –D数据库&lt;【sql脚本文件路径全名】</p>
-</li>
-<li><p>进入mysql的控制台后，使用source命令执行<br> Mysql&gt;source 【sql脚本文件的路径全名】 或 Mysql&gt;. 【sql脚本文件的路径全名】，示例：<br> source d:\test\ss.sql 或者 . d:\test\ss.sql</p>
-</li>
-<li><p>用xampp的话,可以用面板的shell进入命令行中,用<code>mysql -uroot -p &lt; sql脚本文件名</code>（默认无密码,有密码按提示输入密码就ok了）</p>
-</li>
-</ul>
-<h2 id="六丶-中文乱码问题"><a href="#六丶-中文乱码问题" class="headerlink" title="六丶 中文乱码问题"></a>六丶 <b>中文乱码问题</b></h2><p><code>CREATE DATABASE 库名 CHARSET=UTF8</code>后只是数据库中应用UTF-8模式，此时sql语句也应该设置编码格式为UTF-8,在代码一开始要设置<code>SET NAMES UTF8</code>,此时用命令行进入数据库再敲入<code>select * from 表名</code>或者打开phpmyadmin查看,中文显示正常。但是你从外部导入sql文件查看的话永远都是乱码，但此时数据已经没问题了。</p>
-<p>此问题只限于windows系统,因为windows的命令行默认编码为gbk,从外部导入sql直接查询的时候命令行并不会识别,虽然此时数据已经正常，但他显示的还是乱码，后来再进行操作的话便会显示正常。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/06/浅尝数据库/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1191,7 +947,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
@@ -1212,6 +970,9 @@
     NexT.Muse
   </a>
 </div>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
 
 
         

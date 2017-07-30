@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic6.png">
 <meta property="og:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic7.png">
 <meta property="og:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic8.png">
-<meta property="og:updated_time" content="2017-07-18T07:56:04.355Z">
+<meta property="og:updated_time" content="2017-07-30T05:02:15.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于css实现div居中问题">
 <meta name="twitter:description" content="用css实现divs水平居中的几种方法初始代码HTML123&amp;lt;div class=&quot;header&quot;&amp;gt;  &amp;lt;div class=&quot;nav&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; CSS1234567891011* &amp;#123;  margin: 0;  padding: 0;&amp;#125;.header &amp;#123;    height: 70px;&amp;#125;.n">
@@ -362,6 +362,7 @@
       
         <h1 id="用css实现divs水平居中的几种方法"><a href="#用css实现divs水平居中的几种方法" class="headerlink" title="用css实现divs水平居中的几种方法"></a>用css实现divs水平居中的几种方法</h1><h2 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="当需要居中的div设置了固定宽度"><a href="#当需要居中的div设置了固定宽度" class="headerlink" title="当需要居中的div设置了固定宽度"></a>当需要居中的div设置了固定宽度</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> atuo;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>auto可以理解为一样的意思，如果左右都设置auto，意思就是这个div离左面的距离和右面的距离是一样的,但是此方法只适用于设置了宽度的块级元素，当设置了<code>position:absolute</code>或者<code>float</code>或者<code>display:inline</code>时,<code>margin:0 auto</code>便会失效。</p>
 <h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>块级元素始终独占一行，无论是否设置了宽度，未设置宽度时他会自动充满，设置了宽度时，虽然他看起来这一行并不都是他的地盘，但是你如果在他后面添加元素的时候，你会发现元素会被挤到下一行去。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  咋回事啊</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -606,7 +607,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
@@ -627,6 +630,9 @@
     NexT.Muse
   </a>
 </div>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
 
 
         
