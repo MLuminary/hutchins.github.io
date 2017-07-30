@@ -266,6 +266,208 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/30/php连接MySQL数据库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/30/php连接MySQL数据库/" itemprop="url">php连接MySQL数据库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T12:35:55+08:00">
+                2017-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="PHP连接MySQL数据库的准备"><a href="#PHP连接MySQL数据库的准备" class="headerlink" title="PHP连接MySQL数据库的准备"></a>PHP连接MySQL数据库的准备</h2><p>PHP为连接MySQL数据库提供了多套扩展函数库，使用其中的任何一套库，都必须保证如下两点</p>
+<ol>
+<li><p>函数库的定义文件在php根目录的的ext目录下</p>
+</li>
+<li><p>在php的主配置文件(php.ini)中声明启用该函数库</p>
+<p> 会有<code>extension=php_mysql.dll</code>和<code>extension=php_mysqli.dll</code>的字样</p>
+</li>
+</ol>
+<h2 id="使用PHP连接数据库"><a href="#使用PHP连接数据库" class="headerlink" title="使用PHP连接数据库"></a>使用PHP连接数据库</h2><p>我目前所知道的有两种函数库,mysql.dll和mysqli.dll.</p>
+<h3 id="mysql-dll"><a href="#mysql-dll" class="headerlink" title="mysql.dll"></a>mysql.dll</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_connect(servername,username,password);</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>servername</td>
+<td>可选，服务器名或ip地址，默认为”localhost:3306”，最好手动              写为”127.0.0.1:3306”</td>
+</tr>
+<tr>
+<td>username</td>
+<td>可选，登录的用户名，默认值是拥有服务器进程的用户的名称</td>
+</tr>
+<tr>
+<td>password</td>
+<td>可选，登录密码,默认为””</td>
+</tr>
+</tbody>
+</table>
+<h4 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$conn = mysql_connect(<span class="string">"127.0.0.1:3306"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);<span class="comment">//连接数据库</span></div><div class="line">mysql_select_db(<span class="string">"myDatabase"</span>);<span class="comment">//选择一个数据库</span></div><div class="line"></div><div class="line">$sql = <span class="string">"set names utf8"</span>;</div><div class="line">mysql_query($sql,$conn);<span class="comment">//先设置编码，避免出现中文乱码</span></div><div class="line"></div><div class="line">$sql = <span class="string">"select * from myDatabase"</span>;<span class="comment">//写一个sql语句</span></div><div class="line">$result = mysql_query($sql,$conn);<span class="comment">//执行sql语句</span></div><div class="line"></div><div class="line"><span class="comment">//处理结果</span></div><div class="line">$row = mysql_fetch_array($result);<span class="comment">//只能获取一行数据</span></div><div class="line"><span class="keyword">while</span>($row = mysql_fetch_array($result))&#123;<span class="comment">//可以获取全部行数据</span></div><div class="line">  var_dump($row);<span class="comment">//输出查看</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//提前关闭连接(可选)</span></div><div class="line">mysql_close($conn);</div></pre></td></tr></table></figure>
+<h3 id="mysqli-dll"><a href="#mysqli-dll" class="headerlink" title="mysqli.dll"></a>mysqli.dll</h3><p>PHP MySQLI = PHP MySQL Improved </p>
+<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$conn = mysqli_connect(servername,username,password,database,port,socket);</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>servername</td>
+<td>可选,服务器名或ip地址,推荐用”127.0.0.1”</td>
+</tr>
+<tr>
+<td>username</td>
+<td>可选,登录的用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>可选,登录的密码</td>
+</tr>
+<tr>
+<td>database</td>
+<td>可选,要进入的数据库名称</td>
+</tr>
+<tr>
+<td>port</td>
+<td>可选,端口号,默认为3306</td>
+</tr>
+<tr>
+<td>socket</td>
+<td>可选。规定 socket 或要使用的已命名 pipe。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="举个栗子-1"><a href="#举个栗子-1" class="headerlink" title="举个栗子"></a>举个栗子</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 链接数据库</span></div><div class="line">$conn = mysqli_connect(<span class="string">"127.0.0.1"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>,<span class="string">"myDatabase"</span>,<span class="number">3306</span>);<span class="comment">//连接数据库</span></div><div class="line"></div><div class="line">$sql = <span class="string">"set names utf8"</span>;</div><div class="line"><span class="comment">//注意,这里的参数相比于mysql_query()互换了参数位置</span></div><div class="line">mysqli_query($conn,$sql);<span class="comment">//设置编码，避免中文乱码</span></div><div class="line"></div><div class="line">$sql = <span class="string">"INSERT/DELETE/UPDATE/SELECT..."</span>;<span class="comment">//此处sql语句中不需要添加分号</span></div><div class="line">$result = mysqli_query($conn,$sql);</div><div class="line"></div><div class="line"><span class="comment">//处理结果</span></div><div class="line">mysqli_affected_rows($conn);<span class="comment">//获取影响的行数</span></div><div class="line">mysqli_fetch_array($result);<span class="comment">//获取一行</span></div><div class="line">mysqli_fetch_all($result);<span class="comment">//以索引数组的形式返回所有行</span></div><div class="line">mysqli_fetch_all($result,MYSQLI_ASSOC);<span class="comment">//以关联数组的形式获取所有行</span></div><div class="line"></div><div class="line"><span class="comment">//提前关闭连接</span></div><div class="line">mysqli_close($conn);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/25/谈谈值传递/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -320,8 +522,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/categories/javascrip/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip</span>
                   </a>
                 </span>
 
@@ -356,7 +558,7 @@
       
         
           
-            <h1 id="谈谈值传递"><a href="#谈谈值传递" class="headerlink" title="谈谈值传递"></a>谈谈值传递</h1><p>ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的.</p>
+            <p>ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的.</p>
 <p>在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同</p>
 <h2 id="数据类型的复制"><a href="#数据类型的复制" class="headerlink" title="数据类型的复制"></a>数据类型的复制</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> num2 = num1;</div><div class="line">    num2 = <span class="number">11</span>;</div><div class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//10</span></div><div class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//11</span></div></pre></td></tr></table></figure>
 <p>基本数据类型从一个复制到另一个，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上，改变其中一个不会影响另一个。</p>
@@ -917,7 +1119,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -928,7 +1130,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -939,7 +1141,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

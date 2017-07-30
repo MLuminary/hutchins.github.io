@@ -93,21 +93,21 @@
 
 
 
-<meta name="description" content="谈谈值传递ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的. 在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同 数据类型的复制基本类型12345var num1 = 10;var num2 = num1;    num2 = 11;console.log(num1);//10consol">
+<meta name="description" content="ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的. 在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同 数据类型的复制基本类型12345var num1 = 10;var num2 = num1;    num2 = 11;console.log(num1);//10console.log">
 <meta name="keywords" content="数组,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="谈谈值传递">
 <meta property="og:url" content="http://github.com/2017/07/25/谈谈值传递/index.html">
 <meta property="og:site_name" content="Hutchins">
-<meta property="og:description" content="谈谈值传递ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的. 在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同 数据类型的复制基本类型12345var num1 = 10;var num2 = num1;    num2 = 11;console.log(num1);//10consol">
+<meta property="og:description" content="ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的. 在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同 数据类型的复制基本类型12345var num1 = 10;var num2 = num1;    num2 = 11;console.log(num1);//10console.log">
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic1.jpg">
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic2.jpg">
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic3.jpg">
 <meta property="og:image" content="http://github.com/2017/07/25/谈谈值传递/pic4.jpg">
-<meta property="og:updated_time" content="2017-07-25T14:59:19.615Z">
+<meta property="og:updated_time" content="2017-07-30T04:39:15.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈值传递">
-<meta name="twitter:description" content="谈谈值传递ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的. 在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同 数据类型的复制基本类型12345var num1 = 10;var num2 = num1;    num2 = 11;console.log(num1);//10consol">
+<meta name="twitter:description" content="ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的. 在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同 数据类型的复制基本类型12345var num1 = 10;var num2 = num1;    num2 = 11;console.log(num1);//10console.log">
 <meta name="twitter:image" content="http://github.com/2017/07/25/谈谈值传递/pic1.jpg">
 
 
@@ -323,8 +323,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/categories/javascrip/" itemprop="url" rel="index">
+                    <span itemprop="name">javascrip</span>
                   </a>
                 </span>
 
@@ -357,7 +357,7 @@
       
 
       
-        <h1 id="谈谈值传递"><a href="#谈谈值传递" class="headerlink" title="谈谈值传递"></a>谈谈值传递</h1><p>ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的.</p>
+        <p>ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的.</p>
 <p>在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同</p>
 <h2 id="数据类型的复制"><a href="#数据类型的复制" class="headerlink" title="数据类型的复制"></a>数据类型的复制</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> num2 = num1;</div><div class="line">    num2 = <span class="number">11</span>;</div><div class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//10</span></div><div class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//11</span></div></pre></td></tr></table></figure>
 <p>基本数据类型从一个复制到另一个，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上，改变其中一个不会影响另一个。</p>
@@ -439,6 +439,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/07/30/php连接MySQL数据库/" rel="prev" title="php连接MySQL数据库">
+                php连接MySQL数据库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -509,7 +513,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -520,7 +524,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -531,7 +535,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -577,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#谈谈值传递"><span class="nav-number">1.</span> <span class="nav-text">谈谈值传递</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型的复制"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型的复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型的值传递"><span class="nav-number">1.2.</span> <span class="nav-text">数据类型的值传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型的复制"><span class="nav-number">1.</span> <span class="nav-text">数据类型的复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">1.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型的值传递"><span class="nav-number">2.</span> <span class="nav-text">数据类型的值传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型-1"><span class="nav-number">2.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型-1"><span class="nav-number">2.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li></ol></div>
             
 
           </div>
