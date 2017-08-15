@@ -107,7 +107,8 @@
 <meta property="og:image" content="http://github.com/2017/08/14/js正则表达式/pic5.png">
 <meta property="og:image" content="http://github.com/2017/08/14/js正则表达式/pic6.png">
 <meta property="og:image" content="http://github.com/2017/08/14/js正则表达式/pic7.png">
-<meta property="og:updated_time" content="2017-08-14T16:02:22.703Z">
+<meta property="og:image" content="http://github.com/2017/08/14/js正则表达式/pic8.png">
+<meta property="og:updated_time" content="2017-08-15T04:50:06.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js正则表达式">
 <meta name="twitter:description" content="正则表达式一直都是自己最薄弱的一块，平时不怎么用，只有用的时候上网上查一查是怎么写的，自己从来没有去学习一下里面的语法，最近学习了一下js正则表达式的语法，觉得如果不让常用的话也还是会忘掉，与其查百度，看别人介绍js正则表达式，不如自己写一篇博客来记录描绘一下正则表达式。  简介 正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是">
@@ -722,6 +723,11 @@
 <p>lastIndex也会跟着变化.</p>
 <h3 id="字符串调用方法"><a href="#字符串调用方法" class="headerlink" title="字符串调用方法"></a>字符串调用方法</h3><p>这个简单的说一下，都是比较常见的，特意强调一下，这些方法都无权修改字符串本身</p>
 <h4 id="replace"><a href="#replace" class="headerlink" title="replace()"></a>replace()</h4><p>对字符串中特定格式的子串进行替换,返回替换后的结果,第一个参数既可以是正则也可以是一个固定的字符串</p>
+<p><img src="/2017/08/14/js正则表达式/pic8.png" alt="pic8"></p>
+<p>第二个参数,可以用函数动态返回要替换的字符串，<code>$kw</code>就是正则匹配的那个字符串.在这里根据匹配的字符串的长度返回不用长度的*</p>
+<p>也可以用前面说过的反向引用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'2015-12-05'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>,<span class="string">'$2/$3/$1'</span>);</div></pre></td></tr></table></figure>
+<p>在这里不多提.</p>
 <h4 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h4><p>返回一个或者多个子串<br>与indexOf()方法类似,但是他返回匹配的值，而不是匹配字符所在的下标</p>
 <h4 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h4><p>返回第一次出现匹配指定正则表达式子串的下标,若没有则返回-1,与indexOf类似，但是indexOf()不支持正则</p>
 <h4 id="sqlit"><a href="#sqlit" class="headerlink" title="sqlit()"></a>sqlit()</h4><p>使用一个指定的字符串或者正则表达式,对原字符串进行拆分，返回拆得的字符串数组</p>
