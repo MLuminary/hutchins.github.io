@@ -1,0 +1,876 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,作用域,闭包," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="执行环境及作用域执行环境 执行定义了变量和函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象当中。我们编写的代码无法访问到这个对象，解析器在处理数据时会在后台使用它 某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁（全局执行环境直到应用程序退出-例如关闭网页或者浏览器时才会被销毁">
+<meta name="keywords" content="js,作用域,闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作用域和闭包">
+<meta property="og:url" content="http://github.com/2017/08/20/作用域和闭包/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="执行环境及作用域执行环境 执行定义了变量和函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象当中。我们编写的代码无法访问到这个对象，解析器在处理数据时会在后台使用它 某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁（全局执行环境直到应用程序退出-例如关闭网页或者浏览器时才会被销毁">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic1.png">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic2.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic3.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic4.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic5.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic6.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic7.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic8.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic9.png">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic10.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic11.jpg">
+<meta property="og:updated_time" content="2017-08-19T18:00:51.308Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="作用域和闭包">
+<meta name="twitter:description" content="执行环境及作用域执行环境 执行定义了变量和函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象当中。我们编写的代码无法访问到这个对象，解析器在处理数据时会在后台使用它 某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁（全局执行环境直到应用程序退出-例如关闭网页或者浏览器时才会被销毁">
+<meta name="twitter:image" content="http://github.com/2017/08/20/作用域和闭包/pic1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://github.com/2017/08/20/作用域和闭包/"/>
+
+
+
+
+
+  <title>作用域和闭包 | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">热爱前端 渴望知识</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/08/20/作用域和闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">作用域和闭包</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-20T01:57:20+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/20/作用域和闭包/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/08/20/作用域和闭包/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h1><h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><blockquote>
+<p>执行定义了变量和函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象当中。我们编写的代码无法访问到这个对象，解析器在处理数据时会在后台使用它</p>
+<p>某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁（全局执行环境直到应用程序退出-例如关闭网页或者浏览器时才会被销毁） </p>
+</blockquote>
+<p>以上引用自《js高级程序设计》(第三版)。</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域（scope）其实就是变量的可用范围，它包括全局作用域对象(window)和函数作用域对象<br><a id="more"></a></p>
+<h3 id="全局作用域对象"><a href="#全局作用域对象" class="headerlink" title="全局作用域对象"></a>全局作用域对象</h3><p>保存全局变量,优点就是可以反复使用,缺点也是它随处可用,容易造成全局污染,所以建议还是少用或者不用全局变量。</p>
+<h3 id="函数作用域对象"><a href="#函数作用域对象" class="headerlink" title="函数作用域对象"></a>函数作用域对象</h3><p>作用域是基于执行环境的变量对象（VO）的，但是对于函数而言是活动对象（AO），因为在函数执行环境中，变量对象是不能直接访问的，此时由活动对象扮演变量对象的角色。</p>
+<p>保存局部变量有两种方法，一种是函数的参数变量，另一种是函数内var出来的变量，在我以前的博文中也提到过，其实函数的参数变量就相当于在函数内部var出来一个变量来接住调用时传过来的值。</p>
+<p>局部变量仅在函数内可用，函数执行结束后也会被销毁，不会污染全局环境吗，缺点就是不可重用。</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>由各级作用域逐级引用，形成的链式结构，保存着所有的变量，并控制着变量的有序访问。</p>
+<h2 id="执行环境和作用域的区别"><a href="#执行环境和作用域的区别" class="headerlink" title="执行环境和作用域的区别"></a>执行环境和作用域的区别</h2><p>执行环境和作用域其实是完全两个不同的概念，在一开始看高程三的时候我还以为是同一个概念，后来随着自己理解的加深，越发觉得不对劲。</p>
+<p>作用域是基于函数的，而执行环境（俗称上下文）是基于对象的</p>
+<p>作用域涉及到所被调用函数中的变量访问，并且不同的调用场景是不一样的。上下文始终是this关键字的值，<br>它是拥有（控制）当前所执行代码的对象的引用。</p>
+<p>就比如在全局环境中</p>
+<p><img src="/2017/08/20/作用域和闭包/pic1.png" alt="pic1"></p>
+<p>this指向window这个对象，那这个window对象其实就是与其执行环境关联的对象,那作用域就是变量在其中有作用的范围（自己里的理解，若有定义错误，还请指正）。</p>
+<h2 id="函数生命周期"><a href="#函数生命周期" class="headerlink" title="函数生命周期"></a>函数生命周期</h2><p>其实看了上面的那一些概念并不能对作用域和执行环境有很深的理解，下面我将用画图的形式将整个函数生命的周期展现出来。</p>
+<p>先写一下示例代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line">  a++;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">&#125;</div><div class="line">func();</div><div class="line"><span class="built_in">console</span>.log(a);</div></pre></td></tr></table></figure>
+<h3 id="开始执行程序前"><a href="#开始执行程序前" class="headerlink" title="开始执行程序前"></a>开始执行程序前</h3><p><img src="/2017/08/20/作用域和闭包/pic2.jpg" alt="pic2"></p>
+<ol>
+<li><p>先创建ECS，ECS其实就是专门保存正在调用的函数的执行环境的数组，也可以说对象，其实关联数组也就相当于对象。</p>
+</li>
+<li><p>然后在ECS中添加浏览器主程序的执行环境main</p>
+</li>
+<li><p>创建全局作用域对象window</p>
+</li>
+<li><p>main执行环境引用window</p>
+</li>
+</ol>
+<h3 id="定义函数时"><a href="#定义函数时" class="headerlink" title="定义函数时"></a>定义函数时</h3><p><img src="/2017/08/20/作用域和闭包/pic3.jpg" alt="pic3"></p>
+<ol>
+<li><p>原始类型的全局变量会直接存入window环境当中，函数是引用类型。首先用函数名声明全局变量</p>
+</li>
+<li><p>然后创建函数对象，封装函数定义</p>
+</li>
+<li><p>函数对象的scope属性，指回函数创建时的作用域，意思是，函数执行时如果函数本身提供的变量不能让函数执行完全，那它便会去回它创建时的那个作用域去寻找变量。</p>
+</li>
+<li><p>函数名后面存入指向函数对象的地址</p>
+</li>
+</ol>
+<p>引用类型在其中只能存储地址，这个在我的一篇博文<a href="http://hutchins.cn/2017/07/25/%E8%B0%88%E8%B0%88%E5%80%BC%E4%BC%A0%E9%80%92/" target="_blank" rel="external">谈谈值传递</a>中有谈到 </p>
+<h3 id="函数调用时"><a href="#函数调用时" class="headerlink" title="函数调用时"></a>函数调用时</h3><p><img src="/2017/08/20/作用域和闭包/pic4.jpg" alt="pic4"></p>
+<ol>
+<li><p>向ECS中压入本次函数调用的执行环境元素</p>
+</li>
+<li><p>创建本次函数调用时使用的函数作用域对象（AO），也就是临时作用域</p>
+</li>
+<li><p>在AO中创建储存所有的局部变量，包括形参变量和函数内用var声明的变量</p>
+</li>
+<li><p>设置AO的parent属性和引用函数的scope属性指向父级作用域对象</p>
+</li>
+<li><p>函数的执行环境引用AO</p>
+</li>
+<li><p>顺着那个箭头，现在AO中找变量，也就是局部变量，如果AO中没有，再顺着箭头去父级作用域中找</p>
+</li>
+</ol>
+<h3 id="函数调用后"><a href="#函数调用后" class="headerlink" title="函数调用后"></a>函数调用后</h3><p><img src="/2017/08/20/作用域和闭包/pic5.jpg" alt="pic5"></p>
+<p>函数的执行环境出栈，AO释放，AO中的局部变量一同被释放掉。</p>
+<p>我们得知整个结果之后，自然而然那两个<code>console</code>的结果也显然意见。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>前面我们提到过，全局变量是可重用但是污染全局，局部变量不会污染全局但是不可重用。</p>
+<p>那闭包就是重用变量又保护变量不被污染的机制。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><h4 id="包裹受保护的变量和操作变量的内层函数的外层函数"><a href="#包裹受保护的变量和操作变量的内层函数的外层函数" class="headerlink" title="包裹受保护的变量和操作变量的内层函数的外层函数"></a>包裹受保护的变量和操作变量的内层函数的外层函数</h4><h4 id="外层函数要返回内层函数的对象"><a href="#外层函数要返回内层函数的对象" class="headerlink" title="外层函数要返回内层函数的对象"></a>外层函数要返回内层函数的对象</h4><ul>
+<li>return function(){..}</li>
+<li>直接给全局变量赋值一个内部function</li>
+<li>将内部函数保存在一个对象的属性或数组元素中 return [function function function]或return {fun:function(){…}}</li>
+</ul>
+<h4 id="调用外层函数，用外部变量接住返回的内层函数对象-形成闭包。"><a href="#调用外层函数，用外部变量接住返回的内层函数对象-形成闭包。" class="headerlink" title="调用外层函数，用外部变量接住返回的内层函数对象,形成闭包。"></a>调用外层函数，用外部变量接住返回的内层函数对象,形成闭包。</h4><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>先贴出示例代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="number">1</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num++);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> getNum = outer();</div><div class="line">getNum();</div><div class="line">getNum();</div><div class="line">num = <span class="number">1</span>;</div><div class="line">getNum();</div></pre></td></tr></table></figure></p>
+<p>下面我把闭包形成的原理用画图工具画出来</p>
+<p><img src="/2017/08/20/作用域和闭包/pic6.jpg" alt="pic6"></p>
+<p>window中存入outer名并指向outer函数对象，getNum因为声明提前也先将变量名存在window中。</p>
+<p><code>getNum = outer()</code>其实包含outer的创建和getNum的赋值。</p>
+<p>上面的图画的是outer函数进行到<code>var num = 1;</code>,前面都有说过，不过多重复。</p>
+<p><img src="/2017/08/20/作用域和闭包/pic7.jpg" alt="pic7"></p>
+<p>创建了匿名函数，getNum指向了匿名函数对象，匿名对象的scope指向它的父级作用域，也就是outer的作用域，那这样就形成了图中的三角关系，此时outer执行完毕，离开ECS执行环境，outer的AO本也应该随着离开，<strong>但是因为这强大的三角关系，强行拉住不让其释放</strong>，也就形成了所谓的闭包。</p>
+<p><strong>那其实闭包的原因就是</strong>:外层函数的作用域对象无法释放</p>
+<p><img src="/2017/08/20/作用域和闭包/pic8.jpg" alt="pic8"></p>
+<p><code>getNum=outer()</code>getNun其实就是一个函数</p>
+<p><img src="/2017/08/20/作用域和闭包/pic9.png" alt="pic9"></p>
+<p>调用<code>getNum()</code>,会生成getNum的临时作用域,图中可看出,getNum其实就是在outer中的匿名函数，所以他的parent就指向outer留下的作用域。当他执行<code>console.log(num++)</code>的时候，在他的作用域中没有<code>num</code>变量他就会顺着作用域链去寻找，最终在outer中的作用域中找到<code>num</code>并对其进行自加操作。<strong>所以当下次调用getNum的时候num会从2开始，不会是一开始的1</strong>。</p>
+<p>num不是全局变量，还实现了num变量的重复调用。就达到了闭包的目的。</p>
+<p><img src="/2017/08/20/作用域和闭包/pic10.jpg" alt="pic10"></p>
+<p>设置<code>num = 1</code>只是在window对象上添加存储num的值，当下次调用getNum的时候js引擎还会从getNum作用域开始顺着作用域链寻找<code>num</code>,在outerAO就会寻找到<code>num</code>,所以根本不会影响到window中的num,也不会受其影响。因此此段代码输出的结果为1 2 3。</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>当然闭包也有其缺点</p>
+<ul>
+<li><p>比普通函数占用更多内存，因为外层函数的作用域对象（AO）始终存在</p>
+</li>
+<li><p>容易造成内存泄漏</p>
+</li>
+</ul>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>将引用内存函数对象的外部变量重置为null</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getNum = <span class="literal">null</span></div></pre></td></tr></table></figure>
+<p><img src="/2017/08/20/作用域和闭包/pic11.jpg" alt="pic11"></p>
+<p>getNum指向outer函数对象的那根线就会断掉，三角关系破裂，那函数对象和outerAO也会相继被销毁。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>先讲这么多了，希望帮到需要帮助的人，本文讲的算是比较详细，细细品味应该还是能获得很多东西的。另外补充一句，懂原理真的很重要!懂原理真的很重要!懂原理真的很重要!</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          
+            <a href="/tags/作用域/" rel="tag"><i class="fa fa-tag"></i> 作用域</a>
+          
+            <a href="/tags/闭包/" rel="tag"><i class="fa fa-tag"></i> 闭包</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/17/js函数基础/" rel="next" title="js函数基础">
+                <i class="fa fa-chevron-left"></i> js函数基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Hutchins" />
+          <p class="site-author-name" itemprop="name">Hutchins</p>
+           
+              <p class="site-description motion-element" itemprop="description">what dosen't kill me makes me stronger</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MLuminary" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#执行环境及作用域"><span class="nav-number">1.</span> <span class="nav-text">执行环境及作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#执行环境"><span class="nav-number">1.1.</span> <span class="nav-text">执行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">1.2.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局作用域对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">全局作用域对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">函数作用域对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">1.3.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行环境和作用域的区别"><span class="nav-number">1.4.</span> <span class="nav-text">执行环境和作用域的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数生命周期"><span class="nav-number">1.5.</span> <span class="nav-text">函数生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始执行程序前"><span class="nav-number">1.5.1.</span> <span class="nav-text">开始执行程序前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义函数时"><span class="nav-number">1.5.2.</span> <span class="nav-text">定义函数时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数调用时"><span class="nav-number">1.5.3.</span> <span class="nav-text">函数调用时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数调用后"><span class="nav-number">1.5.4.</span> <span class="nav-text">函数调用后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.6.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.6.1.</span> <span class="nav-text">特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#包裹受保护的变量和操作变量的内层函数的外层函数"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">包裹受保护的变量和操作变量的内层函数的外层函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外层函数要返回内层函数的对象"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">外层函数要返回内层函数的对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用外层函数，用外部变量接住返回的内层函数对象-形成闭包。"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">调用外层函数，用外部变量接住返回的内层函数对象,形成闭包。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">1.6.2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.6.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">1.6.4.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.7.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt8DrywQ';
+      var conf = '203b6c81deb7b9c692912e13fa0fbefc';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
