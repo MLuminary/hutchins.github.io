@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Hutchins">
 <meta property="og:description" content="函数的定义what函数其实就是一个封装一段代码段的对象，那函数名其实仅是用来引用函数对象的一个普通变量 why写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。 when一段代码，可能被反复使用，都可以定义为函数，然后调用函数来使用这段代码。 函数的创建function声明1function 函数名(参数列表)&amp;#123;">
 <meta property="og:image" content="http://github.com/2017/08/17/js函数基础/pic1.png">
-<meta property="og:updated_time" content="2017-08-17T15:56:01.002Z">
+<meta property="og:updated_time" content="2017-08-23T10:58:32.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js函数基础">
 <meta name="twitter:description" content="函数的定义what函数其实就是一个封装一段代码段的对象，那函数名其实仅是用来引用函数对象的一个普通变量 why写代码的时候我们避免不了要重复用一些代码，一直重复写很耗时，而且不美观也不利于维护，因此函数的出现就是来让代码重用，便于维护。 when一段代码，可能被反复使用，都可以定义为函数，然后调用函数来使用这段代码。 函数的创建function声明1function 函数名(参数列表)&amp;#123;">
@@ -384,7 +384,8 @@
 <h3 id="隐式参数"><a href="#隐式参数" class="headerlink" title="隐式参数"></a>隐式参数</h3><p>每个JavaScript函数内部都有一个对象<code>arguments</code>对象,其实是一个类数组的对象,它会自动接受所有传入函数的参数值。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">         </span>)</span>&#123;</div><div class="line">  <span class="comment">//arguments[          ]</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>值得一说的是,<code>arguments</code>有下标有长度，可以通过下标来获得传入的参数，比如<code>arguments[0]</code>就是第一个参数,length就可以遍历这个类数组对象，但是，毕竟他不是数组，所以不能进行一些数组特有的操作，比如<code>sort</code></p>
-<h2 id="声明提前"><a href="#声明提前" class="headerlink" title="声明提前"></a>声明提前</h2><p>在开始执行程序前,js引擎会首先查找var声明的变量和function声明的函数，将其提前到当前作用域的顶部集中创建，而将赋值操作保留在原地</p>
+<h2 id="声明提前"><a href="#声明提前" class="headerlink" title="声明提前"></a>声明提前</h2><p>在开始执行程序前,js引擎会首先查找var声明的变量和function声明的函数，将其提前到当前作用域的顶部集中创建，而将赋值操作保留在原地,这里特别说一下,未用var声明的变量不会声明提前.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//a is not defined</span></div><div class="line">a = <span class="number">10</span>;</div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//10</span></div></pre></td></tr></table></figure>
 <p>如果没有<code>var a = 10</code>,那第一个<code>console.log(a)</code>应该报报错。</p>
 <p><img src="/2017/08/17/js函数基础/pic1.png" alt="pic1"></p>
@@ -556,7 +557,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -578,7 +579,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

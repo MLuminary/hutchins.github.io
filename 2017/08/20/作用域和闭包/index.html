@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic9.png">
 <meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic10.jpg">
 <meta property="og:image" content="http://github.com/2017/08/20/作用域和闭包/pic11.jpg">
-<meta property="og:updated_time" content="2017-08-19T18:00:51.308Z">
+<meta property="og:updated_time" content="2017-08-23T11:07:48.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作用域和闭包">
 <meta name="twitter:description" content="执行环境及作用域执行环境 执行定义了变量和函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象当中。我们编写的代码无法访问到这个对象，解析器在处理数据时会在后台使用它 某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁（全局执行环境直到应用程序退出-例如关闭网页或者浏览器时才会被销毁">
@@ -380,7 +380,11 @@
 <p>某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁（全局执行环境直到应用程序退出-例如关闭网页或者浏览器时才会被销毁） </p>
 </blockquote>
 <p>以上引用自《js高级程序设计》(第三版)。</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域（scope）其实就是变量的可用范围，它包括全局作用域对象(window)和函数作用域对象<br><a id="more"></a></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域（scope）其实就是变量的可用范围，它包括全局作用域对象(window)和函数作用域对象</p>
+<p>在这里简单的提一下词法作用域，JavaScript是典型的词法作用域语言，它所关注的是函数在何处被定义。</p>
+<p>举个栗子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">3</span>;</div><div class="line">  func();</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line">func2();<span class="comment">//输出2</span></div></pre></td></tr></table></figure>
+<p>func是在全局作用域定义的，所以他找a的时候，会在全局作用域中去找。<br><a id="more"></a></p>
 <h3 id="全局作用域对象"><a href="#全局作用域对象" class="headerlink" title="全局作用域对象"></a>全局作用域对象</h3><p>保存全局变量,优点就是可以反复使用,缺点也是它随处可用,容易造成全局污染,所以建议还是少用或者不用全局变量。</p>
 <h3 id="函数作用域对象"><a href="#函数作用域对象" class="headerlink" title="函数作用域对象"></a>函数作用域对象</h3><p>作用域是基于执行环境的变量对象（VO）的，但是对于函数而言是活动对象（AO），因为在函数执行环境中，变量对象是不能直接访问的，此时由活动对象扮演变量对象的角色。</p>
 <p>保存局部变量有两种方法，一种是函数的参数变量，另一种是函数内var出来的变量，在我以前的博文中也提到过，其实函数的参数变量就相当于在函数内部var出来一个变量来接住调用时传过来的值。</p>
@@ -453,7 +457,7 @@
 <p>创建了匿名函数，getNum指向了匿名函数对象，匿名对象的scope指向它的父级作用域，也就是outer的作用域，那这样就形成了图中的三角关系，此时outer执行完毕，离开ECS执行环境，outer的AO本也应该随着离开，<strong>但是因为这强大的三角关系，强行拉住不让其释放</strong>，也就形成了所谓的闭包。</p>
 <p><strong>那其实闭包的原因就是</strong>:外层函数的作用域对象无法释放</p>
 <p><img src="/2017/08/20/作用域和闭包/pic8.jpg" alt="pic8"></p>
-<p><code>getNum=outer()</code>getNun其实就是一个函数</p>
+<p><code>getNum=outer()</code>getNum其实就是一个函数</p>
 <p><img src="/2017/08/20/作用域和闭包/pic9.png" alt="pic9"></p>
 <p>调用<code>getNum()</code>,会生成getNum的临时作用域,图中可看出,getNum其实就是在outer中的匿名函数，所以他的parent就指向outer留下的作用域。当他执行<code>console.log(num++)</code>的时候，在他的作用域中没有<code>num</code>变量他就会顺着作用域链去寻找，最终在outer中的作用域中找到<code>num</code>并对其进行自加操作。<strong>所以当下次调用getNum的时候num会从2开始，不会是一开始的1</strong>。</p>
 <p>num不是全局变量，还实现了num变量的重复调用。就达到了闭包的目的。</p>
@@ -526,6 +530,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/23/面向对象基础/" rel="prev" title="面向对象基础">
+                面向对象基础 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -602,7 +610,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -624,7 +632,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
