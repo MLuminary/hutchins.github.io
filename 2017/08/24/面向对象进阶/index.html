@@ -1,0 +1,797 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,面向对象," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="引言上一篇我们了解到了面向对象的一些基础知识，这篇就来说一下用面向对象知识解决一些问题，加深对面向对象的理解。 判断一个对象是不是数组类型typeof少部分人可能首先会想到typeof 1234567891011121314var n=3,b=true,s=&quot;Hello&quot;,x=null,y,		obj1=function()&amp;#123;&amp;#125;,		obj2=&amp;#123;&amp;#125;,obj3">
+<meta name="keywords" content="js,面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象进阶">
+<meta property="og:url" content="http://github.com/2017/08/24/面向对象进阶/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="引言上一篇我们了解到了面向对象的一些基础知识，这篇就来说一下用面向对象知识解决一些问题，加深对面向对象的理解。 判断一个对象是不是数组类型typeof少部分人可能首先会想到typeof 1234567891011121314var n=3,b=true,s=&quot;Hello&quot;,x=null,y,		obj1=function()&amp;#123;&amp;#125;,		obj2=&amp;#123;&amp;#125;,obj3">
+<meta property="og:image" content="http://github.com/2017/08/24/面向对象进阶/pic1.png">
+<meta property="og:image" content="http://github.com/2017/08/24/面向对象进阶/pic2.png">
+<meta property="og:updated_time" content="2017-08-24T14:46:56.498Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象进阶">
+<meta name="twitter:description" content="引言上一篇我们了解到了面向对象的一些基础知识，这篇就来说一下用面向对象知识解决一些问题，加深对面向对象的理解。 判断一个对象是不是数组类型typeof少部分人可能首先会想到typeof 1234567891011121314var n=3,b=true,s=&quot;Hello&quot;,x=null,y,		obj1=function()&amp;#123;&amp;#125;,		obj2=&amp;#123;&amp;#125;,obj3">
+<meta name="twitter:image" content="http://github.com/2017/08/24/面向对象进阶/pic1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://github.com/2017/08/24/面向对象进阶/"/>
+
+
+
+
+
+  <title>面向对象进阶 | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">热爱前端 渴望知识</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/08/24/面向对象进阶/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面向对象进阶</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T22:45:37+08:00">
+                2017-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/24/面向对象进阶/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/08/24/面向对象进阶/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>上一篇我们了解到了面向对象的一些基础知识，这篇就来说一下用面向对象知识解决一些问题，加深对面向对象的理解。</p>
+<h2 id="判断一个对象是不是数组类型"><a href="#判断一个对象是不是数组类型" class="headerlink" title="判断一个对象是不是数组类型"></a>判断一个对象是不是数组类型</h2><h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>少部分人可能首先会想到<code>typeof</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n=<span class="number">3</span>,b=<span class="literal">true</span>,s=<span class="string">"Hello"</span>,x=<span class="literal">null</span>,y,</div><div class="line">		obj1=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">		obj2=&#123;&#125;,obj3=[],obj4=<span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">		<span class="built_in">console</span>.log(</div><div class="line">			<span class="keyword">typeof</span> n,<span class="comment">//number</span></div><div class="line">			<span class="keyword">typeof</span> b,<span class="comment">//boolean</span></div><div class="line">			<span class="keyword">typeof</span> s,<span class="comment">//string</span></div><div class="line">			<span class="keyword">typeof</span> x,<span class="comment">//object</span></div><div class="line">			<span class="keyword">typeof</span> y,<span class="comment">//undefined</span></div><div class="line">			<span class="keyword">typeof</span> obj1,<span class="comment">//function</span></div><div class="line">			<span class="keyword">typeof</span> obj2,<span class="comment">//object</span></div><div class="line">			<span class="keyword">typeof</span> obj3,<span class="comment">//object</span></div><div class="line">			<span class="keyword">typeof</span> obj4,<span class="comment">//object</span></div><div class="line">		);</div></pre></td></tr></table></figure>
+<p>可以看出<code>typeof</code>是可以判断出基本数据类型的，函数也能判断出来，但是对象、数组、日期都会返回object,这样就根本无法判断一个对象是不是数组类型。所以<code>typeof</code>第一个就应该被pass掉</p>
+<h3 id="判断其父级原型对象"><a href="#判断其父级原型对象" class="headerlink" title="判断其父级原型对象"></a>判断其父级原型对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1=&#123;&#125;,</div><div class="line">    obj2=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</div><div class="line">    obj3=<span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj1.__proto__ == <span class="built_in">Array</span>.prototype);<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(obj2.__proto__ == <span class="built_in">Array</span>.prototype);<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(obj3.__proto__ == <span class="built_in">Array</span>.prototype);<span class="comment">//false</span></div></pre></td></tr></table></figure>
+<p>但是<code>__proto__</code>是内部属性，本不应该被访问到，我们可以用<code>Object.getPrototypeOf(obj)</code>方法来代替他，虽然这个方法其实内部原理也是他，但是还是有不同的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(obj1)==<span class="built_in">Array</span>.prototype);<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(obj2)==<span class="built_in">Array</span>.prototype);<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(obj3)==<span class="built_in">Array</span>.prototype);<span class="comment">//false</span></div></pre></td></tr></table></figure>
+<h3 id="判断其构造函数"><a href="#判断其构造函数" class="headerlink" title="判断其构造函数"></a>判断其构造函数</h3><p><code>obj instanceof Array</code>判断obj是不是被构造函数Array创造出来的,但<code>instanceof</code>不仅判断直接父类型，而是所有在原型链上的类型，都返回true,所以如果你创建一个对象但是把他的<code>__proto__</code>指向Array的原型，然后判断其类型，也会返回true。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(obj1 <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</div><div class="line"><span class="built_in">console</span>.log(obj2 <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(obj3 <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</div></pre></td></tr></table></figure>
+<h3 id="判断对象内部的class属性"><a href="#判断对象内部的class属性" class="headerlink" title="判断对象内部的class属性"></a>判断对象内部的class属性</h3><p>每个对象内部，都有一个隐藏的class属性，记录该对象创建时的数据类型class属性不会随继承关系的改变而改变。（就相当于查人的DNA了吧，小样还想伪装。）</p>
+<p>这里有一个问题：只有最顶层的<code>toString()</code>才能输出对象的class属性值,但是内置类型的原型对象中几乎都重写了新的<code>toString()</code>。</p>
+<p>我们可以用<code>call</code>来强行调用,<code>call</code>可以让一个对象调用一个本来无法调用到的函数,在这里不细说。</p>
+<p><code>要调用的函数.call(对象)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(</div><div class="line">	<span class="built_in">Object</span>.prototype.toString.call(obj1)</div><div class="line">	<span class="comment">/*[object Object]*/</span>==<span class="string">"[object Array]"</span></div><div class="line">);<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">	<span class="built_in">Object</span>.prototype.toString.call(obj2)</div><div class="line">	<span class="comment">/*[object Array]*/</span>==<span class="string">"[object Array]"</span></div><div class="line">);<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">	<span class="built_in">Object</span>.prototype.toString.call(obj3)</div><div class="line">	<span class="comment">/*[object Date]*/</span>==<span class="string">"[object Array]"</span></div><div class="line">);<span class="comment">//false</span></div></pre></td></tr></table></figure>
+<h2 id="自定义继承"><a href="#自定义继承" class="headerlink" title="自定义继承"></a>自定义继承</h2><h3 id="仅修改两个对象间的继承关系"><a href="#仅修改两个对象间的继承关系" class="headerlink" title="仅修改两个对象间的继承关系"></a>仅修改两个对象间的继承关系</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获得子对象的父对象</span></div><div class="line"><span class="keyword">var</span> father = <span class="built_in">Object</span>.getPrototypeOf(child);</div><div class="line"><span class="comment">//设置子对象继承指定父对象</span></div><div class="line"><span class="built_in">Object</span>.setPrototypeOf(child,father)</div></pre></td></tr></table></figure>
+<h3 id="修改构造函数原型对象"><a href="#修改构造函数原型对象" class="headerlink" title="修改构造函数原型对象"></a>修改构造函数原型对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//father为另一个原型对象</span></div><div class="line">构造函数.prototype = father;</div></pre></td></tr></table></figure>
+<p>必须紧跟在构造函数定义之后，开始创建子对象之前修改，如果创建了子对象才去修改，那先前的那些子对象还是指向以前的原型对象。</p>
+<h3 id="两种类型间的继承"><a href="#两种类型间的继承" class="headerlink" title="两种类型间的继承"></a>两种类型间的继承</h3><p>如果发现多个类型拥有部分相同的属性结构和方法定义，可以抽象一个共同的父类型</p>
+<p>比如雷电中的战机和蜜蜂，战机和蜜蜂都有名字和速度，都会飞行。不同的是战机被击毁会得分数，蜜蜂被击毁会得到一些道具。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//战机</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Plane</span>(<span class="params">fname,speed,score</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.fname = sname;</div><div class="line">	<span class="keyword">this</span>.speed = speed;</div><div class="line">	<span class="keyword">this</span>.scpre = score;</div><div class="line">&#125;</div><div class="line">Plane.prototype.fly()&#123;....&#125;</div><div class="line">Plane.prototype.getScore()&#123;....&#125;</div><div class="line"><span class="comment">//蜜蜂</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bee</span>(<span class="params">fname,speed,award</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.fname = sname;</div><div class="line">	<span class="keyword">this</span>.speed = speed;</div><div class="line">	<span class="keyword">this</span>.award = award;</div><div class="line">&#125;</div><div class="line">Bee.prototype.fly()&#123;...&#125;</div><div class="line">Bee.prototype.getAward()&#123;...&#125;</div></pre></td></tr></table></figure>
+<p>可以看到，有很多的重复代码，此时我们可以抽象一个父类，把一些共用的方法和属性放到父类上，减少不必要的代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建飞行器的构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Flyer</span>(<span class="params">fname,speed</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.fname = fname;</div><div class="line">	<span class="keyword">this</span>.speed = speed;</div><div class="line">&#125;</div><div class="line"><span class="comment">//定义通用的飞行的方法</span></div><div class="line">Flyer.prototype.fly()&#123;....&#125;</div><div class="line"><span class="comment">//战机</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Plane</span>(<span class="params">fname,speed,score</span>)</span>&#123;</div><div class="line">	Flyer.call(<span class="keyword">this</span>,fname,speed);<span class="comment">//D(等下解释)</span></div><div class="line">	<span class="keyword">this</span>.scpre = score;</div><div class="line">&#125;</div><div class="line">Plane.prototype.getScore()&#123;....&#125;</div><div class="line"><span class="comment">//蜜蜂</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bee</span>(<span class="params">fname,speed,award</span>)</span>&#123;</div><div class="line">	Flyer.call(<span class="keyword">this</span>,fname,speed);</div><div class="line">	<span class="keyword">this</span>.award = award;</div><div class="line">&#125;</div><div class="line">Bee.prototype.getAward()&#123;...&#125;</div><div class="line"><span class="comment">//各自创建一个对象</span></div><div class="line"><span class="keyword">var</span> bee = <span class="keyword">new</span> Bee(<span class="string">"小蜜蜂"</span>,<span class="number">50</span>,<span class="string">"1 life"</span>);</div><div class="line"><span class="keyword">var</span> f16 = <span class="keyword">new</span> Plane(<span class="string">"F16"</span>,<span class="number">1000</span>,<span class="number">10</span>);</div><div class="line"><span class="comment">//将原型指向共同的父原型对象</span></div><div class="line"><span class="built_in">Object</span>.setPrototypeOf(Plane.prototype,Flyer.prototype)</div><div class="line"><span class="built_in">Object</span>.setPrototypeOf(Bee.prototype,Flyer.prototype)</div></pre></td></tr></table></figure>
+<p>D标记处不能用直接用<code>Flyer(fname,speed)</code>,假如我就是这样写。在控制台打印<code>f16.fname</code>是获取不到你定义时的值的。</p>
+<p><img src="/2017/08/24/面向对象进阶/pic1.png" alt="pic1"></p>
+<p>而调用<code>window.fname</code>的时候却出现了我们想定义在f16上的值。为什么呢，首先<code>Plane</code>方法中的<code>this</code>是没毛病的。原因在于我们只传入<code>Flyer</code>中两个值，而<code>Flyer</code>中添加这两个值的时候用的是自己的<code>this</code>,而<code>Flyer</code>中的<code>this</code>是默认指向全局对象的，所以最终添加在<code>window</code>上。用<code>call</code>将其<code>this</code>暂时性替换成指向用new创建出的对象的<code>this</code>,来达到调用父类方法，添加到子对象上属性值的效果。</p>
+<p>最终整个代码形成的原型链用图画出来就像下面这样</p>
+<p><img src="/2017/08/24/面向对象进阶/pic2.png" alt="pic2"></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>面向对象还涉及到很多东西，ES5，ES6也新加了一些东西，后面也准备将知识梳理梳理整理出来，今天实在困。就先溜了</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          
+            <a href="/tags/面向对象/" rel="tag"><i class="fa fa-tag"></i> 面向对象</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/23/面向对象基础/" rel="next" title="面向对象基础">
+                <i class="fa fa-chevron-left"></i> 面向对象基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Hutchins" />
+          <p class="site-author-name" itemprop="name">Hutchins</p>
+           
+              <p class="site-description motion-element" itemprop="description">what dosen't kill me makes me stronger</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MLuminary" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断一个对象是不是数组类型"><span class="nav-number">2.</span> <span class="nav-text">判断一个对象是不是数组类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof"><span class="nav-number">2.1.</span> <span class="nav-text">typeof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断其父级原型对象"><span class="nav-number">2.2.</span> <span class="nav-text">判断其父级原型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断其构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">判断其构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断对象内部的class属性"><span class="nav-number">2.4.</span> <span class="nav-text">判断对象内部的class属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义继承"><span class="nav-number">3.</span> <span class="nav-text">自定义继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#仅修改两个对象间的继承关系"><span class="nav-number">3.1.</span> <span class="nav-text">仅修改两个对象间的继承关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改构造函数原型对象"><span class="nav-number">3.2.</span> <span class="nav-text">修改构造函数原型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种类型间的继承"><span class="nav-number">3.3.</span> <span class="nav-text">两种类型间的继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt8DrywQ';
+      var conf = '203b6c81deb7b9c692912e13fa0fbefc';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

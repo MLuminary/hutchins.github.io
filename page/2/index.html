@@ -266,6 +266,160 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/25/谈谈值传递/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/25/谈谈值传递/" itemprop="url">谈谈值传递</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T22:32:03+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/07/25/谈谈值传递/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://github.com/2017/07/25/谈谈值传递/" class="cy_cmt_count" data-xid="2017/07/25/谈谈值传递/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>ECMAScript变量可能包含两种不同的数据类型：基本数据类型和引用数据类型，这两种类型的值传递是存在不同的.</p>
+<p>在我们谈这两种数据类型的值传递前，为了便于理解，我想首先谈一下这两种数据类型有关复制操作存在的不同</p>
+<h2 id="数据类型的复制"><a href="#数据类型的复制" class="headerlink" title="数据类型的复制"></a>数据类型的复制</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> num2 = num1;</div><div class="line">    num2 = <span class="number">11</span>;</div><div class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//10</span></div><div class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//11</span></div></pre></td></tr></table></figure>
+<p>基本数据类型从一个复制到另一个，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上，改变其中一个不会影响另一个。</p>
+<p>本小白用拙劣的画功演示一下</p>
+<p><img src="/2017/07/25/谈谈值传递/pic1.jpg" alt="pic1"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/25/谈谈值传递/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/18/关于css实现div居中问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -614,7 +768,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
