@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="php,数据库," />
+  <meta name="keywords" content="js,小游戏," />
 
 
 
@@ -93,17 +93,21 @@
 
 
 
-<meta name="description" content="PHP连接MySQL数据库的准备PHP为连接MySQL数据库提供了多套扩展函数库，使用其中的任何一套库，都必须保证如下两点  函数库的定义文件在php根目录的的ext目录下  在php的主配置文件(php.ini)中声明启用该函数库  会有extension=php_mysql.dll和extension=php_mysqli.dll的字样   使用PHP连接数据库我目前所知道的有两种函数库,my">
-<meta name="keywords" content="php,数据库">
+<meta name="description" content="引言前阵子无聊,LOL也不是很想玩,发现了电脑中自带的扫雷,当时在一个神奇的地方，用的是一个windows2000的系统界面但是扫雷确是win7的样式,玩了几句几局，其中有一局很崩溃，我先上图为敬。  这种情况,就是考验运气的时候了，但是果不其然。。。">
+<meta name="keywords" content="js,小游戏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php连接MySQL数据库">
-<meta property="og:url" content="http://github.com/2017/07/30/php连接MySQL数据库/index.html">
+<meta property="og:title" content="简易扫雷小游戏">
+<meta property="og:url" content="http://github.com/2017/09/07/简易扫雷小游戏/index.html">
 <meta property="og:site_name" content="Hutchins">
-<meta property="og:description" content="PHP连接MySQL数据库的准备PHP为连接MySQL数据库提供了多套扩展函数库，使用其中的任何一套库，都必须保证如下两点  函数库的定义文件在php根目录的的ext目录下  在php的主配置文件(php.ini)中声明启用该函数库  会有extension=php_mysql.dll和extension=php_mysqli.dll的字样   使用PHP连接数据库我目前所知道的有两种函数库,my">
-<meta property="og:updated_time" content="2017-07-30T05:01:52.923Z">
+<meta property="og:description" content="引言前阵子无聊,LOL也不是很想玩,发现了电脑中自带的扫雷,当时在一个神奇的地方，用的是一个windows2000的系统界面但是扫雷确是win7的样式,玩了几句几局，其中有一局很崩溃，我先上图为敬。  这种情况,就是考验运气的时候了，但是果不其然。。。">
+<meta property="og:image" content="http://github.com/2017/09/07/简易扫雷小游戏/pic1.jpg">
+<meta property="og:image" content="http://github.com/2017/09/07/简易扫雷小游戏/pic2.jpg">
+<meta property="og:image" content="http://github.com/2017/09/07/简易扫雷小游戏/pic3.png">
+<meta property="og:updated_time" content="2017-09-06T16:39:42.549Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php连接MySQL数据库">
-<meta name="twitter:description" content="PHP连接MySQL数据库的准备PHP为连接MySQL数据库提供了多套扩展函数库，使用其中的任何一套库，都必须保证如下两点  函数库的定义文件在php根目录的的ext目录下  在php的主配置文件(php.ini)中声明启用该函数库  会有extension=php_mysql.dll和extension=php_mysqli.dll的字样   使用PHP连接数据库我目前所知道的有两种函数库,my">
+<meta name="twitter:title" content="简易扫雷小游戏">
+<meta name="twitter:description" content="引言前阵子无聊,LOL也不是很想玩,发现了电脑中自带的扫雷,当时在一个神奇的地方，用的是一个windows2000的系统界面但是扫雷确是win7的样式,玩了几句几局，其中有一局很崩溃，我先上图为敬。  这种情况,就是考验运气的时候了，但是果不其然。。。">
+<meta name="twitter:image" content="http://github.com/2017/09/07/简易扫雷小游戏/pic1.jpg">
 
 
 
@@ -131,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/2017/07/30/php连接MySQL数据库/"/>
+  <link rel="canonical" href="http://github.com/2017/09/07/简易扫雷小游戏/"/>
 
 
 
 
 
-  <title>php连接MySQL数据库 | Hutchins</title>
+  <title>简易扫雷小游戏 | Hutchins</title>
   
 
 
@@ -266,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/30/php连接MySQL数据库/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/09/07/简易扫雷小游戏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
@@ -283,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">php连接MySQL数据库</h1>
+          <h1 class="post-title" itemprop="name headline">简易扫雷小游戏</h1>
         
 
         <div class="post-meta">
@@ -295,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T12:35:55+08:00">
-                2017-07-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T00:34:12+08:00">
+                2017-09-07
               </time>
             
 
@@ -318,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -337,8 +341,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/07/30/php连接MySQL数据库/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/07/30/php连接MySQL数据库/" itemprop="commentsCount"></span>
+                <a href="/2017/09/07/简易扫雷小游戏/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/07/简易扫雷小游戏/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -363,77 +367,35 @@
       
 
       
-        <h2 id="PHP连接MySQL数据库的准备"><a href="#PHP连接MySQL数据库的准备" class="headerlink" title="PHP连接MySQL数据库的准备"></a>PHP连接MySQL数据库的准备</h2><p>PHP为连接MySQL数据库提供了多套扩展函数库，使用其中的任何一套库，都必须保证如下两点</p>
-<ol>
-<li><p>函数库的定义文件在php根目录的的ext目录下</p>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>前阵子无聊,LOL也不是很想玩,发现了电脑中自带的扫雷,当时在一个神奇的地方，用的是一个windows2000的系统界面但是扫雷确是win7的样式,玩了几句几局，其中有一局很崩溃，我先上图为敬。</p>
+<p><img src="/2017/09/07/简易扫雷小游戏/pic1.jpg" alt="pic1"></p>
+<p>这种情况,就是考验运气的时候了，但是果不其然。。。<br><a id="more"></a><br><img src="/2017/09/07/简易扫雷小游戏/pic2.jpg" alt="pic2"></p>
+<p>我成功选择了有炸弹的那一个，从这里面我明白了一个道理，那就是：<strong>成功需要99%的努力再加上1%的运气</strong>。。。。。。</p>
+<h2 id="原理-思路"><a href="#原理-思路" class="headerlink" title="原理(思路)"></a>原理(思路)</h2><h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p>玩了几句搞清了游戏规则,就想自己动手做一个,因为以前做过2048,所以首先想到的就是用二维数组布局</p>
+<p>添加三个难度的按钮</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"type"</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">data-width</span>=<span class="string">"9"</span> <span class="attr">data-height</span>=<span class="string">"9"</span> <span class="attr">data-mine</span>=<span class="string">"10"</span>&gt;</span>简单<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"type"</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">data-width</span>=<span class="string">"16"</span> <span class="attr">data-height</span>=<span class="string">"16"</span> <span class="attr">data-mine</span>=<span class="string">"40"</span>&gt;</span>中级<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"type"</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">data-width</span>=<span class="string">"30"</span> <span class="attr">data-height</span>=<span class="string">"16"</span> <span class="attr">data-mine</span>=<span class="string">"99"</span>&gt;</span>高级<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>点击相应按钮通过js获取对应的data属性,然后动态的生成相应的方格,然后动态计算包裹所有小方格的宽度和高度,为了以后方便操作每一个小方格,给每一个小方格按行列添加独有的id。</p>
+<h3 id="绑定事件"><a href="#绑定事件" class="headerlink" title="绑定事件"></a>绑定事件</h3><p>因为扫雷是对每个格子进行操作，因此我把每个格子都看成一个独立的个体，这个个体具有属性和方法，就相当于一个小对象。定义了两个数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代表盒子身份的数组</span></div><div class="line"><span class="keyword">var</span> boxArr = [];</div><div class="line"><span class="comment">//用于存储周围八个格子中雷的个数</span></div><div class="line"><span class="keyword">var</span> MineArr = [];</div></pre></td></tr></table></figure>
+<p>通过这两个数组,我可以知道每个格子是否是炸弹,还有每个格子周围对应八个格子中有多少个炸弹，这属于格子对象的属性。</p>
+<p>格子对象还有几种点击的方法，这里太过简单的就不解释了，有的时候格子的<code>MineArr</code>里面存的可能是0,这就代表他周围8个不存在炸弹,像这种的话就直接将其周围的八个格子直接自动点开就好了,下面这幅图，我只点了一下,就是点到了<code>MineArr[i][j]==0</code>的格子,然后让他周围八个直接显示<code>MineArr</code>中的数值,如果周围八个格子还有<code>MineArr[i][j]==0</code>的情况，就继续打开去显示。<br><img src="/2017/09/07/简易扫雷小游戏/pic3.png" alt="pic3"></p>
+<p>扫雷中还有一个一定要有的方法就是左右键一起按一个点开的格子，会自动判断周围格子中你标记雷的个数和你点击的这个格子的数值。如果你标记雷的个数等于左右键点击的格子中的数值，他会自动帮你点开剩下的还没点击过的格子，这些格子中可能有雷也可能没雷，这要看你自己标记的雷是不是对的。</p>
+<p>这个也蛮好实现,右键按下的时候将周围没点击过也没被标记过雷的方格添加带有别的颜色的<code>class</code>，然后记录周围八个方格标记的雷的个数，然后在右键松开的时候移除此<code>class</code>,并判断刚记录的标记的雷的个数和当前点击的格子的数值是否相等，然后去做下一步处理。</p>
+<h3 id="成功失败判断"><a href="#成功失败判断" class="headerlink" title="成功失败判断"></a>成功失败判断</h3><p>失败很好判断，点中了<code>boxArr</code>为1的格子就判失败，就是点中了雷。</p>
+<p>成功的话我是通过点击出来的格子的数量来判断的，成功显现的格子只要等于总格子减去雷的格子就判断为游戏胜利</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然是一个比较简单的游戏，但是自己在做的时候还是碰到过不少的bug,也学到了蛮多的,这里列一下。</p>
+<h3 id="清空问题"><a href="#清空问题" class="headerlink" title="清空问题"></a>清空问题</h3><ul>
+<li><p>每次创建新的格子都要清空上次创建的所有格子</p>
 </li>
-<li><p>在php的主配置文件(php.ini)中声明启用该函数库</p>
-<p> 会有<code>extension=php_mysql.dll</code>和<code>extension=php_mysqli.dll</code>的字样</p>
+<li><p>我是采用冒泡的方式给盒子添加的点击事件，是添加在<code>container</code>上的，然后<code>container</code>是不消失的，所以每次创建新格子前还要将<code>container</code>上的事件解绑</p>
 </li>
-</ol>
-<h2 id="使用PHP连接数据库"><a href="#使用PHP连接数据库" class="headerlink" title="使用PHP连接数据库"></a>使用PHP连接数据库</h2><p>我目前所知道的有两种函数库,mysql.dll和mysqli.dll.</p>
-<h3 id="mysql-dll"><a href="#mysql-dll" class="headerlink" title="mysql.dll"></a>mysql.dll</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_connect(servername,username,password);</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>servername</td>
-<td>可选，服务器名或ip地址，默认为”localhost:3306”，最好手动              写为”127.0.0.1:3306”</td>
-</tr>
-<tr>
-<td>username</td>
-<td>可选，登录的用户名，默认值是拥有服务器进程的用户的名称</td>
-</tr>
-<tr>
-<td>password</td>
-<td>可选，登录密码,默认为””</td>
-</tr>
-</tbody>
-</table>
-<h4 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$conn = mysql_connect(<span class="string">"127.0.0.1:3306"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);<span class="comment">//连接数据库</span></div><div class="line">mysql_select_db(<span class="string">"myDatabase"</span>);<span class="comment">//选择一个数据库</span></div><div class="line"></div><div class="line">$sql = <span class="string">"set names utf8"</span>;</div><div class="line">mysql_query($sql,$conn);<span class="comment">//先设置编码，避免出现中文乱码</span></div><div class="line"></div><div class="line">$sql = <span class="string">"select * from myDatabase"</span>;<span class="comment">//写一个sql语句</span></div><div class="line">$result = mysql_query($sql,$conn);<span class="comment">//执行sql语句</span></div><div class="line"></div><div class="line"><span class="comment">//处理结果</span></div><div class="line">$row = mysql_fetch_array($result);<span class="comment">//只能获取一行数据</span></div><div class="line"><span class="keyword">while</span>($row = mysql_fetch_array($result))&#123;<span class="comment">//可以获取全部行数据</span></div><div class="line">  var_dump($row);<span class="comment">//输出查看</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//提前关闭连接(可选)</span></div><div class="line">mysql_close($conn);</div></pre></td></tr></table></figure>
-<h3 id="mysqli-dll"><a href="#mysqli-dll" class="headerlink" title="mysqli.dll"></a>mysqli.dll</h3><p>PHP MySQLI = PHP MySQL Improved </p>
-<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$conn = mysqli_connect(servername,username,password,database,port,socket);</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>servername</td>
-<td>可选,服务器名或ip地址,推荐用”127.0.0.1”</td>
-</tr>
-<tr>
-<td>username</td>
-<td>可选,登录的用户名</td>
-</tr>
-<tr>
-<td>password</td>
-<td>可选,登录的密码</td>
-</tr>
-<tr>
-<td>database</td>
-<td>可选,要进入的数据库名称</td>
-</tr>
-<tr>
-<td>port</td>
-<td>可选,端口号,默认为3306</td>
-</tr>
-<tr>
-<td>socket</td>
-<td>可选。规定 socket 或要使用的已命名 pipe。</td>
-</tr>
-</tbody>
-</table>
-<h4 id="举个栗子-1"><a href="#举个栗子-1" class="headerlink" title="举个栗子"></a>举个栗子</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 链接数据库</span></div><div class="line">$conn = mysqli_connect(<span class="string">"127.0.0.1"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>,<span class="string">"myDatabase"</span>,<span class="number">3306</span>);<span class="comment">//连接数据库</span></div><div class="line"></div><div class="line">$sql = <span class="string">"set names utf8"</span>;</div><div class="line"><span class="comment">//注意,这里的参数相比于mysql_query()互换了参数位置</span></div><div class="line">mysqli_query($conn,$sql);<span class="comment">//设置编码，避免中文乱码</span></div><div class="line"></div><div class="line">$sql = <span class="string">"INSERT/DELETE/UPDATE/SELECT..."</span>;<span class="comment">//此处sql语句中不需要添加分号</span></div><div class="line">$result = mysqli_query($conn,$sql);</div><div class="line"></div><div class="line"><span class="comment">//处理结果</span></div><div class="line">mysqli_affected_rows($conn);<span class="comment">//获取影响的行数</span></div><div class="line">mysqli_fetch_array($result);<span class="comment">//获取一行</span></div><div class="line">mysqli_fetch_all($result);<span class="comment">//以索引数组的形式返回所有行</span></div><div class="line">mysqli_fetch_all($result,MYSQLI_ASSOC);<span class="comment">//以关联数组的形式获取所有行</span></div><div class="line"></div><div class="line"><span class="comment">//提前关闭连接</span></div><div class="line">mysqli_close($conn);</div></pre></td></tr></table></figure>
+</ul>
+<h3 id="右键"><a href="#右键" class="headerlink" title="右键"></a>右键</h3><p>右键在网页上是有默认行为的，在这个游戏中要禁掉</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//去掉默认的contextmenu事件，否则会和默认右键事件同时出现。</span></div><div class="line"><span class="built_in">document</span>.oncontextmenu = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">  e.preventDefault();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="each"><a href="#each" class="headerlink" title="each()"></a>each()</h3><p>jquery中的<code>each</code>是不能用<code>break</code>跳出的。是用<code>return false</code>代替的<code>break</code>,<code>return true</code>或<code>return</code>代替的<code>continue</code></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>还有一些我思路上或者说写法中存在的小bug,我用相应的方法去解决掉了。源码我也上传到了<a href="https://github.com/MLuminary/cleanMine">github</a>上去,因为花的时间比较短,里面应该还存在一些问题,还请大佬们多多包涵,也欢迎大佬们来指正。本小白感激不尽</p>
+<p><a href="http://haoqinzz.cn/cleanMine" target="_blank" rel="external">小游戏试玩</a></p>
+
       
     </div>
 
@@ -462,9 +424,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
           
-            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+            <a href="/tags/小游戏/" rel="tag"><i class="fa fa-tag"></i> 小游戏</a>
           
         </div>
       
@@ -477,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/25/谈谈值传递/" rel="next" title="谈谈值传递">
-                <i class="fa fa-chevron-left"></i> 谈谈值传递
+              <a href="/2017/08/27/ES5、ES6中的对象/" rel="next" title="ES5、ES6中的对象">
+                <i class="fa fa-chevron-left"></i> ES5、ES6中的对象
               </a>
             
           </div>
@@ -486,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/30/AJAX简介/" rel="prev" title="AJAX简介">
-                AJAX简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -634,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP连接MySQL数据库的准备"><span class="nav-number">1.</span> <span class="nav-text">PHP连接MySQL数据库的准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用PHP连接数据库"><span class="nav-number">2.</span> <span class="nav-text">使用PHP连接数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-dll"><span class="nav-number">2.1.</span> <span class="nav-text">mysql.dll</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">2.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举个栗子"><span class="nav-number">2.1.2.</span> <span class="nav-text">举个栗子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysqli-dll"><span class="nav-number">2.2.</span> <span class="nav-text">mysqli.dll</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举个栗子-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">举个栗子</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理-思路"><span class="nav-number">2.</span> <span class="nav-text">原理(思路)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">2.1.</span> <span class="nav-text">布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定事件"><span class="nav-number">2.2.</span> <span class="nav-text">绑定事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功失败判断"><span class="nav-number">2.3.</span> <span class="nav-text">成功失败判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#清空问题"><span class="nav-number">3.1.</span> <span class="nav-text">清空问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#右键"><span class="nav-number">3.2.</span> <span class="nav-text">右键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each"><span class="nav-number">3.3.</span> <span class="nav-text">each()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">3.4.</span> <span class="nav-text">最后</span></a></li></ol></li></ol></div>
             
 
           </div>
