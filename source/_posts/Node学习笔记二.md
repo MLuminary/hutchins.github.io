@@ -22,7 +22,7 @@ category: node
 
 当目录中既有可调用的文件夹m4又有m4.js时，用``require('./m4')``调用的是m4.js模块
 
-
+<!--more-->
 ### require('X')的搜索顺序
 
 既然知道上述所说的目录模块和文件模块的导入，那假若有个文件名为m5.js，还有个目录m5/index.js，还有个node_modules/m5/index.js，最后在app.js中``require('./m7')``引入的是哪个模块呢？。
