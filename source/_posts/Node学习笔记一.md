@@ -1,10 +1,13 @@
 ---
 title: Node学习笔记一
 date: 2017-11-25 23:16:00
-tags: node js
+tags: 
+  - node
+  - js
 category: node
 ---
 ## node概述
+
 >一个搭建在Chrome JavaScript运行时上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型,使它既轻量又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。
 
 我通俗的理解就是在服务器上用chrome v8运行的js。完全支持ES6新特性
@@ -75,16 +78,49 @@ exports = module.exports
 
 ### 模块的分类
 
+Node.js中没有全局命名空间的概念，每个被``require``加载的JS文件或者目录都是一个模块，JS文件中定义的变量和函数都是模块内部的对象，只有通过``module.exports``导出的成员才能被其它模块使用；所以不会出现一个模块中定义的成员与其它模块中的成员命名冲突的问题。
+
 #### Node.js官方提供的模块
 
-自动安装在解释器内部，直接可以``require('模块名')``
+Node有一些被编译到二进制文件里的模块，被成为核心模块，它们不能通过路径来引用，只能用模块名。核心模块拥有最高的加载优先级，即使已经有了一个同名的第三方模块，核心模块也会被优先加载。比如，如果想加载http核心模块：
+
+```js
+var http = require('http');
+```
 
 #### 第三方编写的模块
 
-例如mysql数据库模块
+如果``require``函数的参数不是相对路径，也不是核心模块名，Node会在当前目录的``node_modules``子目录下查找，比如下面的代码,Node会查找  ``node_modules/myModule.js``;
+
+```js
+var myModule =require('myModule.js');
+```
+
+如果没找到，Node会继续在上级目录的``node_modules``文件夹下查找，直到找到对应的模块或者到达根目录。
 
 #### 用户自定义模块
-用户自己编写的，引用的话需要``exports`` + ``require``
+
+使用绝对路径从文件系统里加载模块
+
+```js
+var myModule1 = require('d:/my_modules/module1');
+```
+
+基于当前文件的相对路径
+
+```js
+var myModule2 = require('../my_modules/my_module2');
+var myModule3 = require('./lib/my_module3')
+```
+
+使用目录
+
+```js
+var  myModule = require('./myModuleDir');
+```
+
+Node会假定这个目录是模块包，并尝试在这个目录下搜索包定义文件package.json。如果没找到，Node会假设包的入口点是index.js文件。以上面为例，Node会尝试查找./myModuleDir/index.js文件。如果找到了package.json文件，Node会尝试解析它,并查找包定义里的main属性，然后把main属性的值当作入口点的相对路径。
+
 
 
 

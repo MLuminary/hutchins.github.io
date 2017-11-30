@@ -3,8 +3,8 @@ title: php连接MySQL数据库
 date: 2017-07-30 12:35:55
 tags: 
   - php
-  - 数据库
-category: "php"
+  - mysql
+category: "数据库"
 ---
 
 ## PHP连接MySQL数据库的准备
