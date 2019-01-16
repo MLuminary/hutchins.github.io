@@ -7,7 +7,8 @@ title: Hutchins
 subtitle: To be interesting 
 description: Never stop trying, finish and do everything you've started
 author: Hutchins
-language: zh-Hans
+# language: zh-Hans
+language:
 timezone:
 
 # URL
@@ -63,14 +64,24 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: next-v6
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:MLuminary/hutchins.github.io.git
-  branch: master
+  - type: git
+    repo: git@github.com:MLuminary/hutchins.github.io.git
+    branch: master
+  - type: leancloud_counter_security_sync  
 
 social:
   github: https://github.com/MLuminary
+
+# add post views
+leancloud_counter_security:
+  enable_sync: true
+  app_id: tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz
+  app_key: OsMcNeSXT83jo3CdPyJ0fVHw
+  username: admin
+  password: 
+  
