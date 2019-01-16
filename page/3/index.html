@@ -1,26 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
 
 
 
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -36,48 +35,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -86,38 +43,43 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
 
 
 
 
 
 
-<meta name="description" content="Never stop trying, finish and do everything you&apos;ve started">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hutchins">
-<meta property="og:url" content="http://github.com/page/3/index.html">
-<meta property="og:site_name" content="Hutchins">
-<meta property="og:description" content="Never stop trying, finish and do everything you&apos;ve started">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hutchins">
-<meta name="twitter:description" content="Never stop trying, finish and do everything you&apos;ve started">
 
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -129,12 +91,36 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="Never stop trying, finish and do everything you&apos;ve started">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hutchins">
+<meta property="og:url" content="http://github.com/page/3/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="Never stop trying, finish and do everything you&apos;ve started">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hutchins">
+<meta name="twitter:description" content="Never stop trying, finish and do everything you&apos;ve started">
+
+
+
+
+
 
   <link rel="canonical" href="http://github.com/page/3/">
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Hutchins</title>
   
@@ -150,21 +136,34 @@
 
 
 
-
-
+  <noscript>
   <style>
-  .forkme{
-    display: none;
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
   }
-    @media (min-width: 768px) {
-  .forkme{
-    display: inline;
-  }
-    }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
+</noscript>
+
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -172,15 +171,12 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
-  <div class="forkme">
-    <a href="https://github.com/MLuminary"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-  </div>
+
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -190,13 +186,16 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">To be interesting</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -204,55 +203,55 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -260,12 +259,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -278,12 +285,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/30/AJAX简介/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -298,25 +311,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/30/AJAX简介/" itemprop="url">AJAX简介</a></h1>
+                
+                <a href="/2017/07/30/AJAX简介/" class="post-title-link" itemprop="url">AJAX简介</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T23:12:41+08:00">
-                2017-07-30
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-07-30 23:12:41" itemprop="dateCreated datePublished" datetime="2017-07-30T23:12:41+08:00">2017-07-30</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -329,14 +368,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ajax/" itemprop="url" rel="index">
-                    <span itemprop="name">ajax</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ajax/" itemprop="url" rel="index"><span itemprop="name">ajax</span></a></span>
 
                 
                 
@@ -346,16 +381,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/07/30/AJAX简介/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/07/30/AJAX简介/" class="cy_cmt_count" data-xid="2017/07/30/AJAX简介/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -368,10 +393,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -440,27 +468,32 @@
 </tbody>
 </table>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/30/AJAX简介/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/07/30/AJAX简介/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -474,6 +507,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -486,12 +523,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/30/php连接MySQL数据库/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -506,25 +549,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/30/php连接MySQL数据库/" itemprop="url">php连接MySQL数据库</a></h1>
+                
+                <a href="/2017/07/30/php连接MySQL数据库/" class="post-title-link" itemprop="url">php连接MySQL数据库</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T12:35:55+08:00">
-                2017-07-30
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-07-30 12:35:55" itemprop="dateCreated datePublished" datetime="2017-07-30T12:35:55+08:00">2017-07-30</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -537,14 +606,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
 
                 
                 
@@ -554,16 +619,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/07/30/php连接MySQL数据库/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/07/30/php连接MySQL数据库/" class="cy_cmt_count" data-xid="2017/07/30/php连接MySQL数据库/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -576,10 +631,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -598,27 +656,32 @@
 <h2 id="使用PHP连接数据库"><a href="#使用PHP连接数据库" class="headerlink" title="使用PHP连接数据库"></a>使用PHP连接数据库</h2><p>我目前所知道的有两种函数库,mysql.dll和mysqli.dll.</p>
 <h3 id="mysql-dll"><a href="#mysql-dll" class="headerlink" title="mysql.dll"></a>mysql.dll</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_connect(servername,username,password);</span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/30/php连接MySQL数据库/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/07/30/php连接MySQL数据库/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -632,6 +695,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -644,12 +711,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/25/谈谈值传递/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -664,25 +737,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/25/谈谈值传递/" itemprop="url">谈谈值传递</a></h1>
+                
+                <a href="/2017/07/25/谈谈值传递/" class="post-title-link" itemprop="url">谈谈值传递</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T22:32:03+08:00">
-                2017-07-25
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-07-25 22:32:03" itemprop="dateCreated datePublished" datetime="2017-07-25T22:32:03+08:00">2017-07-25</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -695,14 +794,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
 
                 
                 
@@ -712,16 +807,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/07/25/谈谈值传递/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/07/25/谈谈值传递/" class="cy_cmt_count" data-xid="2017/07/25/谈谈值传递/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -734,10 +819,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -752,27 +840,32 @@
 <p>本小白用拙劣的画功演示一下</p>
 <p><img src="/2017/07/25/谈谈值传递/pic1.jpg" alt="pic1"></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/25/谈谈值传递/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/07/25/谈谈值传递/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -786,6 +879,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -798,12 +895,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/18/关于css实现div居中问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -818,25 +921,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/18/关于css实现div居中问题/" itemprop="url">关于css实现div居中问题</a></h1>
+                
+                <a href="/2017/07/18/关于css实现div居中问题/" class="post-title-link" itemprop="url">关于css实现div居中问题</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T15:32:50+08:00">
-                2017-07-18
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-07-18 15:32:50" itemprop="dateCreated datePublished" datetime="2017-07-18T15:32:50+08:00">2017-07-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -849,14 +978,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a></span>
 
                 
                 
@@ -866,16 +991,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/07/18/关于css实现div居中问题/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/07/18/关于css实现div居中问题/" class="cy_cmt_count" data-xid="2017/07/18/关于css实现div居中问题/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -888,10 +1003,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -902,27 +1020,32 @@
           <h1 id="用css实现divs水平居中的几种方法"><a href="#用css实现divs水平居中的几种方法" class="headerlink" title="用css实现divs水平居中的几种方法"></a>用css实现divs水平居中的几种方法</h1><h2 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/18/关于css实现div居中问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/07/18/关于css实现div居中问题/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -936,6 +1059,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -948,12 +1075,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/06/浅尝数据库/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -968,25 +1101,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/06/浅尝数据库/" itemprop="url">浅尝数据库</a></h1>
+                
+                <a href="/2017/07/06/浅尝数据库/" class="post-title-link" itemprop="url">浅尝数据库</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-06T22:14:52+08:00">
-                2017-07-06
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-07-06 22:14:52" itemprop="dateCreated datePublished" datetime="2017-07-06T22:14:52+08:00">2017-07-06</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -999,14 +1158,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
 
                 
                 
@@ -1016,16 +1171,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/07/06/浅尝数据库/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/07/06/浅尝数据库/" class="cy_cmt_count" data-xid="2017/07/06/浅尝数据库/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1038,10 +1183,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1057,27 +1205,32 @@
 <h4 id="phpstudy"><a href="#phpstudy" class="headerlink" title="phpstudy"></a>phpstudy</h4><p>phpstudy的mysql是oracle的mysql,进入数据库服务器的时候命令行中显示的是<code>mysql&gt;</code></p>
 <h4 id="xampp"><a href="#xampp" class="headerlink" title="xampp"></a>xampp</h4><p>xampp的mysql是MariaDB,进入数据库服务器的时候命令行中显示的是<code>MariaDB[(none)]</code>这个有个好处是,你使用<code>use mysql</code>的时候,<code>MariaDB[(none)]</code>会变成<code>MariaDB[(mysql)]</code>,会告诉你现在在mysql这个数据库中，便于以后的操作.</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/06/浅尝数据库/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/07/06/浅尝数据库/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -1091,6 +1244,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1099,19 +1256,13 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 
 
           </div>
           
-
-
-          
-
-
-
 
         </div>
         
@@ -1126,82 +1277,151 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Hutchins">
-          <p class="site-author-name" itemprop="name">Hutchins</p>
-           
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hutchins</p>
               <p class="site-description motion-element" itemprop="description">Never stop trying, finish and do everything you've started</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
           
 
           
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/MLuminary" target="_blank" title="GitHub">
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
                   
-                    <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
-                </a>
-              </span>
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MLuminary" title="github &rarr; https://github.com/MLuminary"><i class="fa fa-fw fa-globe"></i>github</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
             
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -1217,35 +1437,39 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hutchins</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-<span id="busuanzi_container_site_pv">
-    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -1258,11 +1482,16 @@
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1276,7 +1505,6 @@
 
 
 
-  
 
 
 
@@ -1289,61 +1517,48 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+
+
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script src="/js/src/utils.js?v=6.7.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+  <script src="/js/src/motion.js?v=6.7.0"></script>
 
 
 
   
   
 
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
   
 
-
   
 
 
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
 
-	
 
-
+  
 
 
 
@@ -1355,26 +1570,17 @@
 
   
 
-
-
-
+  
 
   
 
-
-
-
   
-    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyt8DrywQ"></script>
-  
-
-
 
   
 
+  
 
-
-
+  
 
   
 

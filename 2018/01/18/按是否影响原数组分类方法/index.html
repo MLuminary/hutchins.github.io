@@ -1,26 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
 
 
 
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -36,48 +35,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="js,">
 
 
 
@@ -86,40 +43,43 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
 
 
 
 
 
 
-<meta name="description" content="改变原数组poppop方法用于删除数组的最后一个元素，并返回该元素 1[].pop()//undefined pushpush方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度 shiftshift方法用于删除数组的第一个元素，并返回该元素 unshiftunshift方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度">
-<meta name="keywords" content="js">
-<meta property="og:type" content="article">
-<meta property="og:title" content="按是否影响原数组分类方法">
-<meta property="og:url" content="http://github.com/2018/01/18/按是否影响原数组分类方法/index.html">
-<meta property="og:site_name" content="Hutchins">
-<meta property="og:description" content="改变原数组poppop方法用于删除数组的最后一个元素，并返回该元素 1[].pop()//undefined pushpush方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度 shiftshift方法用于删除数组的第一个元素，并返回该元素 unshiftunshift方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T06:47:49.586Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="按是否影响原数组分类方法">
-<meta name="twitter:description" content="改变原数组poppop方法用于删除数组的最后一个元素，并返回该元素 1[].pop()//undefined pushpush方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度 shiftshift方法用于删除数组的第一个元素，并返回该元素 unshiftunshift方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度">
 
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -131,12 +91,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="改变原数组poppop方法用于删除数组的最后一个元素，并返回该元素 1[].pop()//undefined pushpush方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度 shiftshift方法用于删除数组的第一个元素，并返回该元素 unshiftunshift方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="按是否影响原数组分类方法">
+<meta property="og:url" content="http://github.com/2018/01/18/按是否影响原数组分类方法/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="改变原数组poppop方法用于删除数组的最后一个元素，并返回该元素 1[].pop()//undefined pushpush方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度 shiftshift方法用于删除数组的第一个元素，并返回该元素 unshiftunshift方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-16T06:47:49.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="按是否影响原数组分类方法">
+<meta name="twitter:description" content="改变原数组poppop方法用于删除数组的最后一个元素，并返回该元素 1[].pop()//undefined pushpush方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度 shiftshift方法用于删除数组的第一个元素，并返回该元素 unshiftunshift方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度">
+
+
+
+
+
 
   <link rel="canonical" href="http://github.com/2018/01/18/按是否影响原数组分类方法/">
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>按是否影响原数组分类方法 | Hutchins</title>
   
@@ -152,35 +138,46 @@
 
 
 
-
-
+  <noscript>
   <style>
-  .forkme{
-    display: none;
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
   }
-    @media (min-width: 768px) {
-  .forkme{
-    display: inline;
-  }
-    }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
+</noscript>
+
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-  <div class="forkme">
-    <a href="https://github.com/MLuminary"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-  </div>
+
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -190,13 +187,16 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">To be interesting</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -204,55 +204,55 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -260,12 +260,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -278,12 +286,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2018/01/18/按是否影响原数组分类方法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -296,25 +310,51 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">按是否影响原数组分类方法</h1>
+          <h1 class="post-title" itemprop="name headline">按是否影响原数组分类方法
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T20:52:41+08:00">
-                2018-01-18
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-01-18 20:52:41" itemprop="dateCreated datePublished" datetime="2018-01-18T20:52:41+08:00">2018-01-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -327,14 +367,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
 
                 
                 
@@ -344,16 +380,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/01/18/按是否影响原数组分类方法/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/01/18/按是否影响原数组分类方法/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -366,10 +392,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -419,32 +448,26 @@
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
+    
       
-    </div>
+    
+    
 
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -478,28 +501,20 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
           
 
-
-          
-  <div class="comments" id="comments">
-    
-      <div id="SOHUCS"></div>
-    
-  </div>
-
-
+  
 
 
 
@@ -516,6 +531,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -523,92 +539,161 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Hutchins">
-          <p class="site-author-name" itemprop="name">Hutchins</p>
-           
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hutchins</p>
               <p class="site-description motion-element" itemprop="description">Never stop trying, finish and do everything you've started</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
           
 
           
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/MLuminary" target="_blank" title="GitHub">
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
                   
-                    <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
-                </a>
-              </span>
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MLuminary" title="github &rarr; https://github.com/MLuminary"><i class="fa fa-fw fa-globe"></i>github</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
             
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
 
             
-              
+            
+            
             
 
             
@@ -616,7 +701,7 @@
             
 
           </div>
-        </section>
+        </div>
       <!--/noindex-->
       
 
@@ -632,35 +717,39 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hutchins</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-<span id="busuanzi_container_site_pv">
-    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -673,11 +762,16 @@
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -691,7 +785,6 @@
 
 
 
-  
 
 
 
@@ -704,62 +797,55 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+
+
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script src="/js/src/utils.js?v=6.7.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+  <script src="/js/src/motion.js?v=6.7.0"></script>
 
 
 
   
   
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
 
 
 
   
 
 
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
   
 
 
-
-
-	
-
-
-
+  
 
 
   
@@ -770,37 +856,17 @@
 
   
 
-
-
-
+  
 
   
 
-
-
-
   
-    <script type="text/javascript">
-    (function(){
-      var appid = 'cyt8DrywQ';
-      var conf = '203b6c81deb7b9c692912e13fa0fbefc';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      if (width < 960) {
-      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
-        window.changyan.api.config({appid:appid,conf:conf})});
-      }
-    })();
-    </script>
-    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
-  
-
-
 
   
 
+  
 
-
-
+  
 
   
 

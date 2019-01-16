@@ -1,26 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
 
 
 
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -36,48 +35,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -86,38 +43,43 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
 
 
 
 
 
 
-<meta name="description" content="Never stop trying, finish and do everything you&apos;ve started">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hutchins">
-<meta property="og:url" content="http://github.com/index.html">
-<meta property="og:site_name" content="Hutchins">
-<meta property="og:description" content="Never stop trying, finish and do everything you&apos;ve started">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hutchins">
-<meta name="twitter:description" content="Never stop trying, finish and do everything you&apos;ve started">
 
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -129,12 +91,36 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="Never stop trying, finish and do everything you&apos;ve started">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hutchins">
+<meta property="og:url" content="http://github.com/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="Never stop trying, finish and do everything you&apos;ve started">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hutchins">
+<meta name="twitter:description" content="Never stop trying, finish and do everything you&apos;ve started">
+
+
+
+
+
 
   <link rel="canonical" href="http://github.com/">
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Hutchins</title>
   
@@ -150,21 +136,34 @@
 
 
 
-
-
+  <noscript>
   <style>
-  .forkme{
-    display: none;
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
   }
-    @media (min-width: 768px) {
-  .forkme{
-    display: inline;
-  }
-    }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
+</noscript>
+
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -172,15 +171,12 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
-  <div class="forkme">
-    <a href="https://github.com/MLuminary"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-  </div>
+
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -190,13 +186,16 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">To be interesting</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -204,55 +203,55 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -260,12 +259,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -278,12 +285,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2018/05/01/前端安全/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -298,25 +311,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/01/前端安全/" itemprop="url">前端安全</a></h1>
+                
+                <a href="/2018/05/01/前端安全/" class="post-title-link" itemprop="url">前端安全</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T22:55:28+08:00">
-                2018-05-01
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-05-01 22:55:28" itemprop="dateCreated datePublished" datetime="2018-05-01T22:55:28+08:00">2018-05-01</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -329,14 +368,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
-                    <span itemprop="name">安全</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/安全/" itemprop="url" rel="index"><span itemprop="name">安全</span></a></span>
 
                 
                 
@@ -346,16 +381,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/01/前端安全/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2018/05/01/前端安全/" class="cy_cmt_count" data-xid="2018/05/01/前端安全/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -368,10 +393,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -386,27 +414,32 @@
 <p>网站的评论系统没有过滤 XSS 攻击，当有用户添加评论为</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">    alert(<span class="string">"1"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/01/前端安全/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/05/01/前端安全/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -420,6 +453,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -432,12 +469,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2018/02/17/盒子模型相关属性/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -452,25 +495,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/17/盒子模型相关属性/" itemprop="url">盒子模型相关属性</a></h1>
+                
+                <a href="/2018/02/17/盒子模型相关属性/" class="post-title-link" itemprop="url">盒子模型相关属性</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-17T18:43:35+08:00">
-                2018-02-17
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-02-17 18:43:35" itemprop="dateCreated datePublished" datetime="2018-02-17T18:43:35+08:00">2018-02-17</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -483,14 +552,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a></span>
 
                 
                 
@@ -500,16 +565,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/02/17/盒子模型相关属性/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2018/02/17/盒子模型相关属性/" class="cy_cmt_count" data-xid="2018/02/17/盒子模型相关属性/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -522,10 +577,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -538,27 +596,32 @@
 <h2 id="Element-clientLeft-Element-clientTop"><a href="#Element-clientLeft-Element-clientTop" class="headerlink" title="Element.clientLeft,Element.clientTop"></a>Element.clientLeft,Element.clientTop</h2><p><code>Element.clientLeft</code> 属性等于元素节点左边框的宽度，<code>Element.clientTop</code> 属性等于元素节点顶部边框的宽度，单位为像素</p>
 <p>如果元素设置了 <code>display:inline</code> 它的 <code>clientLeft</code> 属性一律为 <code>0</code></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/17/盒子模型相关属性/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/02/17/盒子模型相关属性/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -572,6 +635,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -584,12 +651,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2018/01/18/按是否影响原数组分类方法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -604,25 +677,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/18/按是否影响原数组分类方法/" itemprop="url">按是否影响原数组分类方法</a></h1>
+                
+                <a href="/2018/01/18/按是否影响原数组分类方法/" class="post-title-link" itemprop="url">按是否影响原数组分类方法</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T20:52:41+08:00">
-                2018-01-18
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-01-18 20:52:41" itemprop="dateCreated datePublished" datetime="2018-01-18T20:52:41+08:00">2018-01-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -635,14 +734,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
 
                 
                 
@@ -652,16 +747,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/01/18/按是否影响原数组分类方法/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2018/01/18/按是否影响原数组分类方法/" class="cy_cmt_count" data-xid="2018/01/18/按是否影响原数组分类方法/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -674,10 +759,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -691,27 +779,32 @@
 <h3 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h3><p><code>shift</code>方法用于删除数组的第一个元素，并返回该元素</p>
 <h3 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h3><p><code>unshift</code>方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/18/按是否影响原数组分类方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/01/18/按是否影响原数组分类方法/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -725,6 +818,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -737,12 +834,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2018/01/18/slice、substr和substring的区别/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -757,25 +860,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/18/slice、substr和substring的区别/" itemprop="url">slice、substr和substring的区别</a></h1>
+                
+                <a href="/2018/01/18/slice、substr和substring的区别/" class="post-title-link" itemprop="url">slice、substr和substring的区别</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T20:31:01+08:00">
-                2018-01-18
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-01-18 20:31:01" itemprop="dateCreated datePublished" datetime="2018-01-18T20:31:01+08:00">2018-01-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -788,14 +917,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
 
                 
                 
@@ -805,16 +930,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/01/18/slice、substr和substring的区别/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2018/01/18/slice、substr和substring的区别/" class="cy_cmt_count" data-xid="2018/01/18/slice、substr和substring的区别/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -827,10 +942,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -847,27 +965,32 @@
 <p>如果第一个参数大于第二个参数，slice方法返回一个空字符串。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'javascript'</span>.slice(<span class="number">2</span>,<span class="number">1</span>);<span class="comment">//''</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/18/slice、substr和substring的区别/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/01/18/slice、substr和substring的区别/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -881,6 +1004,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -893,12 +1020,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/29/Node学习笔记二/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -913,25 +1046,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/29/Node学习笔记二/" itemprop="url">Node学习笔记二</a></h1>
+                
+                <a href="/2017/11/29/Node学习笔记二/" class="post-title-link" itemprop="url">Node学习笔记二</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T17:03:32+08:00">
-                2017-11-29
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-11-29 17:03:32" itemprop="dateCreated datePublished" datetime="2017-11-29T17:03:32+08:00">2017-11-29</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -944,14 +1103,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
 
                 
                 
@@ -961,16 +1116,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/11/29/Node学习笔记二/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/11/29/Node学习笔记二/" class="cy_cmt_count" data-xid="2017/11/29/Node学习笔记二/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -983,10 +1128,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1000,27 +1148,32 @@
 <p>方式三（常用）:创建一个目录，目录名为node_modules，再创建目录模块，假设命名m3，其中要创建package.json文件，其中声明main属性指定默认执行的启动js文件，就可以用<code>require(&#39;./m3&#39;)</code>来调用此模块</p>
 <p>当目录中既有可调用的文件夹m4又有m4.js时，用<code>require(&#39;./m4&#39;)</code>调用的是m4.js模块</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/29/Node学习笔记二/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/29/Node学习笔记二/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -1034,6 +1187,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1046,12 +1203,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/28/oracle实验笔记三/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1066,25 +1229,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/28/oracle实验笔记三/" itemprop="url">oracle实验笔记三</a></h1>
+                
+                <a href="/2017/11/28/oracle实验笔记三/" class="post-title-link" itemprop="url">oracle实验笔记三</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:25+08:00">
-                2017-11-28
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-11-28 20:19:25" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:25+08:00">2017-11-28</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -1097,14 +1286,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
 
                 
                 
@@ -1114,16 +1299,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/11/28/oracle实验笔记三/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/11/28/oracle实验笔记三/" class="cy_cmt_count" data-xid="2017/11/28/oracle实验笔记三/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1136,10 +1311,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1150,27 +1328,32 @@
           <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="主键的插入"><a href="#主键的插入" class="headerlink" title="主键的插入"></a>主键的插入</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> primary <span class="keyword">key</span>（key_name）</span><br></pre></td></tr></table></figure>
 <h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> table_name(table_col_name);</span><br><span class="line"><span class="comment">#位图索引</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">bitmap</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> table_name(table_col_name);</span><br><span class="line"><span class="comment">#索引组合</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> table_name(table_col_name1,table_col_name2);</span><br><span class="line"><span class="comment">#降序排列索引</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> table_name(table_col_name <span class="keyword">DESC</span>);</span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/28/oracle实验笔记三/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/28/oracle实验笔记三/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -1184,6 +1367,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1196,12 +1383,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/28/oracle实验笔记二/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1216,25 +1409,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/28/oracle实验笔记二/" itemprop="url">oracle实验笔记二</a></h1>
+                
+                <a href="/2017/11/28/oracle实验笔记二/" class="post-title-link" itemprop="url">oracle实验笔记二</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:20+08:00">
-                2017-11-28
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-11-28 20:19:20" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:20+08:00">2017-11-28</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -1247,14 +1466,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
 
                 
                 
@@ -1264,16 +1479,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/11/28/oracle实验笔记二/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/11/28/oracle实验笔记二/" class="cy_cmt_count" data-xid="2017/11/28/oracle实验笔记二/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1286,10 +1491,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1300,27 +1508,32 @@
           <h2 id="PL-SQL程序基础"><a href="#PL-SQL程序基础" class="headerlink" title="PL/SQL程序基础"></a>PL/SQL程序基础</h2><hr>
 <h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建进程</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">procedure</span> procedure_name <span class="keyword">as</span></span><br><span class="line"><span class="comment">#查看已经创建的存储过程或函数。</span></span><br><span class="line"><span class="keyword">select</span> object_name,<span class="keyword">authid</span> <span class="keyword">from</span> user_procedures</span><br><span class="line"><span class="comment">#查看存储过程ex4_2的源代码</span></span><br><span class="line"><span class="keyword">select</span> line,<span class="built_in">text</span> <span class="keyword">from</span> user_source <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">"ex4_2"</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/28/oracle实验笔记二/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/28/oracle实验笔记二/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -1334,6 +1547,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1346,12 +1563,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/28/oracle实验笔记一/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1366,25 +1589,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/28/oracle实验笔记一/" itemprop="url">oracle实验笔记一</a></h1>
+                
+                <a href="/2017/11/28/oracle实验笔记一/" class="post-title-link" itemprop="url">oracle实验笔记一</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:09+08:00">
-                2017-11-28
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-11-28 20:19:09" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:09+08:00">2017-11-28</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -1397,14 +1646,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
 
                 
                 
@@ -1414,16 +1659,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/11/28/oracle实验笔记一/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/11/28/oracle实验笔记一/" class="cy_cmt_count" data-xid="2017/11/28/oracle实验笔记一/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1436,10 +1671,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1454,27 +1692,32 @@
 <h4 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">translate</span>(<span class="string">'我是中国人,我爱中国'</span>, <span class="string">'中国'</span>, <span class="string">'China'</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
 <p>结果: 我是Ch人,我爱Ch.<br></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/28/oracle实验笔记一/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/28/oracle实验笔记一/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -1488,6 +1731,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1500,12 +1747,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/25/Node学习笔记一/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1520,25 +1773,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/25/Node学习笔记一/" itemprop="url">Node学习笔记一</a></h1>
+                
+                <a href="/2017/11/25/Node学习笔记一/" class="post-title-link" itemprop="url">Node学习笔记一</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T23:16:00+08:00">
-                2017-11-25
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-11-25 23:16:00" itemprop="dateCreated datePublished" datetime="2017-11-25T23:16:00+08:00">2017-11-25</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -1551,14 +1830,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
 
                 
                 
@@ -1568,16 +1843,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/11/25/Node学习笔记一/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/11/25/Node学习笔记一/" class="cy_cmt_count" data-xid="2017/11/25/Node学习笔记一/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1590,10 +1855,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1609,27 +1877,32 @@
 <h3 id="脚本模式"><a href="#脚本模式" class="headerlink" title="脚本模式"></a>脚本模式</h3><p>把要执行的所有语句编写的一个文本文件中（后缀名任意，没有都行）</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node 完整路径名 回车</span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/25/Node学习笔记一/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/25/Node学习笔记一/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -1643,6 +1916,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1655,12 +1932,18 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/24/prop和attr的一些理解/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1675,25 +1958,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/24/prop和attr的一些理解/" itemprop="url">prop和attr的一些理解</a></h1>
+                
+                <a href="/2017/11/24/prop和attr的一些理解/" class="post-title-link" itemprop="url">prop和attr的一些理解</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T20:02:28+08:00">
-                2017-11-24
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-11-24 20:02:28" itemprop="dateCreated datePublished" datetime="2017-11-24T20:02:28+08:00">2017-11-24</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+              
             
           </span>
 
@@ -1706,14 +2015,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
 
                 
                 
@@ -1723,16 +2028,6 @@
 
           
             
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/11/24/prop和attr的一些理解/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://github.com/2017/11/24/prop和attr的一些理解/" class="cy_cmt_count" data-xid="2017/11/24/prop和attr的一些理解/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1745,10 +2040,13 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1762,27 +2060,32 @@
 <p>我的问题和网上大多数人的问题不相同，具体描述看示例代码之后。</p>
 <h2 id="版本使用不同"><a href="#版本使用不同" class="headerlink" title="版本使用不同"></a>版本使用不同</h2><p>遇到问题我一般先会去查相关的官方文档，可在jq的api中文文档中没有发现有价值的东西，只是发现适用的版本和概念有所轻微的不同。<br><code>attr</code>：设置或返回被选元素的属性值.版本：1.0<code>prop</code>:获取在匹配的元素集中的第一个元素的属性值。版本：1.6+<br></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/24/prop和attr的一些理解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/24/prop和attr的一些理解/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+    
+    
 
-    <div>
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
       
@@ -1796,6 +2099,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1804,19 +2111,13 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
 
           </div>
           
-
-
-          
-
-
-
 
         </div>
         
@@ -1831,82 +2132,151 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Hutchins">
-          <p class="site-author-name" itemprop="name">Hutchins</p>
-           
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hutchins</p>
               <p class="site-description motion-element" itemprop="description">Never stop trying, finish and do everything you've started</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
           
 
           
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/MLuminary" target="_blank" title="GitHub">
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
                   
-                    <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
-                </a>
-              </span>
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MLuminary" title="github &rarr; https://github.com/MLuminary"><i class="fa fa-fw fa-globe"></i>github</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
             
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -1922,35 +2292,39 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hutchins</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-<span id="busuanzi_container_site_pv">
-    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -1963,11 +2337,16 @@
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1981,7 +2360,6 @@
 
 
 
-  
 
 
 
@@ -1994,61 +2372,48 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+
+
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script src="/js/src/utils.js?v=6.7.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+  <script src="/js/src/motion.js?v=6.7.0"></script>
 
 
 
   
   
 
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
   
 
-
   
 
 
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
 
-	
 
-
+  
 
 
 
@@ -2060,26 +2425,17 @@
 
   
 
-
-
-
+  
 
   
 
-
-
-
   
-    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyt8DrywQ"></script>
-  
-
-
 
   
 
+  
 
-
-
+  
 
   
 
