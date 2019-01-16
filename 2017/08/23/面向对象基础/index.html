@@ -1,0 +1,849 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="面向对象,js,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="面向对象程序设计（英语：Object-oriented programming，缩写：OOP）是种具有对象概念的程序编程范型，同时也是一种程序开发的抽象方针。它可能包含数据、属性、代码与方法。对象则指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性，对象里的程序可以访问及经常修改对象相关连的数据。在面向对象程序编程里，计算机程序会被设计成彼此相关">
+<meta name="keywords" content="面向对象,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象基础">
+<meta property="og:url" content="http://github.com/2017/08/23/面向对象基础/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="面向对象程序设计（英语：Object-oriented programming，缩写：OOP）是种具有对象概念的程序编程范型，同时也是一种程序开发的抽象方针。它可能包含数据、属性、代码与方法。对象则指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性，对象里的程序可以访问及经常修改对象相关连的数据。在面向对象程序编程里，计算机程序会被设计成彼此相关">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://github.com/2017/08/23/面向对象基础/pic1.jpg">
+<meta property="og:image" content="http://github.com/2017/08/23/面向对象基础/pic2.jpg">
+<meta property="og:image" content="http://github.com/2017/08/23/面向对象基础/pic3.jpg">
+<meta property="og:updated_time" content="2019-01-16T06:47:49.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象基础">
+<meta name="twitter:description" content="面向对象程序设计（英语：Object-oriented programming，缩写：OOP）是种具有对象概念的程序编程范型，同时也是一种程序开发的抽象方针。它可能包含数据、属性、代码与方法。对象则指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性，对象里的程序可以访问及经常修改对象相关连的数据。在面向对象程序编程里，计算机程序会被设计成彼此相关">
+<meta name="twitter:image" content="http://github.com/2017/08/23/面向对象基础/pic1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://github.com/2017/08/23/面向对象基础/">
+
+
+
+
+
+  <title>面向对象基础 | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <style>
+  .forkme{
+    display: none;
+  }
+    @media (min-width: 768px) {
+  .forkme{
+    display: inline;
+  }
+    }
+  </style>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+  <div class="forkme">
+    <a href="https://github.com/MLuminary"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+  </div>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">热爱前端 渴望知识</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/08/23/面向对象基础/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面向对象基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-23T21:02:29+08:00">
+                2017-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/23/面向对象基础/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/08/23/面向对象基础/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </span></div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>面向对象程序设计（英语：Object-oriented programming，缩写：OOP）是种具有对象概念的程序编程范型，同时也是一种程序开发的抽象方针。它可能包含数据、属性、代码与方法。对象则指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性，对象里的程序可以访问及经常修改对象相关连的数据。在面向对象程序编程里，计算机程序会被设计成彼此相关的对象。 –<strong>维基百科</strong></p>
+</blockquote>
+<h1 id="面向对象简介"><a href="#面向对象简介" class="headerlink" title="面向对象简介"></a>面向对象简介</h1><blockquote>
+<p>面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式。它使用先前建立的范例，包括模块化，多态和封装几种技术。</p>
+</blockquote>
+<blockquote>
+<p>相对于 “一个程序只是一些函数的集合，或简单的计算机指令列表。”的传统软件设计观念而言，面向对象编程可以看作是使用一系列对象相互协作的软件设计。 在 OOP 中，每个对象能够接收消息，处理数据和发送消息给其他对象。每个对象都可以被看作是一个拥有清晰角色或责任的独立小机器。</p>
+</blockquote>
+<blockquote>
+<p>面向对象程序设计的目的是在编程中促进更好的灵活性和可维护性，在大型软件工程中广为流行。凭借其对模块化的重视，面向对象的代码开发更简单，更容易理解，相比非模块化编程方法 1, 它能更直接地分析, 编码和理解复杂的情况和过程。 – MDN</p>
+</blockquote>
+<h1 id="JS面向对象编程"><a href="#JS面向对象编程" class="headerlink" title="JS面向对象编程"></a>JS面向对象编程</h1><p>面向对象三大特点：封装、继承、多态。<br><a id="more"></a></p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象就是需求场景中的名词在程序中的表示，JavaScript中，除了string、number、boolean、null、undefined之外，其它的数据都是对象，如数组、日期深知函数等.</p>
+<h2 id="对象概述"><a href="#对象概述" class="headerlink" title="对象概述"></a>对象概述</h2><p>对象是一种特殊的数据类型，可以包含多个成员，对象的成员分为两种：属性和方法。</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>封装对象的数据，表示与对象有关的值</p>
+<p>对象名.属性名</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>封装对象的行为，表示对象可以执行的行为或可以完成的功能</p>
+<p>对象名.方法名()</p>
+<h2 id="js对象分类"><a href="#js对象分类" class="headerlink" title="js对象分类"></a>js对象分类</h2><h3 id="内置对象-原生对象"><a href="#内置对象-原生对象" class="headerlink" title="内置对象/原生对象"></a>内置对象/原生对象</h3><p>String、Boolean、Number、Object、Function、Array、Date、RegExp、Math、Error、Global</p>
+<h3 id="宿主对象"><a href="#宿主对象" class="headerlink" title="宿主对象"></a>宿主对象</h3><p>BOM(Browser Object Model)对象和DOM(Document Object Model)对象</p>
+<h3 id="自定义对象"><a href="#自定义对象" class="headerlink" title="自定义对象"></a>自定义对象</h3><p>用户创建的对象</p>
+<h2 id="创建对象–封装"><a href="#创建对象–封装" class="headerlink" title="创建对象–封装"></a>创建对象–封装</h2><p>将一个事物的属性和功能集中定义在一个对象中，事物的属性会成为对象的属性，事物的功能会成为对象的方法。其实就是保存在对象中的普通变量和普通函数。属性和方法统称为对象的成员。</p>
+<h3 id="用对象直接量"><a href="#用对象直接量" class="headerlink" title="用对象直接量"></a>用对象直接量</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  属性名:值,</span><br><span class="line">  ...:...,</span><br><span class="line">  方法名:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ... this.属性名 ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  属性名:值,</span><br><span class="line">  ...:...,</span><br><span class="line">  方法名()&#123;</span><br><span class="line">    ... this.属性名 ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在方法中要获得此对象的属性值，必须要用this.,原因就是<strong>js没有块级作用域</strong>,而作用域链便是变量的范围,因为js中没有块级作用域，所以在作用域链中根本是找不到对象的属性名的。</p>
+<p>对象中的函数调用会创建临时的活动对象，而此对象会指向window,也就是说，如果在此函数作用域中找不到变量名会去window中找，如果再找不到就会报错，此变量名not defined.</p>
+<p>而用this.的话便会直接去此对象中找。</p>
+<h3 id="用new创建"><a href="#用new创建" class="headerlink" title="用new创建"></a>用new创建</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先创建一个空对象</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">//为对象添加属性和方法</span></span><br><span class="line">obj.属性名 = 属性值</span><br><span class="line">obj.方法名 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  ... this.属性名...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//访问对象属性，属性名是变化的变量</span></span><br><span class="line">obj[变量] = 属性值</span><br></pre></td></tr></table></figure>
+<p>以上两种方法第一个是用于已知道对象结构的时候，第二个是用于还不知道对象的结构，但是这两种方法都不适用于多次创建相同结构的对象。因为要创建相同结构的对象时要写大量重复的代码</p>
+<h3 id="用构造函数"><a href="#用构造函数" class="headerlink" title="用构造函数"></a>用构造函数</h3><p>用来规定一类对象统一结构的函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> 类型名(<span class="params">属性参数</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.属性名 = 属性参数;</span><br><span class="line">  <span class="keyword">this</span>.方法名 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ... this.属性名...</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//不过js基本不会把方法定义在构造函数中</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>举个栗子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">sname</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.sname = sname;</span><br><span class="line">  <span class="keyword">this</span>.intr = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.sname)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用new调用构造函数</span></span><br><span class="line"><span class="keyword">var</span> hutchins = <span class="keyword">new</span> Student(<span class="string">"Hutchins"</span>);</span><br><span class="line">hutchins.intr();<span class="comment">//"I'm Hutchins"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建不同名只需如下</span></span><br><span class="line"><span class="keyword">var</span> wangdapang = <span class="keyword">new</span> Student(<span class="string">"wangdapang"</span>)</span><br></pre></td></tr></table></figure>
+<p>在构造函数中定义方法，每new一次，都会创建函数对象副本，无法节约内存。</p>
+<h2 id="原型对象–继承"><a href="#原型对象–继承" class="headerlink" title="原型对象–继承"></a>原型对象–继承</h2><p>集中保存同一类型的所有子对象共有成员的父对象</p>
+<p>原型对象不用创建，在定义构造函数同时，已经自动创建了该类型的原型对象，构造函数<code>.prototype</code>指向原型对象,原型对象<code>.constructor</code>指回构造函数.</p>
+<h3 id="自有属性"><a href="#自有属性" class="headerlink" title="自有属性"></a>自有属性</h3><p>直接保存在对象本地的属性</p>
+<h4 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h4><p>子对象.属性</p>
+<h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><p>子对象.属性名 = 值</p>
+<h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bool = obj.hasOwnProperty(<span class="string">"属性名"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="共有属性"><a href="#共有属性" class="headerlink" title="共有属性"></a>共有属性</h3><p>保存在原型对象中，所有子对象共有的属性</p>
+<h4 id="读取-1"><a href="#读取-1" class="headerlink" title="读取"></a>读取</h4><p>子对象.属性</p>
+<h4 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h4><p>构造函数.prototype.属性名 = 值</p>
+<h4 id="判断-1"><a href="#判断-1" class="headerlink" title="判断"></a>判断</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(obj.属性名!==<span class="literal">undefined</span>)&amp;&amp;(属性名 <span class="keyword">in</span> obj)</span><br></pre></td></tr></table></figure>
+<p>举个栗子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">sname</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.sname = sname;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//向原型函数中添加intr方法</span></span><br><span class="line">Student.prototype.intr = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.sname)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//想给两人共同添加一个班级</span></span><br><span class="line">Student.prototype.className = <span class="string">"高三五班"</span>;<span class="comment">//共有属性，子对象都可以访问</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hutchins = <span class="keyword">new</span> Student(<span class="string">"Hutchins"</span>);</span><br><span class="line"><span class="keyword">var</span> wangdapang = <span class="keyword">new</span> Student(<span class="string">"wangdapang"</span>);</span><br><span class="line"><span class="comment">//hutchins的私有属性</span></span><br><span class="line">hutchins.age = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">console</span>.log(hutchins.className);<span class="comment">//高三五班</span></span><br></pre></td></tr></table></figure>
+<p>下面用图画的形式画一下这整个结构</p>
+<p><img src="/2017/08/23/面向对象基础/pic1.jpg" alt="pic1"></p>
+<h3 id="new的四件事"><a href="#new的四件事" class="headerlink" title="new的四件事"></a>new的四件事</h3><ol>
+<li>创建一个新的空对象</li>
+<li>自动让新的子对象继承构造函数的原型对象，自动设置子对象的<code>__proto__</code>指向构造函数的原型对象</li>
+<li>调用构造函数，将构造函数中的<code>this</code>执行正在创建的新对象。向新的空对象中强行添加新成员</li>
+<li>将新对象地址返回给变量保存</li>
+</ol>
+<h3 id="内置对象的原型对象"><a href="#内置对象的原型对象" class="headerlink" title="内置对象的原型对象"></a>内置对象的原型对象</h3><p>其实内置对象类型都是构造函数，每种类型都有自己的原型对象.其原型对象中保存中所有该类型的子对象共用的API。</p>
+<p>例如数组和日期</p>
+<p>下面用简化的图展示一下</p>
+<p><img src="/2017/08/23/面向对象基础/pic2.jpg" alt="pic2"></p>
+<p>这也说明为什么类数组不能调用<code>sort</code>,因为只有Array的原型函数上有<code>sort</code>方法。<br>同时这张图也展现出为何<code>typeof</code>Array和Date都是<code>function</code></p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>prototype chain,由多级父对象逐级继承形成的链式结构</p>
+<p>原型链中保存了所有对象的属性，控制着对象成员的使用顺序：先用自己有的属性和方法，如果自己没有，才沿着原型链向父级去找，如果整个原型链中都没有，返回undefined。</p>
+<p><img src="/2017/08/23/面向对象基础/pic3.jpg" alt="pic3"></p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>同一个方法，在不同情况下表现出不同的状态，而且如果子对象觉得父对象的成员不好用，可在本地定义同名自有成员，来覆盖父对象中的成员</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本篇主要是面向对象的一些基础，包括封装继承多态，过不久还会写一篇。主要是用一些实际的例子来加深对面向对象的理解，还有自定义继承等。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面向对象/" rel="tag"><i class="fa fa-tag"></i> 面向对象</a>
+          
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/20/作用域和闭包/" rel="next" title="作用域和闭包">
+                <i class="fa fa-chevron-left"></i> 作用域和闭包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/24/面向对象进阶/" rel="prev" title="面向对象进阶">
+                面向对象进阶 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Hutchins">
+          <p class="site-author-name" itemprop="name">Hutchins</p>
+           
+              <p class="site-description motion-element" itemprop="description">what dosen't kill me makes me stronger</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MLuminary" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象简介"><span class="nav-number">1.</span> <span class="nav-text">面向对象简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS面向对象编程"><span class="nav-number">2.</span> <span class="nav-text">JS面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">2.1.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象概述"><span class="nav-number">2.2.</span> <span class="nav-text">对象概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js对象分类"><span class="nav-number">2.3.</span> <span class="nav-text">js对象分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置对象-原生对象"><span class="nav-number">2.3.1.</span> <span class="nav-text">内置对象/原生对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宿主对象"><span class="nav-number">2.3.2.</span> <span class="nav-text">宿主对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义对象"><span class="nav-number">2.3.3.</span> <span class="nav-text">自定义对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象–封装"><span class="nav-number">2.4.</span> <span class="nav-text">创建对象–封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用对象直接量"><span class="nav-number">2.4.1.</span> <span class="nav-text">用对象直接量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用new创建"><span class="nav-number">2.4.2.</span> <span class="nav-text">用new创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用构造函数"><span class="nav-number">2.4.3.</span> <span class="nav-text">用构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型对象–继承"><span class="nav-number">2.5.</span> <span class="nav-text">原型对象–继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自有属性"><span class="nav-number">2.5.1.</span> <span class="nav-text">自有属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读取"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断"><span class="nav-number">2.5.1.3.</span> <span class="nav-text">判断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共有属性"><span class="nav-number">2.5.2.</span> <span class="nav-text">共有属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读取-1"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改-1"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断-1"><span class="nav-number">2.5.2.3.</span> <span class="nav-text">判断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new的四件事"><span class="nav-number">2.5.3.</span> <span class="nav-text">new的四件事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置对象的原型对象"><span class="nav-number">2.5.4.</span> <span class="nav-text">内置对象的原型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">2.5.5.</span> <span class="nav-text">原型链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">2.6.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.7.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt8DrywQ';
+      var conf = '203b6c81deb7b9c692912e13fa0fbefc';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

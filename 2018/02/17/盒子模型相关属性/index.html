@@ -1,0 +1,793 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="盒子模型,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="Element.clientHeight,Element.clientWidth返回元素节点可见部分的高度，不包括溢出(overflow)的大小 这两个属性的值等元素的css高度（宽度）加上css的 padding 减去滚动条（如果存在滚动条），单位为像素。 Element.clientLeft,Element.clientTopElement.clientLeft 属性等于元素节点左边框的宽度，">
+<meta name="keywords" content="盒子模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="盒子模型相关属性">
+<meta property="og:url" content="http://github.com/2018/02/17/盒子模型相关属性/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="Element.clientHeight,Element.clientWidth返回元素节点可见部分的高度，不包括溢出(overflow)的大小 这两个属性的值等元素的css高度（宽度）加上css的 padding 减去滚动条（如果存在滚动条），单位为像素。 Element.clientLeft,Element.clientTopElement.clientLeft 属性等于元素节点左边框的宽度，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-16T06:47:49.588Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="盒子模型相关属性">
+<meta name="twitter:description" content="Element.clientHeight,Element.clientWidth返回元素节点可见部分的高度，不包括溢出(overflow)的大小 这两个属性的值等元素的css高度（宽度）加上css的 padding 减去滚动条（如果存在滚动条），单位为像素。 Element.clientLeft,Element.clientTopElement.clientLeft 属性等于元素节点左边框的宽度，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://github.com/2018/02/17/盒子模型相关属性/">
+
+
+
+
+
+  <title>盒子模型相关属性 | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <style>
+  .forkme{
+    display: none;
+  }
+    @media (min-width: 768px) {
+  .forkme{
+    display: inline;
+  }
+    }
+  </style>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+  <div class="forkme">
+    <a href="https://github.com/MLuminary"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+  </div>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">热爱前端 渴望知识</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/02/17/盒子模型相关属性/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">盒子模型相关属性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-17T18:43:35+08:00">
+                2018-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/02/17/盒子模型相关属性/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/02/17/盒子模型相关属性/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </span></div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Element-clientHeight-Element-clientWidth"><a href="#Element-clientHeight-Element-clientWidth" class="headerlink" title="Element.clientHeight,Element.clientWidth"></a>Element.clientHeight,Element.clientWidth</h2><p>返回元素节点可见部分的高度，不包括溢出(overflow)的大小</p>
+<p>这两个属性的值等元素的css高度（宽度）加上css的 <code>padding</code> 减去滚动条（如果存在滚动条），单位为像素。</p>
+<h2 id="Element-clientLeft-Element-clientTop"><a href="#Element-clientLeft-Element-clientTop" class="headerlink" title="Element.clientLeft,Element.clientTop"></a>Element.clientLeft,Element.clientTop</h2><p><code>Element.clientLeft</code> 属性等于元素节点左边框的宽度，<code>Element.clientTop</code> 属性等于元素节点顶部边框的宽度，单位为像素</p>
+<p>如果元素设置了 <code>display:inline</code> 它的 <code>clientLeft</code> 属性一律为 <code>0</code></p>
+<a id="more"></a>
+<h2 id="Element-scrollLeft-Element-scrollTop"><a href="#Element-scrollLeft-Element-scrollTop" class="headerlink" title="Element.scrollLeft,Element.scrollTop"></a>Element.scrollLeft,Element.scrollTop</h2><p><code>Element.scrollLeft</code>属性表示网页元素的水平滚动条向右侧滚动的像素，<code>Element.scrollTop</code>属性表示网页元素的垂直滚动条向下滚动的像素数量，对于没有滚动条的网页元素，这两个属性总是等于0</p>
+<p>如果要查看整张网页的水平的垂直的滚动距离，要从<code>document.documentElement</code> 元素上读取</p>
+<h2 id="Element-scrollWidth-Element-scrollHeight"><a href="#Element-scrollWidth-Element-scrollHeight" class="headerlink" title="Element.scrollWidth,Element.scrollHeight"></a>Element.scrollWidth,Element.scrollHeight</h2><p><code>Element.scrollHeight</code> 属性返回某个网页元素的总高度，<code>Element.scrollWidth</code> 属性返回总宽度，可以理解成元素在垂直和水平两个方向上可以滚动的距离。它们都包括由于溢出容器而无法显示在网页上的那部分高度或宽度。这两个属性是只读属性。</p>
+<p>如果内容正好适合它的容器，没有溢出，那么 <code>Element.scrollHeight</code> 和 <code>Element.clientHeight</code> 是相等的，如果存在溢出，那么 <code>scrollHeight</code> 属性大于<code>clientHeight</code> 属性，宽度也是同样。</p>
+<p>当存在溢出的时候，滚动条滚动到内容底部时，下列表达式为  <code>true</code> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.scrollHeight - element.scrollTop === element.clientHeight</span><br></pre></td></tr></table></figure>
+<h2 id="Element-offsetHeight-Element-offsetWidth"><a href="#Element-offsetHeight-Element-offsetWidth" class="headerlink" title="Element.offsetHeight , Element.offsetWidth"></a>Element.offsetHeight , Element.offsetWidth</h2><p><code>Element.offsetHeight</code> 属性返回元素的垂直高度，<code>Element.offsetWidth</code> 属性返回水平宽度。<code>offsetHeight</code> 可以理解成元素左下角距离左上角的位移，<code>offsetWidth</code> 是元素右上角距离左上角的位移。它们的单位为像素，都是只读。</p>
+<p>这两个属性值包括 <code>Padding</code> 和 <code>Border</code> 、以及滚动条。这也意味着，如果不存在内容溢出，<code>Element.offsetHeight</code> 只比 <code>Element.clientHeight</code> 多了边框的高度。</p>
+<h2 id="Element-offsetLeft，Element-offsetTop"><a href="#Element-offsetLeft，Element-offsetTop" class="headerlink" title="Element.offsetLeft，Element.offsetTop"></a>Element.offsetLeft，Element.offsetTop</h2><p><code>Element.offsetLeft</code> 返回当前元素左上角相对于 <code>Element.offsetParent</code> 节点的水平位移，<code>Element.offsetTop</code> 返回垂直位移，单位为像素。通常，这两个值是指相对于父节点的位移。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/盒子模型/" rel="tag"><i class="fa fa-tag"></i> 盒子模型</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/18/按是否影响原数组分类方法/" rel="next" title="按是否影响原数组分类方法">
+                <i class="fa fa-chevron-left"></i> 按是否影响原数组分类方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/01/前端安全/" rel="prev" title="前端安全">
+                前端安全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Hutchins">
+          <p class="site-author-name" itemprop="name">Hutchins</p>
+           
+              <p class="site-description motion-element" itemprop="description">what dosen't kill me makes me stronger</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MLuminary" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-clientHeight-Element-clientWidth"><span class="nav-number">1.</span> <span class="nav-text">Element.clientHeight,Element.clientWidth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-clientLeft-Element-clientTop"><span class="nav-number">2.</span> <span class="nav-text">Element.clientLeft,Element.clientTop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-scrollLeft-Element-scrollTop"><span class="nav-number">3.</span> <span class="nav-text">Element.scrollLeft,Element.scrollTop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-scrollWidth-Element-scrollHeight"><span class="nav-number">4.</span> <span class="nav-text">Element.scrollWidth,Element.scrollHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-offsetHeight-Element-offsetWidth"><span class="nav-number">5.</span> <span class="nav-text">Element.offsetHeight , Element.offsetWidth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-offsetLeft，Element-offsetTop"><span class="nav-number">6.</span> <span class="nav-text">Element.offsetLeft，Element.offsetTop</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp&nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt8DrywQ';
+      var conf = '203b6c81deb7b9c692912e13fa0fbefc';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
