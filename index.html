@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2018/05/01/前端安全/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/09/28/基于mpvue的圆形进度条/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
@@ -312,7 +312,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/05/01/前端安全/" class="post-title-link" itemprop="url">前端安全</a>
+                <a href="/2018/09/28/基于mpvue的圆形进度条/" class="post-title-link" itemprop="url">基于 mpvue 的圆形进度条组件</a>
               
             
           </h1>
@@ -337,7 +337,7 @@
                 
               
 
-              <time title="Created: 2018-05-01 22:55:28" itemprop="dateCreated datePublished" datetime="2018-05-01T22:55:28+08:00">2018-05-01</time>
+              <time title="Created: 2018-09-28 22:45:37" itemprop="dateCreated datePublished" datetime="2018-09-28T22:45:37+08:00">2018-09-28</time>
             
 
             
@@ -354,7 +354,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+                <time title="Modified: 2019-01-17 18:09:53" itemprop="dateModified" datetime="2019-01-17T18:09:53+08:00">2019-01-17</time>
               
             
           </span>
@@ -371,7 +371,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/安全/" itemprop="url" rel="index"><span itemprop="name">安全</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Fun/" itemprop="url" rel="index"><span itemprop="name">Fun</span></a></span>
 
                 
                 
@@ -386,1753 +386,7 @@
 
           
           
-            <span id="/2018/05/01/前端安全/" class="leancloud_visitors" data-flag-title="前端安全">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>最近一直在准备面试，被问到了解 XSS 时答出不了解还是很惭愧的，作为前端开发人员，安全这方面是必须要非常重视的，因此决定拿出了一段时间来重点了解一下关于前端的安全，在这里以 XSS 和 CSRF 为主</p>
-<h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>XSS「Cross-site script」因为与 CSS 简写重合所以改为 XSS</p>
-<p>其原理是向网站中插入恶意的 HTML 代码。当其他用户浏览该网站的时候，该段 HTML 代码会自动执行，从而达到攻击的目的。如盗取用户的 Cookie，页面重定向，破坏页面结构</p>
-<p><strong>举个栗子</strong></p>
-<p>网站的评论系统没有过滤 XSS 攻击，当有用户添加评论为</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">    alert(<span class="string">"1"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/05/01/前端安全/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2018/02/17/盒子模型相关属性/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/02/17/盒子模型相关属性/" class="post-title-link" itemprop="url">盒子模型相关属性</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-02-17 18:43:35" itemprop="dateCreated datePublished" datetime="2018-02-17T18:43:35+08:00">2018-02-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/02/17/盒子模型相关属性/" class="leancloud_visitors" data-flag-title="盒子模型相关属性">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Element-clientHeight-Element-clientWidth"><a href="#Element-clientHeight-Element-clientWidth" class="headerlink" title="Element.clientHeight,Element.clientWidth"></a>Element.clientHeight,Element.clientWidth</h2><p>返回元素节点可见部分的高度，不包括溢出(overflow)的大小</p>
-<p>这两个属性的值等元素的css高度（宽度）加上css的 <code>padding</code> 减去滚动条（如果存在滚动条），单位为像素。</p>
-<h2 id="Element-clientLeft-Element-clientTop"><a href="#Element-clientLeft-Element-clientTop" class="headerlink" title="Element.clientLeft,Element.clientTop"></a>Element.clientLeft,Element.clientTop</h2><p><code>Element.clientLeft</code> 属性等于元素节点左边框的宽度，<code>Element.clientTop</code> 属性等于元素节点顶部边框的宽度，单位为像素</p>
-<p>如果元素设置了 <code>display:inline</code> 它的 <code>clientLeft</code> 属性一律为 <code>0</code></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/02/17/盒子模型相关属性/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2018/01/18/按是否影响原数组分类方法/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/01/18/按是否影响原数组分类方法/" class="post-title-link" itemprop="url">按是否影响原数组分类方法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-01-18 20:52:41" itemprop="dateCreated datePublished" datetime="2018-01-18T20:52:41+08:00">2018-01-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/01/18/按是否影响原数组分类方法/" class="leancloud_visitors" data-flag-title="按是否影响原数组分类方法">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="改变原数组"><a href="#改变原数组" class="headerlink" title="改变原数组"></a>改变原数组</h2><h3 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h3><p><code>pop</code>方法用于删除数组的最后一个元素，并返回该元素</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[].pop()<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><p><code>push</code>方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度</p>
-<h3 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h3><p><code>shift</code>方法用于删除数组的第一个元素，并返回该元素</p>
-<h3 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h3><p><code>unshift</code>方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/01/18/按是否影响原数组分类方法/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2018/01/18/slice、substr和substring的区别/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/01/18/slice、substr和substring的区别/" class="post-title-link" itemprop="url">slice、substr和substring的区别</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-01-18 20:31:01" itemprop="dateCreated datePublished" datetime="2018-01-18T20:31:01+08:00">2018-01-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/01/18/slice、substr和substring的区别/" class="leancloud_visitors" data-flag-title="slice、substr和substring的区别">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本博文写的是此三种方法的应用场景为字符串的情况</p>
-<h2 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h2><p><code>slice</code>方法用于从原字符串取出子字符串并返回，不改变原字符串。</p>
-<p>它的第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）。左闭右开</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'javascript'</span>.slice(<span class="number">1</span>,<span class="number">4</span>);<span class="comment">//"ava"</span></span><br></pre></td></tr></table></figure>
-<p>如果参数是负值，表示从结尾开始倒数计算的位置，即该<strong>负值加上字符串长度</strong>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'javascript'</span>.slice(<span class="number">1</span>,<span class="number">-2</span>);<span class="comment">//"avascri"</span></span><br></pre></td></tr></table></figure>
-<p>如果第一个参数大于第二个参数，slice方法返回一个空字符串。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'javascript'</span>.slice(<span class="number">2</span>,<span class="number">1</span>);<span class="comment">//''</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/01/18/slice、substr和substring的区别/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/29/Node学习笔记二/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/29/Node学习笔记二/" class="post-title-link" itemprop="url">Node学习笔记二</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-29 17:03:32" itemprop="dateCreated datePublished" datetime="2017-11-29T17:03:32+08:00">2017-11-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2017/11/29/Node学习笔记二/" class="leancloud_visitors" data-flag-title="Node学习笔记二">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="自定义模块的两种形式"><a href="#自定义模块的两种形式" class="headerlink" title="自定义模块的两种形式"></a>自定义模块的两种形式</h2><h3 id="文件模块"><a href="#文件模块" class="headerlink" title="文件模块"></a>文件模块</h3><p><code>require(&#39;文件目录&#39;)</code></p>
-<h3 id="目录模块"><a href="#目录模块" class="headerlink" title="目录模块"></a>目录模块</h3><p>方式一：创建一个目录，假设名为m1，其中创建名为index.js的文件。其它在当前目录的模块可以<code>require(&#39;./m1&#39;)</code>调用此目录中index模块</p>
-<p>方式二：创建一个目录，假设名为m2，其中创建名为2.js的文件，若想<code>require(&#39;./m2&#39;)</code>来调用2.js模块，需要新建一个package.json文件，其中声明main属性指定默认执行的启动js文件，那其实第一个也是因为默认设置了<code>main:&#39;index.js&#39;</code></p>
-<p>方式三（常用）:创建一个目录，目录名为node_modules，再创建目录模块，假设命名m3，其中要创建package.json文件，其中声明main属性指定默认执行的启动js文件，就可以用<code>require(&#39;./m3&#39;)</code>来调用此模块</p>
-<p>当目录中既有可调用的文件夹m4又有m4.js时，用<code>require(&#39;./m4&#39;)</code>调用的是m4.js模块</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2017/11/29/Node学习笔记二/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/28/oracle实验笔记三/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/28/oracle实验笔记三/" class="post-title-link" itemprop="url">oracle实验笔记三</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-28 20:19:25" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:25+08:00">2017-11-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2017/11/28/oracle实验笔记三/" class="leancloud_visitors" data-flag-title="oracle实验笔记三">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="主键的插入"><a href="#主键的插入" class="headerlink" title="主键的插入"></a>主键的插入</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> primary <span class="keyword">key</span>（key_name）</span><br></pre></td></tr></table></figure>
-<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> table_name(table_col_name);</span><br><span class="line"><span class="comment">#位图索引</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">bitmap</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> table_name(table_col_name);</span><br><span class="line"><span class="comment">#索引组合</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> table_name(table_col_name1,table_col_name2);</span><br><span class="line"><span class="comment">#降序排列索引</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> table_name(table_col_name <span class="keyword">DESC</span>);</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2017/11/28/oracle实验笔记三/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/28/oracle实验笔记二/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/28/oracle实验笔记二/" class="post-title-link" itemprop="url">oracle实验笔记二</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-28 20:19:20" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:20+08:00">2017-11-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2017/11/28/oracle实验笔记二/" class="leancloud_visitors" data-flag-title="oracle实验笔记二">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="PL-SQL程序基础"><a href="#PL-SQL程序基础" class="headerlink" title="PL/SQL程序基础"></a>PL/SQL程序基础</h2><hr>
-<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建进程</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">procedure</span> procedure_name <span class="keyword">as</span></span><br><span class="line"><span class="comment">#查看已经创建的存储过程或函数。</span></span><br><span class="line"><span class="keyword">select</span> object_name,<span class="keyword">authid</span> <span class="keyword">from</span> user_procedures</span><br><span class="line"><span class="comment">#查看存储过程ex4_2的源代码</span></span><br><span class="line"><span class="keyword">select</span> line,<span class="built_in">text</span> <span class="keyword">from</span> user_source <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">"ex4_2"</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2017/11/28/oracle实验笔记二/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/28/oracle实验笔记一/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/28/oracle实验笔记一/" class="post-title-link" itemprop="url">oracle实验笔记一</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-28 20:19:09" itemprop="dateCreated datePublished" datetime="2017-11-28T20:19:09+08:00">2017-11-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2017/11/28/oracle实验笔记一/" class="leancloud_visitors" data-flag-title="oracle实验笔记一">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Oracle函数和表达式"><a href="#Oracle函数和表达式" class="headerlink" title="Oracle函数和表达式"></a>Oracle函数和表达式</h2><h3 id="replace-amp-translate"><a href="#replace-amp-translate" class="headerlink" title="replace&amp;translate"></a>replace&amp;translate</h3><p>两种函数都用来替换字符串，但是结果略有不同</p>
-<p>用法:函数名(‘对其进行操作的字符串’,’目标字符串’,’替换字符串’)</p>
-<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">replace</span>(<span class="string">'我是中国人,我爱中国'</span>, <span class="string">'中国'</span>, <span class="string">'China'</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
-<p>结果: 我是China人,我爱China</p>
-<h4 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">translate</span>(<span class="string">'我是中国人,我爱中国'</span>, <span class="string">'中国'</span>, <span class="string">'China'</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
-<p>结果: 我是Ch人,我爱Ch.<br></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2017/11/28/oracle实验笔记一/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/25/Node学习笔记一/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/25/Node学习笔记一/" class="post-title-link" itemprop="url">Node学习笔记一</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-25 23:16:00" itemprop="dateCreated datePublished" datetime="2017-11-25T23:16:00+08:00">2017-11-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2017/11/25/Node学习笔记一/" class="leancloud_visitors" data-flag-title="Node学习笔记一">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="node概述"><a href="#node概述" class="headerlink" title="node概述"></a>node概述</h2><blockquote>
-<p>一个搭建在Chrome JavaScript运行时上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型,使它既轻量又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。</p>
-</blockquote>
-<p>我通俗的理解就是在服务器上用chrome v8运行的js。完全支持ES6新特性</p>
-<h2 id="Node-js的运行模式"><a href="#Node-js的运行模式" class="headerlink" title="Node.js的运行模式"></a>Node.js的运行模式</h2><h3 id="交互模式"><a href="#交互模式" class="headerlink" title="交互模式"></a>交互模式</h3><p>REPL:Read Evaluate Print Loop,输入一行代码执行一行。在命令行中输入<code>node</code>,然后编写代码回车执行。自带输出功能，不必写<code>console.log</code>(就相当于chrome的开发者工具)</p>
-<h3 id="脚本模式"><a href="#脚本模式" class="headerlink" title="脚本模式"></a>脚本模式</h3><p>把要执行的所有语句编写的一个文本文件中（后缀名任意，没有都行）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node 完整路径名 回车</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2017/11/25/Node学习笔记一/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/11/24/prop和attr的一些理解/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hutchins">
-      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hutchins">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/24/prop和attr的一些理解/" class="post-title-link" itemprop="url">prop和attr的一些理解</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-24 20:02:28" itemprop="dateCreated datePublished" datetime="2017-11-24T20:02:28+08:00">2017-11-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2017/11/24/prop和attr的一些理解/" class="leancloud_visitors" data-flag-title="prop和attr的一些理解">
+            <span id="/2018/09/28/基于mpvue的圆形进度条/" class="leancloud_visitors" data-flag-title="基于 mpvue 的圆形进度条组件">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -2165,14 +419,1752 @@
       
         
           <blockquote>
-<p>前几天做一个迷你京东小项目的时候涉及到一个全选的小功能，一开始用的是<code>attr</code>，但是效果完全不是自己想要的，当商品按钮点击过一次后，<code>attr</code>就无法对其状态进行更改，最后谷歌了一番发现需要用<code>prop</code>来代替。虽然效果问题解决了，但是自己还是想弄懂<code>prop</code>和<code>attr</code>的区别.</p>
+<p>自己本身是一个小程序小白，前几天刚开始学习。碰到一个需求是要实现多个圆形带缺口的进度条，在网上没有找到相关插件后决定自己编写一个，如果能帮到需要的人那真是太好了, 下面会介绍一下自己的实现过程，如果只关心如何用的话可以传送到下面的页面</p>
 </blockquote>
-<p>我的问题和网上大多数人的问题不相同，具体描述看示例代码之后。</p>
-<h2 id="版本使用不同"><a href="#版本使用不同" class="headerlink" title="版本使用不同"></a>版本使用不同</h2><p>遇到问题我一般先会去查相关的官方文档，可在jq的api中文文档中没有发现有价值的东西，只是发现适用的版本和概念有所轻微的不同。<br><code>attr</code>：设置或返回被选元素的属性值.版本：1.0<code>prop</code>:获取在匹配的元素集中的第一个元素的属性值。版本：1.6+<br></p>
+<p><a href="https://github.com/MLuminary/subentry/tree/master/mini-circleProgress">mini-circleprogress 源码</a></p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2017/11/24/prop和attr的一些理解/#more" rel="contents">
+              <a class="btn" href="/2018/09/28/基于mpvue的圆形进度条/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/09/07/根据url获取图标及titile/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/07/根据url获取图标及titile/" class="post-title-link" itemprop="url">根据 url 获取图标及 title</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-07 00:34:12" itemprop="dateCreated datePublished" datetime="2018-09-07T00:34:12+08:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 18:06:07" itemprop="dateModified" datetime="2019-01-17T18:06:07+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Fun/" itemprop="url" rel="index"><span itemprop="name">Fun</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/09/07/根据url获取图标及titile/" class="leancloud_visitors" data-flag-title="根据 url 获取图标及 title">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>最近在做一个小项目有一个类似添加书签的功能，用户点击添加后，弹出输入模块，用户只需要将需要收录的链接添加进去，便可以自动生成带有此网站图标和此网站标题的卡片</p>
+</blockquote>
+<h2 id="设置-icon"><a href="#设置-icon" class="headerlink" title="设置 icon"></a>设置 icon</h2><p>想要知道如何获取肯定要知道网站的 icon 是如何设置的，设置 icon 的方式据我了解的有两种</p>
+<ul>
+<li>一般都是在 <code>html</code> 代码的 <code>head</code> 标签中设置一个 <code>link</code> 标签，将其 <code>rel</code> 属性设置为 “icon” 或者 “shortcut icon”,  <code>href</code> 就是图标的位置。</li>
+<li>大部分网站会在其根目录下放置一个<code>favicon.ico</code> 文件，也就是网站的图标。</li>
+</ul>
+<p><img src="/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg1.png" alt="pg1"></p>
+<h2 id="获取-icon"><a href="#获取-icon" class="headerlink" title="获取 icon"></a>获取 icon</h2><p>两条途径设置 icon，明显解析 html 要相对麻烦一点，因此我们先去网站根目录下去获取 favicon.ico, 如果不存在此文件，再解析 html，当然如果网站本身就没有 icon ，那就自己设置一个默认的图标就好了。</p>
+<p>我的思路是拿到需要收录的链接，然后用 <code>node</code> 的 <code>url</code> 模块去解析，再用 <code>get</code> 方法去抓取此网页，如果不是 <code>200</code> 就代表根目录下没有此文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>)</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> app = express()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> targetUrl = <span class="string">'https://github.com/MLuminary'</span></span><br><span class="line">  <span class="keyword">let</span> urlString = url.parse(targetUrl)</span><br><span class="line">  <span class="keyword">let</span> iconUrl = <span class="string">`<span class="subst">$&#123;urlString.protocol&#125;</span>//<span class="subst">$&#123;urlString.host&#125;</span>/favicon.ico`</span></span><br><span class="line">  isHasRootIcon(iconUrl)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断网站根目录下是否有 favicon.ico 文件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isHasRootIcon</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">   axios.get(url).then(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">   &#125;).catch(<span class="function"><span class="params">error</span>=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="number">0</span>)</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>以上思路大部分网站还是可以的</strong>，但是有一些网站会遇到重定向的问题，会跳到 404 页面或者 error 页面，<strong>此时返回的 <code>status</code> 也是 <code>200</code> </strong>，上面的方法就也会认为已找到 icon, 但实际上链接是 <code>html</code> 页面，因此我就想能不能获取到重定向后的链接，判断其类型，如果重定向的类型不是 ico、png等图片类型，就也判断为没找到。找来找去发现了 <code>request</code> 包可以实现, 下面是具体实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> targetUrl = <span class="string">'http://www.12306.cn/mormhweb/'</span></span><br><span class="line">  <span class="keyword">let</span> urlString = url.parse(targetUrl)</span><br><span class="line">  <span class="keyword">let</span> iconUrl = <span class="string">`<span class="subst">$&#123;urlString.protocol&#125;</span>//<span class="subst">$&#123;urlString.host&#125;</span>/favicon.ico`</span></span><br><span class="line">  isHasRootIcon(iconUrl).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;<span class="built_in">console</span>.log(res)&#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断网站根目录下是否有 favicon.ico 文件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isHasRootIcon</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> pattern = [<span class="string">'ico'</span>,<span class="string">'png'</span>, <span class="string">'svg'</span>, <span class="string">'jpg'</span>]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> returnValue = <span class="literal">false</span></span><br><span class="line">    request.get(url,<span class="function"><span class="keyword">function</span>(<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(res.statusCode === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> redirectPath = res.request.uri.path <span class="comment">// 重定向的页面路径</span></span><br><span class="line">        pattern.forEach(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="keyword">if</span>(redirectPath.split(<span class="string">'.'</span>)[<span class="number">1</span>]===item) &#123;</span><br><span class="line">            <span class="comment">// 如果结尾是 pattern 数组中的一种 则返回 true</span></span><br><span class="line">            returnValue = <span class="literal">true</span></span><br><span class="line">            resolve(returnValue)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      resolve(returnValue)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果根目录下不存在 favicon.ico 文件，则需要解析其链接的 html ，然后提取出 icon 的路径，但是这其中还有一些问题，<strong>icon 的路径有可能是绝对路径或者是相对路径</strong>，因此在此还需要在判断一下，下面是具体代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolveHtml</span>(<span class="params">targetUrl</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> defaultUrl = <span class="string">''</span><span class="comment">// 自己默认的图片链接</span></span><br><span class="line">    superagent.get(targetUrl).end(<span class="function"><span class="keyword">function</span> (<span class="params">err, content</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> $ = cheerio.load(content.text)</span><br><span class="line">      <span class="keyword">let</span> iconUrl = $(<span class="string">"link[rel*='icon']"</span>).eq(<span class="number">0</span>).attr(<span class="string">'href'</span>) <span class="comment">// 获得 icon 的链接</span></span><br><span class="line">      <span class="comment">// 如果 iconUrl 存在 还需要判断其是否是相对位置</span></span><br><span class="line">      <span class="keyword">if</span>(iconUrl) &#123;</span><br><span class="line">        <span class="comment">// 如果不存在 'http'</span></span><br><span class="line">        <span class="keyword">if</span>(iconUrl.indexOf(<span class="string">'http'</span>) === <span class="number">-1</span> ) &#123;</span><br><span class="line">          <span class="comment">// 判断是否为相对路径或根路径</span></span><br><span class="line">          <span class="keyword">if</span>(iconUrl.charAt(<span class="number">0</span>) === <span class="string">'/'</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> urlString = url.parse(targetUrl)</span><br><span class="line">            iconUrl = <span class="string">`<span class="subst">$&#123;urlString.protocol&#125;</span>//<span class="subst">$&#123;urlString.host&#125;</span><span class="subst">$&#123;iconUrl&#125;</span>`</span></span><br><span class="line">          &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            iconUrl = targetUrl + <span class="string">"/"</span> + iconUrl</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        resolve(iconUrl)</span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        resolve(defaultUrl)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>获取 icon 连接时为什么我加了一个 <code>eq(0)</code> 呢，是因为我发现有些网站有两种类型的 <code>link</code> 可以添加图标，一种是<code>shortcunt icon</code> 一种是 <code>icon</code>，因此我们只要获取其中一个就可以了，两个都获取到可能会报错。</p>
+<h2 id="获取title"><a href="#获取title" class="headerlink" title="获取title"></a>获取title</h2><p>获取 title 就相当于解析 Html 获取 icon, 还是比较简单的，在此就不放代码了。</p>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>下面就是传入掘金首页抓取到的信息</p>
+<p><img src="/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg2.png" alt="pg2"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/08/15/获取百度搜索提示结果/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/15/获取百度搜索提示结果/" class="post-title-link" itemprop="url">获取百度搜索提示结果</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-15 22:32:03" itemprop="dateCreated datePublished" datetime="2018-08-15T22:32:03+08:00">2018-08-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 18:06:21" itemprop="dateModified" datetime="2019-01-17T18:06:21+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Fun/" itemprop="url" rel="index"><span itemprop="name">Fun</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/08/15/获取百度搜索提示结果/" class="leancloud_visitors" data-flag-title="获取百度搜索提示结果">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>最近自己想做的项目需要一个搜索框，并想实现如下搜索提示的功能</p>
+</blockquote>
+<p><img src="/2018/08/15/获取百度搜索提示结果/pg1.jpg" alt="pg1"></p>
+<p>本来觉得查查 network 随便抓取一下就可以获得到数据，但事情却不是这么简单</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/15/获取百度搜索提示结果/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/07/28/让服务器带点绿/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/07/28/让服务器带点绿/" class="post-title-link" itemprop="url">让服务器带点绿</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-28 22:32:03" itemprop="dateCreated datePublished" datetime="2018-07-28T22:32:03+08:00">2018-07-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 18:00:47" itemprop="dateModified" datetime="2019-01-17T18:00:47+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Explore/" itemprop="url" rel="index"><span itemprop="name">Explore</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/07/28/让服务器带点绿/" class="leancloud_visitors" data-flag-title="让服务器带点绿">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>这段时间终于感觉自己步入正轨，也相对稳定了下来。便想搞点事情，想做一个网站，包含自己一些平时想要的工具和一些自己想关注的咨询。然后发现自己的服务器竟然一点都不绿，所以就花了一些时间绿化了自己的服务器。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/28/让服务器带点绿/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/06/25/记一次oneinstack配置服务器/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/25/记一次oneinstack配置服务器/" class="post-title-link" itemprop="url">记一次 oneinstack 配置服务器</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-06-25 22:32:03" itemprop="dateCreated datePublished" datetime="2018-06-25T22:32:03+08:00">2018-06-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:57:34" itemprop="dateModified" datetime="2019-01-17T17:57:34+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Explore/" itemprop="url" rel="index"><span itemprop="name">Explore</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/06/25/记一次oneinstack配置服务器/" class="leancloud_visitors" data-flag-title="记一次 oneinstack 配置服务器">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>因为自己是大学生，所以一直都是用的腾讯云学生机，但是前几天腾讯突然告诉我腾讯云学生认证到期了，可能是当时填错了，没办法我就又申请了学生认证😂，谁让我还是学生呢，但是以前老的学生优惠的学生机就不能再按照学生优惠的方式续费了，所以我又买了一个新的服务器。买完服务器准备手动开始各种配置的时候便发现了一个神器，也就是接下来要介绍给大家的。就是 <a href="https://oneinstack.com/" target="_blank" rel="noopener">oneinstack</a> ,可以傻瓜式「一键」安装，想看碰到的 bug 及一些解决方案可以直接跳过配置服务器部分。<a href="#遇到的问题">jump</a></p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/25/记一次oneinstack配置服务器/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/05/30/前端安全/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/05/30/前端安全/" class="post-title-link" itemprop="url">前端安全</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-30 22:55:28" itemprop="dateCreated datePublished" datetime="2018-05-30T22:55:28+08:00">2018-05-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:53:14" itemprop="dateModified" datetime="2019-01-17T17:53:14+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Explore/" itemprop="url" rel="index"><span itemprop="name">Explore</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/05/30/前端安全/" class="leancloud_visitors" data-flag-title="前端安全">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>最近一直在准备面试，被问到了解 XSS 时答出不了解还是很惭愧的，作为前端开发人员，安全这方面是必须要非常重视的，因此决定拿出了一段时间来重点了解一下关于前端的安全问题，在这里以 XSS 和 CSRF 为主</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/05/30/前端安全/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/05/28/跨域问题总结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/05/28/跨域问题总结/" class="post-title-link" itemprop="url">跨域问题总结</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-28 22:32:03" itemprop="dateCreated datePublished" datetime="2018-05-28T22:32:03+08:00">2018-05-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:51:06" itemprop="dateModified" datetime="2019-01-17T17:51:06+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Explore/" itemprop="url" rel="index"><span itemprop="name">Explore</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/05/28/跨域问题总结/" class="leancloud_visitors" data-flag-title="跨域问题总结">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>跨域问题是日常中必须要面对的，每次面试必考跨域也体现了跨域技术的重要性，跨域的文章也多的数不过来，今天这篇文章主要是用来总结自己每种跨域技术的尝试，如果有幸能帮到别人那就再好不过了</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/05/28/跨域问题总结/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/05/25/FlexDisplayRoom/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/05/25/FlexDisplayRoom/" class="post-title-link" itemprop="url">FlexDisplayRoom</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-25 22:32:03" itemprop="dateCreated datePublished" datetime="2018-05-25T22:32:03+08:00">2018-05-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:46:18" itemprop="dateModified" datetime="2019-01-17T17:46:18+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Fun/" itemprop="url" rel="index"><span itemprop="name">Fun</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/05/25/FlexDisplayRoom/" class="leancloud_visitors" data-flag-title="FlexDisplayRoom">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>前段时间面试发现有很多都问 flex 布局，就觉得灰常有必要去学习一下，浏览了一遍<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$" target="_blank" rel="noopener">阮一峰大神写的教程</a>后掌握了基本理论，但始终觉得应该实践一下，偶然间看到下面这样一个网站</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/05/25/FlexDisplayRoom/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/05/20/性感慕课-在线被爬/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/05/20/性感慕课-在线被爬/" class="post-title-link" itemprop="url">性感慕课-在线被爬</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-20 22:32:03" itemprop="dateCreated datePublished" datetime="2018-05-20T22:32:03+08:00">2018-05-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:43:45" itemprop="dateModified" datetime="2019-01-17T17:43:45+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Fun/" itemprop="url" rel="index"><span itemprop="name">Fun</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/05/20/性感慕课-在线被爬/" class="leancloud_visitors" data-flag-title="性感慕课-在线被爬">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>在学习了 alsotang 大神的 《Node.js包教不包会》后的一个爬虫小练习，期间也碰到挺多小问题，也学到了很多小东西。「 单押×3 」:trollface: <br> 这里是大神的教程地址 <a href="https://github.com/alsotang/node-lessons，">https://github.com/alsotang/node-lessons，</a></p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/05/20/性感慕课-在线被爬/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/05/17/今天这个仇先记下来/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/05/17/今天这个仇先记下来/" class="post-title-link" itemprop="url">今天这个仇先记下来了</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-17 23:54:14" itemprop="dateCreated datePublished" datetime="2018-05-17T23:54:14+08:00">2018-05-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:44:22" itemprop="dateModified" datetime="2019-01-17T17:44:22+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Fun/" itemprop="url" rel="index"><span itemprop="name">Fun</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/05/17/今天这个仇先记下来/" class="leancloud_visitors" data-flag-title="今天这个仇先记下来了">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="/2018/05/17/今天这个仇先记下来/jichou.jpg" alt="jichou"></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/05/17/今天这个仇先记下来/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -2221,7 +2213,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2264,7 +2256,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2281,15 +2273,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -2330,25 +2314,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

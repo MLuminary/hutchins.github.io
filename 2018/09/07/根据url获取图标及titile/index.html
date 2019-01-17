@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="最近在做一个小项目有一个类似添加书签的功能，用户点击添加后，弹出输入模块，用户只需要将需要收录的链接添加进去，便可以自动生成带有此网站图标和此网站标题的卡片  设置 icon想要知道如何获取肯定要知道网站的 icon 是如何设置的，设置 icon 的方式据我了解的有两种  一般都是在 html 代码的 head 标签中设置一个 link 标签，将其 rel 属性设置为 “icon” 或者 “sh">
+<meta name="keywords" content="Js,Idea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="根据 url 获取图标及 title">
+<meta property="og:url" content="http://github.com/2018/09/07/根据url获取图标及titile/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="最近在做一个小项目有一个类似添加书签的功能，用户点击添加后，弹出输入模块，用户只需要将需要收录的链接添加进去，便可以自动生成带有此网站图标和此网站标题的卡片  设置 icon想要知道如何获取肯定要知道网站的 icon 是如何设置的，设置 icon 的方式据我了解的有两种  一般都是在 html 代码的 head 标签中设置一个 link 标签，将其 rel 属性设置为 “icon” 或者 “sh">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://github.com/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg1.png">
+<meta property="og:image" content="http://github.com/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg2.png">
+<meta property="og:updated_time" content="2019-01-17T10:06:07.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="根据 url 获取图标及 title">
+<meta name="twitter:description" content="最近在做一个小项目有一个类似添加书签的功能，用户点击添加后，弹出输入模块，用户只需要将需要收录的链接添加进去，便可以自动生成带有此网站图标和此网站标题的卡片  设置 icon想要知道如何获取肯定要知道网站的 icon 是如何设置的，设置 icon 的方式据我了解的有两种  一般都是在 html 代码的 head 标签中设置一个 link 标签，将其 rel 属性设置为 “icon” 或者 “sh">
+<meta name="twitter:image" content="http://github.com/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://github.com/2018/09/07/根据url获取图标及titile/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>根据 url 获取图标及 title | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">To be interesting</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/09/07/根据url获取图标及titile/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">根据 url 获取图标及 title
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-07 00:34:12" itemprop="dateCreated datePublished" datetime="2018-09-07T00:34:12+08:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 18:06:07" itemprop="dateModified" datetime="2019-01-17T18:06:07+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Fun/" itemprop="url" rel="index"><span itemprop="name">Fun</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/09/07/根据url获取图标及titile/" class="leancloud_visitors" data-flag-title="根据 url 获取图标及 title">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>最近在做一个小项目有一个类似添加书签的功能，用户点击添加后，弹出输入模块，用户只需要将需要收录的链接添加进去，便可以自动生成带有此网站图标和此网站标题的卡片</p>
+</blockquote>
+<h2 id="设置-icon"><a href="#设置-icon" class="headerlink" title="设置 icon"></a>设置 icon</h2><p>想要知道如何获取肯定要知道网站的 icon 是如何设置的，设置 icon 的方式据我了解的有两种</p>
+<ul>
+<li>一般都是在 <code>html</code> 代码的 <code>head</code> 标签中设置一个 <code>link</code> 标签，将其 <code>rel</code> 属性设置为 “icon” 或者 “shortcut icon”,  <code>href</code> 就是图标的位置。</li>
+<li>大部分网站会在其根目录下放置一个<code>favicon.ico</code> 文件，也就是网站的图标。</li>
+</ul>
+<p><img src="/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg1.png" alt="pg1"></p>
+<h2 id="获取-icon"><a href="#获取-icon" class="headerlink" title="获取 icon"></a>获取 icon</h2><p>两条途径设置 icon，明显解析 html 要相对麻烦一点，因此我们先去网站根目录下去获取 favicon.ico, 如果不存在此文件，再解析 html，当然如果网站本身就没有 icon ，那就自己设置一个默认的图标就好了。</p>
+<p>我的思路是拿到需要收录的链接，然后用 <code>node</code> 的 <code>url</code> 模块去解析，再用 <code>get</code> 方法去抓取此网页，如果不是 <code>200</code> 就代表根目录下没有此文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>)</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> app = express()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> targetUrl = <span class="string">'https://github.com/MLuminary'</span></span><br><span class="line">  <span class="keyword">let</span> urlString = url.parse(targetUrl)</span><br><span class="line">  <span class="keyword">let</span> iconUrl = <span class="string">`<span class="subst">$&#123;urlString.protocol&#125;</span>//<span class="subst">$&#123;urlString.host&#125;</span>/favicon.ico`</span></span><br><span class="line">  isHasRootIcon(iconUrl)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断网站根目录下是否有 favicon.ico 文件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isHasRootIcon</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">   axios.get(url).then(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">   &#125;).catch(<span class="function"><span class="params">error</span>=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="number">0</span>)</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>以上思路大部分网站还是可以的</strong>，但是有一些网站会遇到重定向的问题，会跳到 404 页面或者 error 页面，<strong>此时返回的 <code>status</code> 也是 <code>200</code> </strong>，上面的方法就也会认为已找到 icon, 但实际上链接是 <code>html</code> 页面，因此我就想能不能获取到重定向后的链接，判断其类型，如果重定向的类型不是 ico、png等图片类型，就也判断为没找到。找来找去发现了 <code>request</code> 包可以实现, 下面是具体实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> targetUrl = <span class="string">'http://www.12306.cn/mormhweb/'</span></span><br><span class="line">  <span class="keyword">let</span> urlString = url.parse(targetUrl)</span><br><span class="line">  <span class="keyword">let</span> iconUrl = <span class="string">`<span class="subst">$&#123;urlString.protocol&#125;</span>//<span class="subst">$&#123;urlString.host&#125;</span>/favicon.ico`</span></span><br><span class="line">  isHasRootIcon(iconUrl).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;<span class="built_in">console</span>.log(res)&#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断网站根目录下是否有 favicon.ico 文件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isHasRootIcon</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> pattern = [<span class="string">'ico'</span>,<span class="string">'png'</span>, <span class="string">'svg'</span>, <span class="string">'jpg'</span>]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> returnValue = <span class="literal">false</span></span><br><span class="line">    request.get(url,<span class="function"><span class="keyword">function</span>(<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(res.statusCode === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> redirectPath = res.request.uri.path <span class="comment">// 重定向的页面路径</span></span><br><span class="line">        pattern.forEach(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="keyword">if</span>(redirectPath.split(<span class="string">'.'</span>)[<span class="number">1</span>]===item) &#123;</span><br><span class="line">            <span class="comment">// 如果结尾是 pattern 数组中的一种 则返回 true</span></span><br><span class="line">            returnValue = <span class="literal">true</span></span><br><span class="line">            resolve(returnValue)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      resolve(returnValue)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果根目录下不存在 favicon.ico 文件，则需要解析其链接的 html ，然后提取出 icon 的路径，但是这其中还有一些问题，<strong>icon 的路径有可能是绝对路径或者是相对路径</strong>，因此在此还需要在判断一下，下面是具体代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolveHtml</span>(<span class="params">targetUrl</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> defaultUrl = <span class="string">''</span><span class="comment">// 自己默认的图片链接</span></span><br><span class="line">    superagent.get(targetUrl).end(<span class="function"><span class="keyword">function</span> (<span class="params">err, content</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> $ = cheerio.load(content.text)</span><br><span class="line">      <span class="keyword">let</span> iconUrl = $(<span class="string">"link[rel*='icon']"</span>).eq(<span class="number">0</span>).attr(<span class="string">'href'</span>) <span class="comment">// 获得 icon 的链接</span></span><br><span class="line">      <span class="comment">// 如果 iconUrl 存在 还需要判断其是否是相对位置</span></span><br><span class="line">      <span class="keyword">if</span>(iconUrl) &#123;</span><br><span class="line">        <span class="comment">// 如果不存在 'http'</span></span><br><span class="line">        <span class="keyword">if</span>(iconUrl.indexOf(<span class="string">'http'</span>) === <span class="number">-1</span> ) &#123;</span><br><span class="line">          <span class="comment">// 判断是否为相对路径或根路径</span></span><br><span class="line">          <span class="keyword">if</span>(iconUrl.charAt(<span class="number">0</span>) === <span class="string">'/'</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> urlString = url.parse(targetUrl)</span><br><span class="line">            iconUrl = <span class="string">`<span class="subst">$&#123;urlString.protocol&#125;</span>//<span class="subst">$&#123;urlString.host&#125;</span><span class="subst">$&#123;iconUrl&#125;</span>`</span></span><br><span class="line">          &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            iconUrl = targetUrl + <span class="string">"/"</span> + iconUrl</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        resolve(iconUrl)</span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        resolve(defaultUrl)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>获取 icon 连接时为什么我加了一个 <code>eq(0)</code> 呢，是因为我发现有些网站有两种类型的 <code>link</code> 可以添加图标，一种是<code>shortcunt icon</code> 一种是 <code>icon</code>，因此我们只要获取其中一个就可以了，两个都获取到可能会报错。</p>
+<h2 id="获取title"><a href="#获取title" class="headerlink" title="获取title"></a>获取title</h2><p>获取 title 就相当于解析 Html 获取 icon, 还是比较简单的，在此就不放代码了。</p>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>下面就是传入掘金首页抓取到的信息</p>
+<p><img src="/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg2.png" alt="pg2"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Js/" rel="tag"># Js</a>
+          
+            <a href="/tags/Idea/" rel="tag"># Idea</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/15/获取百度搜索提示结果/" rel="next" title="获取百度搜索提示结果">
+                <i class="fa fa-chevron-left"></i> 获取百度搜索提示结果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/28/基于mpvue的圆形进度条/" rel="prev" title="基于 mpvue 的圆形进度条组件">
+                基于 mpvue 的圆形进度条组件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hutchins</p>
+              <p class="site-description motion-element" itemprop="description">Never stop trying, finish and do everything you've started</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MLuminary" title="github &rarr; https://github.com/MLuminary"><i class="fa fa-fw fa-globe"></i>github</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-icon"><span class="nav-number">1.</span> <span class="nav-text">设置 icon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-icon"><span class="nav-number">2.</span> <span class="nav-text">获取 icon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取title"><span class="nav-number">3.</span> <span class="nav-text">获取title</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成果"><span class="nav-number">4.</span> <span class="nav-text">成果</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz',
+                'X-LC-Key': 'OsMcNeSXT83jo3CdPyJ0fVHw',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="在学习了 alsotang 大神的 《Node.js包教不包会》后的一个爬虫小练习，期间也碰到挺多小问题，也学到了很多小东西。「 单押×3 」:trollface:  这里是大神的教程地址 https://github.com/alsotang/node-lessons，">
+<meta name="keywords" content="Node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="性感慕课-在线被爬">
+<meta property="og:url" content="http://github.com/2018/05/20/性感慕课-在线被爬/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="在学习了 alsotang 大神的 《Node.js包教不包会》后的一个爬虫小练习，期间也碰到挺多小问题，也学到了很多小东西。「 单押×3 」:trollface:  这里是大神的教程地址 https://github.com/alsotang/node-lessons，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://github.com/2018/05/20/性感慕课-在线被爬/spider2.png">
+<meta property="og:image" content="http://github.com/2018/05/20/性感慕课-在线被爬/spider1.png">
+<meta property="og:updated_time" content="2019-01-17T09:43:45.879Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="性感慕课-在线被爬">
+<meta name="twitter:description" content="在学习了 alsotang 大神的 《Node.js包教不包会》后的一个爬虫小练习，期间也碰到挺多小问题，也学到了很多小东西。「 单押×3 」:trollface:  这里是大神的教程地址 https://github.com/alsotang/node-lessons，">
+<meta name="twitter:image" content="http://github.com/2018/05/20/性感慕课-在线被爬/spider2.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://github.com/2018/05/20/性感慕课-在线被爬/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>性感慕课-在线被爬 | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">To be interesting</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/05/20/性感慕课-在线被爬/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">性感慕课-在线被爬
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-20 22:32:03" itemprop="dateCreated datePublished" datetime="2018-05-20T22:32:03+08:00">2018-05-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:43:45" itemprop="dateModified" datetime="2019-01-17T17:43:45+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Fun/" itemprop="url" rel="index"><span itemprop="name">Fun</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/05/20/性感慕课-在线被爬/" class="leancloud_visitors" data-flag-title="性感慕课-在线被爬">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在学习了 alsotang 大神的 《Node.js包教不包会》后的一个爬虫小练习，期间也碰到挺多小问题，也学到了很多小东西。「 单押×3 」:trollface: <br> 这里是大神的教程地址 <a href="https://github.com/alsotang/node-lessons，">https://github.com/alsotang/node-lessons，</a></p>
+</blockquote>
+<a id="more"></a>
+<p>下面是自己的爬取效果图</p>
+<p><img src="/2018/05/20/性感慕课-在线被爬/spider2.png" alt="spider2"></p>
+<p><a href="https://github.com/MLuminary/subentry/blob/master/easySpider/imoocSpider/app.js">imoocSpider练习源码</a></p>
+<h2 id="搭建服务器"><a href="#搭建服务器" class="headerlink" title="搭建服务器"></a>搭建服务器</h2><p>首先，搭建一个 http 服务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express()</span><br><span class="line"></span><br><span class="line">http.createServer(app).listen(<span class="number">8080</span>)</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//code here...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>用的是 <code>express</code> 搭建的，当然也可以用原生的，在这里自己比较习惯用 <a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">express</a></p>
+<h2 id="在线爬虫"><a href="#在线爬虫" class="headerlink" title="在线爬虫"></a>在线爬虫</h2><p>在这里用到的是 <code>superagent</code> 和 <code>cheerio</code> 来爬取页面，这里有相关文档可以参考: <a href="https://cnodejs.org/topic/5378720ed6e2d16149fa16bd" target="_blank" rel="noopener">superagent中文文档</a>、<a href="https://cnodejs.org/topic/5203a71844e76d216a727d2e" target="_blank" rel="noopener">cheerio</a>，都是来自 cnode 社区，当然英语能力较好的也可以参考原文档。在这里就只贴出这两个</p>
+<p>爬取页面链接 <a href="https://www.imooc.com/course/list?c=fe" target="_blank" rel="noopener">https://www.imooc.com/course/list?c=fe</a></p>
+<p>我们是要爬取慕课网前端开发八个页面的课程中的一些信息，但是打开此链接发现每个页面只有课程的名称，并没有老师的名称和一些课程的主要信息。因此我们还需要获取并根据每个课程的 url 进行爬取。</p>
+<p><strong>获取课程详情页链接</strong></p>
+<p>那我们先来爬取八个页面的所有课程详情页的 <code>url</code></p>
+<p>通过点击对应页面的按钮，发现每次都会发送一个新的 get 请求，请求的链接就是对应的页面，而这里的链接只有 <code>page</code> 属性是不同的，因此我们通过动态改变 <code>page</code> 就可以模拟点击对应页来获取对应页的信息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pages = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> baseUrl = <span class="string">'https://www.imooc.com/course/list/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> params = &#123;</span><br><span class="line">  c: <span class="string">'fe'</span>,</span><br><span class="line">  page: page</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">superagent</span><br><span class="line">  .get(baseUrl)</span><br><span class="line">  .query(params)</span><br><span class="line">  .end(<span class="function"><span class="keyword">function</span>(<span class="params">err, content</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> topicUrls = []</span><br><span class="line">    <span class="keyword">var</span> $ = cheerio.load(content.text)</span><br><span class="line">    <span class="keyword">var</span> courseCard = $(<span class="string">'.course-card-container'</span>)</span><br><span class="line">    courseCard.each(<span class="function"><span class="keyword">function</span>(<span class="params">index, element</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> $element = $(element)</span><br><span class="line">      <span class="keyword">var</span> href = url.resolve(</span><br><span class="line">        homeUrl,</span><br><span class="line">        $element.find(<span class="string">'.course-card'</span>).attr(<span class="string">'href'</span>)</span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">      topicUrls.push(href)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(topicUrls)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>这样就可以获取到了第一个页面的 25 个课程的详情页的 url，那要如何获取八个页面呢。</p>
+<p><strong>async</strong></p>
+<p>因为有些网站通常都会有安全限制，不会允许同一个域名有过大的高并发数，因此需要限制并发数，在这里用我们用到了 <code>async</code> 这个库。这里是其 <a href="https://github.com/caolan/async">github</a></p>
+<p>我们首先把前面代码封装成一个函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> baseUrl = <span class="string">'https://www.imooc.com/course/list/'</span></span><br><span class="line"><span class="keyword">var</span> fetchUrl = <span class="function"><span class="keyword">function</span>(<span class="params">page, callback</span>) </span>&#123;</span><br><span class="line">    count++</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'当前并发数'</span>, count)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> params = &#123;</span><br><span class="line">      c: <span class="string">'fe'</span>,</span><br><span class="line">      page: page</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    superagent</span><br><span class="line">      .get(baseUrl)</span><br><span class="line">      .query(params)</span><br><span class="line">      .end(<span class="function"><span class="keyword">function</span>(<span class="params">err, content</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> topicUrls = []</span><br><span class="line">        <span class="keyword">var</span> $ = cheerio.load(content.text)</span><br><span class="line">        <span class="keyword">var</span> courseCard = $(<span class="string">'.course-card-container'</span>)</span><br><span class="line">        courseCard.each(<span class="function"><span class="keyword">function</span>(<span class="params">index, element</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> $element = $(element)</span><br><span class="line">          <span class="keyword">var</span> href = url.resolve(</span><br><span class="line">            homeUrl,</span><br><span class="line">            $element.find(<span class="string">'.course-card'</span>).attr(<span class="string">'href'</span>)</span><br><span class="line">          )</span><br><span class="line"></span><br><span class="line">          topicUrls.push(href)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        callback(err, topicUrls)</span><br><span class="line">        count--</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'释放并发数后当前并发数'</span>, count)</span><br><span class="line">        </span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>然后用 <code>async</code> 控制并发数和八个页面的抓取</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pages = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"><span class="keyword">async</span>.mapLimit(</span><br><span class="line">    pages, </span><br><span class="line">    <span class="number">5</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">page, callback</span>) </span>&#123;</span><br><span class="line">      fetchUrl(page, callback)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (err) <span class="built_in">console</span>.log(err)</span><br><span class="line"></span><br><span class="line">      <span class="built_in">console</span>.log(result)</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样所有的 url 就被打印出来，这里要注意一下，<code>async</code> 会自动把第三个函数参数的返回值合并成一个数组给第四个函数参数的 <code>result</code> 参数。刚开始写的时候我把 <code>topicUrls</code> 声明在了全局，以至于返回成下面这组数据</p>
+<p><img src="/2018/05/20/性感慕课-在线被爬/spider1.png" alt="spider1"></p>
+<p><strong>爬取课程详情页的信息</strong></p>
+<p>在我们有了所有课程详情页的 url 后，我们开始爬取里面的内容。首先定义一个函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fetchMsg = <span class="function"><span class="keyword">function</span>(<span class="params">topicUrl, callback</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'开启新一轮抓取'</span>)</span><br><span class="line">    superagent</span><br><span class="line">      .get(topicUrl)</span><br><span class="line">      .end(<span class="function"><span class="keyword">function</span>(<span class="params">err, content</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> Item = []</span><br><span class="line">        <span class="keyword">var</span> $ = cheerio.load(content.text)</span><br><span class="line">        <span class="keyword">var</span> title = $(<span class="string">'.hd .l'</span>).text().trim()<span class="comment">//课程名字</span></span><br><span class="line">        <span class="keyword">var</span> teacher = $(<span class="string">'.tit a'</span>).text().trim()<span class="comment">//老师名字</span></span><br><span class="line">        <span class="keyword">var</span> level = $(<span class="string">'.meta-value'</span>).eq(<span class="number">0</span>).text().trim()<span class="comment">//难度</span></span><br><span class="line">        <span class="keyword">var</span> time = $(<span class="string">'.meta-value'</span>).eq(<span class="number">1</span>).text().trim()<span class="comment">//时长</span></span><br><span class="line">        <span class="keyword">var</span> number = $(<span class="string">'.meta-value'</span>).eq(<span class="number">2</span>).text().trim()<span class="comment">//学习人数</span></span><br><span class="line">        <span class="keyword">var</span> grade = $(<span class="string">'.meta-value'</span>).eq(<span class="number">3</span>).text().trim()<span class="comment">//评分</span></span><br><span class="line"></span><br><span class="line">        Item.push(&#123;</span><br><span class="line">          title: title,</span><br><span class="line">          teacher: teacher,</span><br><span class="line">          level: level,</span><br><span class="line">          time: time,</span><br><span class="line">          number: number,</span><br><span class="line">          grade: grade,</span><br><span class="line">          href: topicUrl</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        callback(<span class="literal">null</span>, Item)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>然后用 <code>async</code> 控制并发爬取</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//result 为上文中的 result，下面的代码也都是在上文中的第四个参数中</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> topicUrls = result <span class="comment">//获取所有 url ，但是大数组里面有 8 个小数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Urls = []</span><br><span class="line"><span class="comment">//将大数组合并</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>,l=topicUrls.lengthi&lt;li++)&#123;</span><br><span class="line">  Urls = Urls.concat(topicUrls[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span>.mapLimit(</span><br><span class="line">  Urls,</span><br><span class="line">  <span class="number">5</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">url,callback</span>)</span>&#123;</span><br><span class="line">    fetchMsg(url, callback)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//避免乱码</span></span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plaincharset=utf8'</span>&#125;)</span><br><span class="line">    res.end(<span class="built_in">JSON</span>.stringify(result))</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>这里要注意一个小问题，就是 <code>result</code> 获取到的 url 结构是一个大数组里面包含八个小数组，因此需要将其小数组先合并成一个大数组。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>附上<a href="https://github.com/MLuminary/subentry/blob/master/easySpider/imoocSpider/app.js">项目源码</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node/" rel="tag"># Node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/17/今天这个仇先记下来/" rel="next" title="今天这个仇先记下来了">
+                <i class="fa fa-chevron-left"></i> 今天这个仇先记下来了
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/25/FlexDisplayRoom/" rel="prev" title="FlexDisplayRoom">
+                FlexDisplayRoom <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hutchins</p>
+              <p class="site-description motion-element" itemprop="description">Never stop trying, finish and do everything you've started</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MLuminary" title="github &rarr; https://github.com/MLuminary"><i class="fa fa-fw fa-globe"></i>github</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建服务器"><span class="nav-number">1.</span> <span class="nav-text">搭建服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在线爬虫"><span class="nav-number">2.</span> <span class="nav-text">在线爬虫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz',
+                'X-LC-Key': 'OsMcNeSXT83jo3CdPyJ0fVHw',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

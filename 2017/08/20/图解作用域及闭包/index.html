@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="网络上关于作用域及闭包的文章很多，自己对于纯理论知识并不能很快的理解，但自己对于图画有很强的记忆能力，因此决定将此知识点以图画的知识表现出来，加深自身理解的同时如果能帮到正在学习的童鞋就再好不过了,  下面我以函数的整个生命周期来诉说此部分知识">
+<meta name="keywords" content="Js,Deep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图解作用域及闭包">
+<meta property="og:url" content="http://github.com/2017/08/20/图解作用域及闭包/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="网络上关于作用域及闭包的文章很多，自己对于纯理论知识并不能很快的理解，但自己对于图画有很强的记忆能力，因此决定将此知识点以图画的知识表现出来，加深自身理解的同时如果能帮到正在学习的童鞋就再好不过了,  下面我以函数的整个生命周期来诉说此部分知识">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic2.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic3.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic4.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic5.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic6.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic7.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic8.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic9.png">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic10.jpg">
+<meta property="og:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic11.jpg">
+<meta property="og:updated_time" content="2019-01-17T09:08:18.839Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图解作用域及闭包">
+<meta name="twitter:description" content="网络上关于作用域及闭包的文章很多，自己对于纯理论知识并不能很快的理解，但自己对于图画有很强的记忆能力，因此决定将此知识点以图画的知识表现出来，加深自身理解的同时如果能帮到正在学习的童鞋就再好不过了,  下面我以函数的整个生命周期来诉说此部分知识">
+<meta name="twitter:image" content="http://github.com/2017/08/20/图解作用域及闭包/pic2.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://github.com/2017/08/20/图解作用域及闭包/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>图解作用域及闭包 | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">To be interesting</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/08/20/图解作用域及闭包/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">图解作用域及闭包
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-08-20 01:57:20" itemprop="dateCreated datePublished" datetime="2017-08-20T01:57:20+08:00">2017-08-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:08:18" itemprop="dateModified" datetime="2019-01-17T17:08:18+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Explore/" itemprop="url" rel="index"><span itemprop="name">Explore</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2017/08/20/图解作用域及闭包/" class="leancloud_visitors" data-flag-title="图解作用域及闭包">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>网络上关于作用域及闭包的文章很多，自己对于纯理论知识并不能很快的理解，但自己对于图画有很强的记忆能力，因此决定将此知识点以图画的知识表现出来，加深自身理解的同时如果能帮到正在学习的童鞋就再好不过了, <br> 下面我以函数的整个生命周期来诉说此部分知识</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="函数生命周期"><a href="#函数生命周期" class="headerlink" title="函数生命周期"></a>函数生命周期</h2><p>先写一下示例代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">20</span> </span><br><span class="line">  a++ </span><br><span class="line">  <span class="built_in">console</span>.log(a) </span><br><span class="line">&#125;</span><br><span class="line">func() </span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+<h3 id="开始执行程序前"><a href="#开始执行程序前" class="headerlink" title="开始执行程序前"></a>开始执行程序前</h3><p><img src="/2017/08/20/图解作用域及闭包/pic2.jpg" alt="pic2"></p>
+<ol>
+<li><p>先创建 ECS，ECS 其实就是专门保存正在调用的函数的执行环境的数组，也可以说对象，其实关联数组也就相当于对象。</p>
+</li>
+<li><p>然后在 ECS 中添加浏览器主程序的执行环境 main</p>
+</li>
+<li><p>创建全局作用域对象 window</p>
+</li>
+<li><p>main 执行环境引用 window</p>
+</li>
+</ol>
+<h3 id="定义函数时"><a href="#定义函数时" class="headerlink" title="定义函数时"></a>定义函数时</h3><p><img src="/2017/08/20/图解作用域及闭包/pic3.jpg" alt="pic3"></p>
+<ol>
+<li><p>原始类型的全局变量会直接存入 window 环境当中，因为函数是引用类型，所以首先用函数名声明全局变量</p>
+</li>
+<li><p>然后创建函数对象，封装函数定义</p>
+</li>
+<li><p>函数对象的 scope 属性，指回函数创建时的作用域，意思是，函数执行时如果函数本身提供的变量不能让函数执行完全，那它便会去回它创建时的那个作用域去寻找变量。</p>
+</li>
+<li><p>函数名后面存入指向函数对象的地址</p>
+</li>
+</ol>
+<p>引用类型在其中只能存储地址，这个在此笔记<a href="https://github.com/MLuminary/Blog/issues/1">谈谈值传递</a>中有详细说明</p>
+<h3 id="函数调用时"><a href="#函数调用时" class="headerlink" title="函数调用时"></a>函数调用时</h3><p><img src="/2017/08/20/图解作用域及闭包/pic4.jpg" alt="pic4"></p>
+<ol>
+<li><p>向 ECS 中压入本次函数调用的执行环境元素</p>
+</li>
+<li><p>创建本次函数调用时使用的函数作用域对象（AO），也就是临时作用域</p>
+</li>
+<li><p>在 AO 中创建储存所有的局部变量，包括形参变量和函数内用 var 声明的变量</p>
+</li>
+<li><p>设置 AO 的 parent 属性和引用函数的 scope 属性指向父级作用域对象</p>
+</li>
+<li><p>函数的执行环境引用 AO</p>
+</li>
+<li><p>顺着那个箭头，先在 AO 中找变量，也就是局部变量，如果 AO 中没有，再顺着箭头去父级作用域中找</p>
+</li>
+</ol>
+<h3 id="函数调用后"><a href="#函数调用后" class="headerlink" title="函数调用后"></a>函数调用后</h3><p><img src="/2017/08/20/图解作用域及闭包/pic5.jpg" alt="pic5"></p>
+<p>函数的执行环境出栈，AO 释放，AO 中的局部变量一同被释放掉。</p>
+<p>我们得知整个结果之后，自然而然那两个 <code>console</code> 的结果也显然意见。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>前面我们提到过，全局变量是可重用但是污染全局，局部变量不会污染全局但是不可重用。</p>
+<p>我自己认为闭包就是重用变量又保护变量不被污染的机制，就是为了解决这一情况而生的。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p><strong>包裹受保护的变量和操作变量的内层函数的外层函数</strong></p>
+<p><strong>外层函数要返回内层函数的对象</strong></p>
+<ul>
+<li><code>return function(){..}</code></li>
+<li>直接给全局变量赋值一个内部 <code>function</code></li>
+<li>将内部函数保存在一个对象的属性或数组元素中 <code>return [function function function]</code> 或 <code>return {fun:function(){...}}</code></li>
+</ul>
+<p><strong>调用外层函数，用外部变量接住返回的内层函数对象,形成闭包。</strong></p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>先贴出示例代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">1</span> </span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num++) </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getNum = outer() </span><br><span class="line">getNum() </span><br><span class="line">getNum() </span><br><span class="line">num = <span class="number">1</span> </span><br><span class="line">getNum()</span><br></pre></td></tr></table></figure>
+<p>下面我把闭包形成的原理用画图工具画出来</p>
+<p><img src="/2017/08/20/图解作用域及闭包/pic6.jpg" alt="pic6"></p>
+<p>window 中存入 outer 名并指向 outer 函数对象，<code>getNum</code> 因为声明提前也先将变量名存在 window 中。</p>
+<p><code>getNum = outer()</code> 其实包含 outer 的创建和 <code>getNum</code> 的赋值。</p>
+<p>上面的图画的是 outer 函数进行到 <code>var num = 1</code> ,前面都有说过，不过多重复。</p>
+<p><img src="/2017/08/20/图解作用域及闭包/pic7.jpg" alt="pic7"></p>
+<p>创建了匿名函数，<code>getNum</code> 指向了匿名函数对象，匿名对象的 scope 指向它的父级作用域，也就是 outer 的作用域，那这样就形成了图中的三角关系，此时 outer 执行完毕，离开 ECS 执行环境，outer 的 AO 本也应该随着离开，<strong>但是因为这强大的三角关系，强行拉住不让其释放</strong>，也就形成了所谓的闭包。</p>
+<p><strong>那其实闭包的原因就是</strong>:外层函数的作用域对象无法释放</p>
+<p><img src="/2017/08/20/图解作用域及闭包/pic8.jpg" alt="pic8"></p>
+<p><code>getNum=outer()</code>getNum 其实就是一个函数</p>
+<p><img src="/2017/08/20/图解作用域及闭包/pic9.png" alt="pic9"></p>
+<p>调用<code>getNum()</code>,会生成 <code>getNum</code> 的临时作用域,图中可看出,<code>getNum</code> 其实就是在 outer 中的匿名函数，所以他的 parent 就指向 outer 留下的作用域。当他执行 <code>console.log(num++)</code> 的时候，在他的作用域中没有 <code>num</code> 变量他就会顺着作用域链去寻找，最终在 outer 中的作用域中找到 <code>num</code> 并对其进行自加操作。<strong>所以当下次调用 getNum 的时候 num 会从 2 开始，不会是一开始的 1</strong>。</p>
+<p>num 不是全局变量，还实现了 num 变量的重复调用。就达到了闭包的目的。</p>
+<p><img src="/2017/08/20/图解作用域及闭包/pic10.jpg" alt="pic10"></p>
+<p>设置 <code>num = 1</code> 只是在 <code>window</code> 对象上添加存储 <code>num</code> 的值，当下次调用 <code>getNum</code> 的时候 js 引擎还会从 <code>getNum</code> 作用域开始顺着作用域链寻找 <code>num</code>,在 outerAO 就会寻找到 <code>num</code>,所以根本不会影响到 window 中的 <code>num</code>,也不会受其影响。因此此段代码输出的结果为 <code>1 2 3</code>。</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>当然闭包也有其缺点</p>
+<ul>
+<li><p>比普通函数占用更多内存，因为外层函数的作用域对象（AO）始终存在</p>
+</li>
+<li><p>容易造成内存泄漏</p>
+</li>
+</ul>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>将引用内存函数对象的外部变量重置为 null</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getNum = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2017/08/20/图解作用域及闭包/pic11.jpg" alt="pic11"></p>
+<p>getNum 指向 outer 函数对象的那根线就会断掉，三角关系破裂，那函数对象和 outerAO 也会相继被销毁。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Js/" rel="tag"># Js</a>
+          
+            <a href="/tags/Deep/" rel="tag"># Deep</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/17/js函数基础/" rel="next" title="Js 函数基础">
+                <i class="fa fa-chevron-left"></i> Js 函数基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/24/对象类型的辨别/" rel="prev" title="对象类型的辨别">
+                对象类型的辨别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hutchins</p>
+              <p class="site-description motion-element" itemprop="description">Never stop trying, finish and do everything you've started</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MLuminary" title="github &rarr; https://github.com/MLuminary"><i class="fa fa-fw fa-globe"></i>github</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数生命周期"><span class="nav-number">1.</span> <span class="nav-text">函数生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始执行程序前"><span class="nav-number">1.1.</span> <span class="nav-text">开始执行程序前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义函数时"><span class="nav-number">1.2.</span> <span class="nav-text">定义函数时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数调用时"><span class="nav-number">1.3.</span> <span class="nav-text">函数调用时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数调用后"><span class="nav-number">1.4.</span> <span class="nav-text">函数调用后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">2.2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">2.4.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz',
+                'X-LC-Key': 'OsMcNeSXT83jo3CdPyJ0fVHw',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -96,13 +96,13 @@
 
 
 
-  <meta name="description" content="用css实现divs水平居中的几种方法初始代码HTML123&amp;lt;div class=&quot;header&quot;&amp;gt;  &amp;lt;div class=&quot;nav&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; CSS1234567891011* &amp;#123;  margin: 0;  padding: 0;&amp;#125;.header &amp;#123;    height: 70px;&amp;#125;.n">
-<meta name="keywords" content="css,html">
+  <meta name="description" content="自己最近在做有关 css 居中时发现自己不能准确的找到居中的解决方案，虽然最后也能试出解决方案，但是感觉必须深入其中，了解各个居中方案的适用场景，才能准确的写出不多余又正确的 css 代码">
+<meta name="keywords" content="Css,Base">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于css实现div居中问题">
 <meta property="og:url" content="http://github.com/2017/07/18/关于css实现div居中问题/index.html">
 <meta property="og:site_name" content="Hutchins">
-<meta property="og:description" content="用css实现divs水平居中的几种方法初始代码HTML123&amp;lt;div class=&quot;header&quot;&amp;gt;  &amp;lt;div class=&quot;nav&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; CSS1234567891011* &amp;#123;  margin: 0;  padding: 0;&amp;#125;.header &amp;#123;    height: 70px;&amp;#125;.n">
+<meta property="og:description" content="自己最近在做有关 css 居中时发现自己不能准确的找到居中的解决方案，虽然最后也能试出解决方案，但是感觉必须深入其中，了解各个居中方案的适用场景，才能准确的写出不多余又正确的 css 代码">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic2.png">
 <meta property="og:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic3.png">
@@ -111,10 +111,10 @@
 <meta property="og:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic6.png">
 <meta property="og:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic7.png">
 <meta property="og:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic8.png">
-<meta property="og:updated_time" content="2019-01-16T06:47:49.583Z">
+<meta property="og:updated_time" content="2019-01-17T09:02:30.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于css实现div居中问题">
-<meta name="twitter:description" content="用css实现divs水平居中的几种方法初始代码HTML123&amp;lt;div class=&quot;header&quot;&amp;gt;  &amp;lt;div class=&quot;nav&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; CSS1234567891011* &amp;#123;  margin: 0;  padding: 0;&amp;#125;.header &amp;#123;    height: 70px;&amp;#125;.n">
+<meta name="twitter:description" content="自己最近在做有关 css 居中时发现自己不能准确的找到居中的解决方案，虽然最后也能试出解决方案，但是感觉必须深入其中，了解各个居中方案的适用场景，才能准确的写出不多余又正确的 css 代码">
 <meta name="twitter:image" content="http://github.com/2017/07/18/关于css实现div居中问题/pic2.png">
 
 
@@ -361,7 +361,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-16 14:47:49" itemprop="dateModified" datetime="2019-01-16T14:47:49+08:00">2019-01-16</time>
+                <time title="Modified: 2019-01-17 17:02:30" itemprop="dateModified" datetime="2019-01-17T17:02:30+08:00">2019-01-17</time>
               
             
           </span>
@@ -378,7 +378,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Explore/" itemprop="url" rel="index"><span itemprop="name">Explore</span></a></span>
 
                 
                 
@@ -424,37 +424,50 @@
       
 
       
-        <h1 id="用css实现divs水平居中的几种方法"><a href="#用css实现divs水平居中的几种方法" class="headerlink" title="用css实现divs水平居中的几种方法"></a>用css实现divs水平居中的几种方法</h1><h2 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>自己最近在做有关 css 居中时发现自己不能准确的找到居中的解决方案，虽然最后也能试出解决方案，但是感觉必须深入其中，了解各个居中方案的适用场景，才能准确的写出不多余又正确的 css 代码</p>
+</blockquote>
 <a id="more"></a>
-<h2 id="当需要居中的div设置了固定宽度"><a href="#当需要居中的div设置了固定宽度" class="headerlink" title="当需要居中的div设置了固定宽度"></a>当需要居中的div设置了固定宽度</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> atuo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>auto可以理解为一样的意思，如果左右都设置auto，意思就是这个div离左面的距离和右面的距离是一样的,但是此方法只适用于设置了宽度的块级元素，当设置了<code>position:absolute</code>或者<code>float</code>或者<code>display:inline</code>时,<code>margin:0 auto</code>便会失效。</p>
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>块级元素始终独占一行，无论是否设置了宽度，未设置宽度时他会自动充满，设置了宽度时，虽然他看起来这一行并不都是他的地盘，但是你如果在他后面添加元素的时候，你会发现元素会被挤到下一行去。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  咋回事啊</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="当需要居中的-div-设置了固定宽度"><a href="#当需要居中的-div-设置了固定宽度" class="headerlink" title="当需要居中的 div 设置了固定宽度"></a>当需要居中的 div 设置了固定宽度</h2><h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> atuo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>auto</code> 可以理解为一样的意思，如果左右都设置 <code>auto</code>，意思就是这个 <code>div</code> 离左面的距离和右面的距离是一样的,但是此方法只适用于设置了宽度的块级元素。</p>
+<p>但是如果你设置了以下几种属性时，其居中效果便会消失</p>
+<ul>
+<li><code>postion: absolute</code></li>
+<li><code>float</code></li>
+<li><code>display:inline</code></li>
+</ul>
+<p>块级元素始终独占一行，无论是否设置了宽度，未设置宽度时他会自动充满，设置了宽度时，虽然他看起来这一行并不都是他的「地盘」，但是你如果在他后面添加元素的时候，你会发现元素会被挤到下一行去。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  咋回事啊</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2017/07/18/关于css实现div居中问题/pic2.png" alt="pic2"></p>
-<p>怎么肥四，为森么会发生这种情况呢</p>
+<p>怎么肥四，为森么会发生这种情况呢，看一下下面一张图</p>
 <p><img src="/2017/07/18/关于css实现div居中问题/pic3.png" alt="pic3"></p>
-<p>可以看到，虽然div设置了宽度，但是他有一种无形的力量占据了整个他所在的行，以至于其它元素无法与其在一行。而这一块也就是<code>margin:0 auto</code>可调控范围，<code>margin: 0 auto</code>会根据这一部分的大小分配及时分配左右的距离，达到居中的效果，当设置了绝对定位、浮动或将其设置为行内元素的时候，他这种威慑力便会消失，此时就不会留下范围让<code>margin: 0 auto</code>分配。</p>
+<p>可以看到，虽然 <code>div</code> 设置了宽度，但是他有一种<strong>无形的力量占据了他所在的行的剩下的空间，以至于其它元素无法与其在一行</strong>。而这一块橙色区域也就是 <code>margin: 0 auto</code> 可调控区域，<strong><code>auto</code> 会根据这一部分的大小及时分配左右的距离，达到居中的效果</strong>，当设置了绝对定位、浮动或将其设置为行内元素的时候，他这种「威慑力」便会消失，<code>auto</code> 可分配的区域便会消失</p>
 <p><img src="/2017/07/18/关于css实现div居中问题/pic4.png" alt="pic4"></p>
-<p>可以看到，此时那块黄色的区域已经消失，<code>margin: 0 atuo</code>也就失效了</p>
-<p>不过也有一种例外<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;  </span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> atuo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此时虽然已经设置绝对定位，他已经脱离了标准文档流，但是<code>left:0 right:0</code>又让其左右充满父容器，具有了<code>margin:0 auto</code>可调控的距离</p>
+<p>可以看到，此时那块黄色的区域已经消失，<code>margin: 0 atuo</code> 也就随之失效了</p>
+<p>不过也有一种例外</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> atuo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时虽然已经设置绝对定位，<code>div</code> 也已经脱离了标准文档流，但是 <code>left:0 right:0</code> 又让其具有了那种「威慑力」，<code>margin: 0 auto</code> 也就又拥有了可调控的区域</p>
 <p><img src="/2017/07/18/关于css实现div居中问题/pic5.png" alt="pic5"></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;  </span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>设置绝对定位让其拥有left属性，然后设定<code>left:50%</code>，此div便会<code>left</code>值就为距离最近的可参考的祖上元素的宽度的一办，那什么是可参考元素呢，就是说设定了<code>position</code>属性的，如果祖上元素都没有的话，就参考body、html。</p>
-<p>此时div就会跑到中央去，但是因为此div本身还有宽度，因此还要添加<code>margin-left:-此div宽度的一半px;</code>让其真正的居中</p>
-<h2 id="需要居中的元素没有宽度"><a href="#需要居中的元素没有宽度" class="headerlink" title="需要居中的元素没有宽度"></a>需要居中的元素没有宽度</h2><p>很多状况下我们要居中的元素是不知道宽度的，有时候可能宽度也不是固定的，因为里面的内容有可能以后要增加，或者随着浏览器的变化此宽度可能也要跟随变化，此效果用js、jq可以实现，但我们本次只谈css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置绝对定位让其 <code>left</code> 属性起作用，然后设定 <code>left:50%</code>，但是因为此 <code>div</code> 本身还有宽度，因此还要添加 <code>margin-left:-此div宽度的一半px;</code> 让其真正的居中</p>
+<h2 id="需要居中的-div-没有宽度"><a href="#需要居中的-div-没有宽度" class="headerlink" title="需要居中的 div 没有宽度"></a>需要居中的 div 没有宽度</h2><p>很多状况下我们要居中的元素是不知道宽度的，有时候可能宽度也不是固定的，因为里面的内容有可能以后要增加，或者随着浏览器的变化此宽度可能也要跟随变化，下面将示例代码的 css 改为如下形式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2017/07/18/关于css实现div居中问题/pic6.png" alt="pic6"></p>
-<p>可以看到，当不设置宽度的时候，此div默认是充满整个浏览器的，这样的话就无所谓居中或不居中了，通常我们要居中这个div，是想让这个div中的一些信息居中，为了便于演示，我在html和css中都添加了几行代码</p>
+<p>可以看到，当不设置宽度的时候，此 <code>div</code> 默认是充满整个浏览器的，这样的话就无所谓居中或不居中了，通常我们要居中这个 div，是想让这个 div 中的一些信息居中，为了便于演示，我在 html 和 css 中多添加了几行代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱前端<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱编程<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>热爱生活<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>渴望知识<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="/2017/07/18/关于css实现div居中问题/pic7.png" alt="pic7"></p>
-<p>此时我们应该想办法让div的宽度不是充满整个浏览器，让它的宽度仅仅就是里面内容的宽度，这样我们才能让它居中。在块状元素下，如果不设置宽度，它始终是要充满整个宽度的。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2017/07/18/关于css实现div居中问题/pic8.png" alt="pic8"><br>当设置<code>nav</code>为行内元素，或者table元素的时候他的宽度就默认不是最大化，而是根据包裹的内容改变，也就是最小化。设置为<code>position</code>或者<code>display:table</code>也一样。</p>
-<h3 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h3><p>用<code>text-align:center</code>实现元素居中，这个属性不是只能让文本居中，它可以让行内元素居中，所以只要把要居中的元素设置为行内元素，然后把其父元素设置<code>text-align:center</code>，它就会在其父元素中居中<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">	<span class="attribute">background</span>: red;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">70px</span>;</span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">	<span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h3><p>设置nav为<code>display:table</code>,nav就相当与说就具有了<code>table</code>的属性，那我们都知道<code>table</code>的宽度是根据其内容的多少而变化的，也就是宽度最小化，而此时nav便也可以使用<code>margin:0 auto</code>来居中</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">	<span class="attribute">background</span>: red;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">70px</span>;</span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">	<span class="attribute">display</span>: table;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>效果图</strong></p>
+<p><img src="/2017/07/18/关于css实现div居中问题/pic7.png" alt="pic7"></p>
+<p>此时我们应该想办法让 <code>div</code> 的宽度不是充满整个浏览器，让它的宽度仅仅就是里面内容的宽度，这样我们才能让它居中。在块状元素下，如果不设置宽度，它始终是要充满整个屏幕的。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当设置 <code>nav</code> 为行内元素，或者 <code>table</code> 元素的时候他的宽度就默认不是最大化，而是根据包裹的内容改变，也就是最小化。设置为 <code>position</code> 或者 <code>display:table</code> 也一样。</p>
+<p><img src="/2017/07/18/关于css实现div居中问题/pic8.png" alt="pic8"></p>
+<h3 id="text-align-center"><a href="#text-align-center" class="headerlink" title="text-align:center"></a>text-align:center</h3><p>用 <code>text-align:center</code> 实现元素居中，这个属性不是只能让文本元素居中，它可以让<strong>行内元素居中</strong>，所以只要把要居中的元素设置为行内元素，然后向其父元素添加 <code>text-align:center</code> 属性，就可以实现居中</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="display-table"><a href="#display-table" class="headerlink" title="display:table"></a>display:table</h3><p>设置 <code>nav</code> 为 <code>display:table</code> ,<code>nav</code> 就相当于说就具有了 <code>table</code> 的属性，那我们都知道 <code>table</code> 的宽度是根据其内容的多少而变化的，也就是宽度最小化，而此时 <code>nav</code> 便也可以使用 <code>margin:0 auto</code> 来居中</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -478,9 +491,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/Css/" rel="tag"># Css</a>
           
-            <a href="/tags/html/" rel="tag"># html</a>
+            <a href="/tags/Base/" rel="tag"># Base</a>
           
         </div>
       
@@ -492,10 +505,6 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/07/06/浅尝数据库/" rel="next" title="浅尝数据库">
-                <i class="fa fa-chevron-left"></i> 浅尝数据库
-              </a>
             
           </div>
 
@@ -575,7 +584,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -592,15 +601,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -641,25 +642,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -710,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用css实现divs水平居中的几种方法"><span class="nav-number">1.</span> <span class="nav-text">用css实现divs水平居中的几种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始代码"><span class="nav-number">1.1.</span> <span class="nav-text">初始代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当需要居中的div设置了固定宽度"><span class="nav-number">1.2.</span> <span class="nav-text">当需要居中的div设置了固定宽度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">1.2.1.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原因"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">1.2.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要居中的元素没有宽度"><span class="nav-number">1.3.</span> <span class="nav-text">需要居中的元素没有宽度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#效果图"><span class="nav-number">1.3.1.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二-1"><span class="nav-number">1.3.3.</span> <span class="nav-text">方法二</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例代码"><span class="nav-number">1.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当需要居中的-div-设置了固定宽度"><span class="nav-number">2.</span> <span class="nav-text">当需要居中的 div 设置了固定宽度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#margin"><span class="nav-number">2.1.</span> <span class="nav-text">margin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位"><span class="nav-number">2.2.</span> <span class="nav-text">绝对定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要居中的-div-没有宽度"><span class="nav-number">3.</span> <span class="nav-text">需要居中的 div 没有宽度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align-center"><span class="nav-number">3.1.</span> <span class="nav-text">text-align:center</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display-table"><span class="nav-number">3.2.</span> <span class="nav-text">display:table</span></a></li></ol></li></ol></div>
             
 
           </div>

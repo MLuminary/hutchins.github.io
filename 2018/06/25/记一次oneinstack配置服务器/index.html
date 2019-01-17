@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="因为自己是大学生，所以一直都是用的腾讯云学生机，但是前几天腾讯突然告诉我腾讯云学生认证到期了，可能是当时填错了，没办法我就又申请了学生认证😂，谁让我还是学生呢，但是以前老的学生优惠的学生机就不能再按照学生优惠的方式续费了，所以我又买了一个新的服务器。买完服务器准备手动开始各种配置的时候便发现了一个神器，也就是接下来要介绍给大家的。就是 oneinstack ,可以傻瓜式「一键」安装，想看碰到的">
+<meta name="keywords" content="Server,Oneinstack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次 oneinstack 配置服务器">
+<meta property="og:url" content="http://github.com/2018/06/25/记一次oneinstack配置服务器/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:description" content="因为自己是大学生，所以一直都是用的腾讯云学生机，但是前几天腾讯突然告诉我腾讯云学生认证到期了，可能是当时填错了，没办法我就又申请了学生认证😂，谁让我还是学生呢，但是以前老的学生优惠的学生机就不能再按照学生优惠的方式续费了，所以我又买了一个新的服务器。买完服务器准备手动开始各种配置的时候便发现了一个神器，也就是接下来要介绍给大家的。就是 oneinstack ,可以傻瓜式「一键」安装，想看碰到的">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-17T09:57:34.210Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记一次 oneinstack 配置服务器">
+<meta name="twitter:description" content="因为自己是大学生，所以一直都是用的腾讯云学生机，但是前几天腾讯突然告诉我腾讯云学生认证到期了，可能是当时填错了，没办法我就又申请了学生认证😂，谁让我还是学生呢，但是以前老的学生优惠的学生机就不能再按照学生优惠的方式续费了，所以我又买了一个新的服务器。买完服务器准备手动开始各种配置的时候便发现了一个神器，也就是接下来要介绍给大家的。就是 oneinstack ,可以傻瓜式「一键」安装，想看碰到的">
+
+
+
+
+
+
+  <link rel="canonical" href="http://github.com/2018/06/25/记一次oneinstack配置服务器/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>记一次 oneinstack 配置服务器 | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">To be interesting</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/06/25/记一次oneinstack配置服务器/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">记一次 oneinstack 配置服务器
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-06-25 22:32:03" itemprop="dateCreated datePublished" datetime="2018-06-25T22:32:03+08:00">2018-06-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-17 17:57:34" itemprop="dateModified" datetime="2019-01-17T17:57:34+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Explore/" itemprop="url" rel="index"><span itemprop="name">Explore</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2018/06/25/记一次oneinstack配置服务器/" class="leancloud_visitors" data-flag-title="记一次 oneinstack 配置服务器">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>因为自己是大学生，所以一直都是用的腾讯云学生机，但是前几天腾讯突然告诉我腾讯云学生认证到期了，可能是当时填错了，没办法我就又申请了学生认证😂，谁让我还是学生呢，但是以前老的学生优惠的学生机就不能再按照学生优惠的方式续费了，所以我又买了一个新的服务器。买完服务器准备手动开始各种配置的时候便发现了一个神器，也就是接下来要介绍给大家的。就是 <a href="https://oneinstack.com/" target="_blank" rel="noopener">oneinstack</a> ,可以傻瓜式「一键」安装，想看碰到的 bug 及一些解决方案可以直接跳过配置服务器部分。<a href="#遇到的问题">jump</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="配置服务器环境"><a href="#配置服务器环境" class="headerlink" title="配置服务器环境"></a>配置服务器环境</h2><p>我写此博客时 oneinstack 的版本为 2018-04-24, 其使用方式如下</p>
+<h3 id="基本安装"><a href="#基本安装" class="headerlink" title="基本安装"></a>基本安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget screen curl python #for CentOS/Redhat</span><br><span class="line"><span class="meta">#</span> apt-get -y install wget screen curl python #for Debian/Ubuntu</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 下载源码与脚本</span><br><span class="line">wget http://mirrors.linuxeye.com/oneinstack-full.tar.gz #包含源码，国内外均可下载</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 解压</span><br><span class="line">tar xzf oneinstack-full.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 如果需要修改目录(安装、数据存储、Nginx日志)，请修改options.conf文件</span><br><span class="line">cd oneinstack </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 如果网路出现中断，可以执行命令`screen -R oneinstack`重新连接安装窗口</span><br><span class="line">screen -S oneinstack </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 注：请勿sh install.sh或者bash install.sh这样执行</span><br><span class="line">./install.sh </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 接下来根据其指示和自己喜好安装需要的软件即可</span><br></pre></td></tr></table></figure>
+<h3 id="node-安装"><a href="#node-安装" class="headerlink" title="node 安装"></a>node 安装</h3><p>oneinstack 不支持 node 环境的安装，作为一个前端er, node 还是不可获取的，以前我配置 node 都是去官网下载然后解压然后建立全局软链接的形式，这次也是换了一个更简单的方式</p>
+<h4 id="node-js-v-8x-安装命令"><a href="#node-js-v-8x-安装命令" class="headerlink" title="node.js v.8x 安装命令"></a>node.js v.8x 安装命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -</span><br></pre></td></tr></table></figure>
+<h4 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nodejs</span><br></pre></td></tr></table></figure>
+<h4 id="查看-nodejs-安装版本"><a href="#查看-nodejs-安装版本" class="headerlink" title="查看 nodejs 安装版本"></a>查看 nodejs 安装版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>至此 node 就已经安装完成，也是全局变量，相比以前也省了很多时间和力气，如果需要也可以安装 nodejs 的版本管理工具，但是在这里我没有安装，正确与否我没有尝试</p>
+<h3 id="node-js版本管理器n"><a href="#node-js版本管理器n" class="headerlink" title="node.js版本管理器n"></a>node.js版本管理器n</h3><h4 id="安装n"><a href="#安装n" class="headerlink" title="安装n"></a>安装n</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n1</span><br></pre></td></tr></table></figure>
+<h4 id="安装指定版本"><a href="#安装指定版本" class="headerlink" title="安装指定版本"></a>安装指定版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#n &lt;version&gt;1</span><br></pre></td></tr></table></figure>
+<h4 id="安装最新版本"><a href="#安装最新版本" class="headerlink" title="安装最新版本"></a>安装最新版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># n latest1</span><br></pre></td></tr></table></figure>
+<h4 id="安装稳定版本"><a href="#安装稳定版本" class="headerlink" title="安装稳定版本"></a>安装稳定版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#n stable1</span><br></pre></td></tr></table></figure>
+<h4 id="删除某个版本"><a href="#删除某个版本" class="headerlink" title="删除某个版本"></a>删除某个版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#n rm &lt;version&gt; 1</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有版本"><a href="#查看所有版本" class="headerlink" title="查看所有版本"></a>查看所有版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#n list</span><br></pre></td></tr></table></figure>
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><h3 id="添加附加组件"><a href="#添加附加组件" class="headerlink" title="添加附加组件"></a>添加附加组件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./addons.sh</span><br></pre></td></tr></table></figure>
+<h3 id="创建-FTP-虚拟用户账户"><a href="#创建-FTP-虚拟用户账户" class="headerlink" title="创建 FTP 虚拟用户账户"></a>创建 FTP 虚拟用户账户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./pureftpd_vhost.sh</span><br></pre></td></tr></table></figure>
+<h3 id="增删虚拟主机"><a href="#增删虚拟主机" class="headerlink" title="增删虚拟主机"></a>增删虚拟主机</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 增加虚拟主机./vhost.sh# 删除虚拟主机</span><br><span class="line">./vhost.sh</span><br></pre></td></tr></table></figure>
+<h3 id="备份和自动备份"><a href="#备份和自动备份" class="headerlink" title="备份和自动备份"></a>备份和自动备份</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Set backup options ./backup_setup.sh # Start backup, You can add cron jobs./backup.sh # crontab -l # Examples 0 1 * * * cd ~/oneinstack;./backup.sh  &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="更新版本"><a href="#更新版本" class="headerlink" title="更新版本"></a>更新版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./upgrade.sh</span><br></pre></td></tr></table></figure>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./uninstall.sh</span><br></pre></td></tr></table></figure>
+<h2 id="管理服务"><a href="#管理服务" class="headerlink" title="管理服务"></a>管理服务</h2><p>Nginx/Tengine/OpenResty:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx &#123;start|stop|status|restart|reload|configtest&#125;</span><br></pre></td></tr></table></figure>
+<p>MySQL/MariaDB/Percona:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld &#123;start|stop|restart|reload|status&#125;</span><br></pre></td></tr></table></figure>
+<p>PostgreSQL:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service postgresql &#123;start|stop|restart|status&#125;</span><br></pre></td></tr></table></figure>
+<p>MongoDB:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mongod &#123;start|stop|status|restart|reload&#125;</span><br></pre></td></tr></table></figure>
+<p>PHP:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service php-fpm &#123;start|stop|restart|reload|status&#125;</span><br></pre></td></tr></table></figure>
+<p>HHVM:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service supervisord &#123;start|stop|status|restart|reload&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注</strong>：hhvm进程交给supervisord管理，了解更多请访问《<a href="https://blog.linuxeye.com/408.html" target="_blank" rel="noopener">Supervisor管理hhvm进程</a>》<br>Apache:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service httpd &#123;start|restart|stop&#125;</span><br></pre></td></tr></table></figure>
+<p>Tomcat:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service tomcat &#123;start|stop|status|restart&#125;</span><br></pre></td></tr></table></figure>
+<p>Pure-Ftpd:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service pureftpd &#123;start|stop|restart|status&#125;</span><br></pre></td></tr></table></figure>
+<p>Redis:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service redis-server &#123;start|stop|status|restart&#125;</span><br></pre></td></tr></table></figure>
+<p>Memcached:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service memcached &#123;start|stop|status|restart|reload&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="启用-mysql-服务"><a href="#启用-mysql-服务" class="headerlink" title="启用 mysql 服务"></a>启用 mysql 服务</h2><p>oneinstack 默认仅允许主机本机链接数据库，需要远程连接数据库的话，需要打开对应端口</p>
+<h3 id="打开-3306-端口"><a href="#打开-3306-端口" class="headerlink" title="打开 3306 端口"></a>打开 3306 端口</h3><p>CentOS 系统</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT 4 -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT # 允许访问 3306</span><br><span class="line">service iptables save #保存 iptables 规则</span><br><span class="line">iptables -nvl # 查看 iptables 规则</span><br></pre></td></tr></table></figure>
+<p>Ubuntu/Debian </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT 4 -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT # 允许访问 3306</span><br><span class="line">iptables-save &gt; /etc/iptables.up.rules #保存 iptables 规则</span><br></pre></td></tr></table></figure>
+<h3 id="数据库授权"><a href="#数据库授权" class="headerlink" title="数据库授权"></a>数据库授权</h3><h4 id="MySQL8-0版本"><a href="#MySQL8-0版本" class="headerlink" title="MySQL8.0版本"></a>MySQL8.0版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> mysql -uroot -p</span><br><span class="line"> MySQL [(none)]&gt; create user db_user@'%' identified by 'db_pass'; #创建用户</span><br><span class="line"> MySQL [(none)]&gt; grant all privileges on db_name.* to db_user@'%' with grant option; #授权</span><br><span class="line"> MySQL [(none)]&gt; exit; #退出数据库控制台，特别注意有分号</span><br></pre></td></tr></table></figure>
+<h4 id="其余MySQL版本"><a href="#其余MySQL版本" class="headerlink" title="其余MySQL版本"></a>其余MySQL版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> mysql -uroot -p</span><br><span class="line"> MySQL [(none)]&gt; grant all privileges on db_name.* to db_user@'%' identified by 'db_pass'; #授权语句，特别注意有分号</span><br><span class="line"> MySQL [(none)]&gt; flush privileges;</span><br><span class="line"> MySQL [(none)]&gt; exit; #退出数据库控制台，特别注意有分号</span><br></pre></td></tr></table></figure>
+<h2 id="服务器https"><a href="#服务器https" class="headerlink" title="服务器https"></a>服务器https</h2><p>以前的服务器 https 都是自己上的，使用 oneinstack 可以一键让自己的服务器带点绿 :green_apple: </p>
+<p>运行<code>./vhost.sh</code> 就会跳到配置虚拟环境界面，oneinstack 采用 Let’s Encrypt https 证书，免费使用为 90 天，到期后 oneinstack 会自动帮你续费，配置完毕后在默认文件夹里添加项目就可以输入网址以 https 的方式访问</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="无法访问带端口域名"><a href="#无法访问带端口域名" class="headerlink" title="无法访问带端口域名"></a>无法访问带端口域名</h3><p>我自己创建了一个二级域名 api.×××× 来作为我一些 api 接口的提供网址，然后想用 oneinstack 为其上https，向服务器中上传 node 文件用 pm2 跑起来后，本来在本地 localhost:3000 可以访问的文件，到了服务器后无法通过 api.××××:3000 来访问，最开始想到了类似阿里云安全组的问题，然后我去后台看了下我的服务器的安全组，并没有禁用 3000 端口。后来脑子里自己冒出来了一个想法，用 nginx 反向代理，在这里我就不具体给出反向代理的代码了，格式很简单，就是访问 api.××××/getApi 相当于访问 api.××××:3000/getApi ,然后竟然就成功访问到了 :zap:</p>
+<p>2018/9/10: oneinstack 默认端口都是不开放的，因此我感觉是未将 3000 端口开放的原因</p>
+<h3 id="引用-api-碰到的跨域问题"><a href="#引用-api-碰到的跨域问题" class="headerlink" title="引用 api 碰到的跨域问题"></a>引用 api 碰到的跨域问题</h3><p>主域名下的项目引用 api.×××× 下的 api 是要跨域的，谷歌搜索到的解决方案基本是如下代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Content-Type,Content-Length, Authorization, Accept,X-Requested-With"</span>)</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>)</span><br><span class="line">    res.header(<span class="string">"X-Powered-By"</span>,<span class="string">' 3.2.1'</span>)</span><br><span class="line">    <span class="keyword">if</span>(req.method==<span class="string">"OPTIONS"</span>) res.send(<span class="number">200</span>)<span class="comment">/*让options请求快速返回*/</span></span><br><span class="line">    <span class="keyword">else</span>  next()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>但是并没有解决我的跨域问题，我是在 nginx 反向代理时加入如下代码实现的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;  </span><br><span class="line">    add_header Access-Control-Allow-Origin *;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="https-引用-http-下的接口报错"><a href="#https-引用-http-下的接口报错" class="headerlink" title="https 引用 http 下的接口报错"></a>https 引用 http 下的接口报错</h3><p>我的 api.×××× 域名在开始的时候上 https 并没有成功，我就使用的是 http 协议，但是解决了跨域问题后又报错，报错的内容大致就是 https 下无法引用 http 中的接口，最后我其实换了一个域名又上了 https … :joy_cat:</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>最后基本项目都已部署到了服务器上，访问项目也有耀眼的小绿标，还是 hin 开心的</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Server/" rel="tag"># Server</a>
+          
+            <a href="/tags/Oneinstack/" rel="tag"># Oneinstack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/30/前端安全/" rel="next" title="前端安全">
+                <i class="fa fa-chevron-left"></i> 前端安全
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/28/让服务器带点绿/" rel="prev" title="让服务器带点绿">
+                让服务器带点绿 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hutchins</p>
+              <p class="site-description motion-element" itemprop="description">Never stop trying, finish and do everything you've started</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MLuminary" title="github &rarr; https://github.com/MLuminary"><i class="fa fa-fw fa-globe"></i>github</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置服务器环境"><span class="nav-number">1.</span> <span class="nav-text">配置服务器环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本安装"><span class="nav-number">1.1.</span> <span class="nav-text">基本安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-安装"><span class="nav-number">1.2.</span> <span class="nav-text">node 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#node-js-v-8x-安装命令"><span class="nav-number">1.2.1.</span> <span class="nav-text">node.js v.8x 安装命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装node"><span class="nav-number">1.2.2.</span> <span class="nav-text">安装node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看-nodejs-安装版本"><span class="nav-number">1.2.3.</span> <span class="nav-text">查看 nodejs 安装版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js版本管理器n"><span class="nav-number">1.3.</span> <span class="nav-text">node.js版本管理器n</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装n"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装n</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装指定版本"><span class="nav-number">1.3.2.</span> <span class="nav-text">安装指定版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装最新版本"><span class="nav-number">1.3.3.</span> <span class="nav-text">安装最新版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装稳定版本"><span class="nav-number">1.3.4.</span> <span class="nav-text">安装稳定版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除某个版本"><span class="nav-number">1.3.5.</span> <span class="nav-text">删除某个版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看所有版本"><span class="nav-number">1.3.6.</span> <span class="nav-text">查看所有版本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他配置"><span class="nav-number">2.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加附加组件"><span class="nav-number">2.1.</span> <span class="nav-text">添加附加组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-FTP-虚拟用户账户"><span class="nav-number">2.2.</span> <span class="nav-text">创建 FTP 虚拟用户账户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增删虚拟主机"><span class="nav-number">2.3.</span> <span class="nav-text">增删虚拟主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备份和自动备份"><span class="nav-number">2.4.</span> <span class="nav-text">备份和自动备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新版本"><span class="nav-number">2.5.</span> <span class="nav-text">更新版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载"><span class="nav-number">2.6.</span> <span class="nav-text">卸载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理服务"><span class="nav-number">3.</span> <span class="nav-text">管理服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用-mysql-服务"><span class="nav-number">4.</span> <span class="nav-text">启用 mysql 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开-3306-端口"><span class="nav-number">4.1.</span> <span class="nav-text">打开 3306 端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库授权"><span class="nav-number">4.2.</span> <span class="nav-text">数据库授权</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL8-0版本"><span class="nav-number">4.2.1.</span> <span class="nav-text">MySQL8.0版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其余MySQL版本"><span class="nav-number">4.2.2.</span> <span class="nav-text">其余MySQL版本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器https"><span class="nav-number">5.</span> <span class="nav-text">服务器https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无法访问带端口域名"><span class="nav-number">6.1.</span> <span class="nav-text">无法访问带端口域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用-api-碰到的跨域问题"><span class="nav-number">6.2.</span> <span class="nav-text">引用 api 碰到的跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https-引用-http-下的接口报错"><span class="nav-number">6.3.</span> <span class="nav-text">https 引用 http 下的接口报错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">7.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz',
+                'X-LC-Key': 'OsMcNeSXT83jo3CdPyJ0fVHw',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
