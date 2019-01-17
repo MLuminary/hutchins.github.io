@@ -100,24 +100,24 @@
 <meta name="keywords" content="Js,Idea">
 <meta property="og:type" content="article">
 <meta property="og:title" content="根据 url 获取图标及 title">
-<meta property="og:url" content="http://github.com/2018/09/07/根据url获取图标及titile/index.html">
+<meta property="og:url" content="http://github.com/2018/09/07/根据url获取图标及title/index.html">
 <meta property="og:site_name" content="Hutchins">
 <meta property="og:description" content="最近在做一个小项目有一个类似添加书签的功能，用户点击添加后，弹出输入模块，用户只需要将需要收录的链接添加进去，便可以自动生成带有此网站图标和此网站标题的卡片">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://github.com/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg1.png">
-<meta property="og:image" content="http://github.com/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg2.png">
-<meta property="og:updated_time" content="2019-01-17T10:13:46.449Z">
+<meta property="og:image" content="http://github.com/2018/09/07/根据url获取图标及title/pg1.png">
+<meta property="og:image" content="http://github.com/2018/09/07/根据url获取图标及title/pg2.png">
+<meta property="og:updated_time" content="2019-01-17T10:30:20.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="根据 url 获取图标及 title">
 <meta name="twitter:description" content="最近在做一个小项目有一个类似添加书签的功能，用户点击添加后，弹出输入模块，用户只需要将需要收录的链接添加进去，便可以自动生成带有此网站图标和此网站标题的卡片">
-<meta name="twitter:image" content="http://github.com/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg1.png">
+<meta name="twitter:image" content="http://github.com/2018/09/07/根据url获取图标及title/pg1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://github.com/2018/09/07/根据url获取图标及titile/">
+  <link rel="canonical" href="http://github.com/2018/09/07/根据url获取图标及title/">
 
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2018/09/07/根据url获取图标及titile/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/09/07/根据url获取图标及title/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hutchins">
@@ -356,7 +356,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-17 18:13:46" itemprop="dateModified" datetime="2019-01-17T18:13:46+08:00">2019-01-17</time>
+                <time title="Modified: 2019-01-17 18:30:20" itemprop="dateModified" datetime="2019-01-17T18:30:20+08:00">2019-01-17</time>
               
             
           </span>
@@ -388,7 +388,7 @@
 
           
           
-            <span id="/2018/09/07/根据url获取图标及titile/" class="leancloud_visitors" data-flag-title="根据 url 获取图标及 title">
+            <span id="/2018/09/07/根据url获取图标及title/" class="leancloud_visitors" data-flag-title="根据 url 获取图标及 title">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -428,7 +428,7 @@
 <li>一般都是在 <code>html</code> 代码的 <code>head</code> 标签中设置一个 <code>link</code> 标签，将其 <code>rel</code> 属性设置为 “icon” 或者 “shortcut icon”,  <code>href</code> 就是图标的位置。</li>
 <li>大部分网站会在其根目录下放置一个<code>favicon.ico</code> 文件，也就是网站的图标。</li>
 </ul>
-<p><img src="/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg1.png" alt="pg1"></p>
+<p><img src="/2018/09/07/根据url获取图标及title/pg1.png" alt="pg1"></p>
 <h2 id="获取-icon"><a href="#获取-icon" class="headerlink" title="获取 icon"></a>获取 icon</h2><p>两条途径设置 icon，明显解析 html 要相对麻烦一点，因此我们先去网站根目录下去获取 favicon.ico, 如果不存在此文件，再解析 html，当然如果网站本身就没有 icon ，那就自己设置一个默认的图标就好了。</p>
 <p>我的思路是拿到需要收录的链接，然后用 <code>node</code> 的 <code>url</code> 模块去解析，再用 <code>get</code> 方法去抓取此网页，如果不是 <code>200</code> 就代表根目录下没有此文件。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>)</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> app = express()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> targetUrl = <span class="string">'https://github.com/MLuminary'</span></span><br><span class="line">  <span class="keyword">let</span> urlString = url.parse(targetUrl)</span><br><span class="line">  <span class="keyword">let</span> iconUrl = <span class="string">`<span class="subst">$&#123;urlString.protocol&#125;</span>//<span class="subst">$&#123;urlString.host&#125;</span>/favicon.ico`</span></span><br><span class="line">  isHasRootIcon(iconUrl)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断网站根目录下是否有 favicon.ico 文件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isHasRootIcon</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">   axios.get(url).then(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">   &#125;).catch(<span class="function"><span class="params">error</span>=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="number">0</span>)</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -439,7 +439,7 @@
 <p>获取 icon 连接时为什么我加了一个 <code>eq(0)</code> 呢，是因为我发现有些网站有两种类型的 <code>link</code> 可以添加图标，一种是<code>shortcunt icon</code> 一种是 <code>icon</code>，因此我们只要获取其中一个就可以了，两个都获取到可能会报错。</p>
 <h2 id="获取title"><a href="#获取title" class="headerlink" title="获取title"></a>获取title</h2><p>获取 title 就相当于解析 Html 获取 icon, 还是比较简单的，在此就不放代码了。</p>
 <h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>下面就是传入掘金首页抓取到的信息</p>
-<p><img src="/2018/09/07/根据url获取图标及titile/根据url获取图标及title/pg2.png" alt="pg2"></p>
+<p><img src="/2018/09/07/根据url获取图标及title/pg2.png" alt="pg2"></p>
 
       
     </div>
