@@ -87,7 +87,7 @@ leancloud_counter_security:
   
 # 搜索
 search:
-  path: search.xml
+  path: search.json
   field: post
   format: html
-  limit: 10000  
+  limit: 10000
