@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="LeanJs,ES5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeanJs「 ES5 」-- 标准库">
+<meta property="og:url" content="http://github.com/2018/01/24/LearnJS标准库/index.html">
+<meta property="og:site_name" content="Hutchins">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://github.com/2018/01/24/LearnJS标准库/js.png">
+<meta property="og:updated_time" content="2019-01-23T14:40:21.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeanJs「 ES5 」-- 标准库">
+<meta name="twitter:image" content="http://github.com/2018/01/24/LearnJS标准库/js.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://github.com/2018/01/24/LearnJS标准库/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>LeanJs「 ES5 」-- 标准库 | Hutchins</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hutchins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">To be interesting</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/MLuminary" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/01/24/LearnJS标准库/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hutchins">
+      <meta itemprop="description" content="Never stop trying, finish and do everything you've started">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hutchins">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeanJs「 ES5 」-- 标准库
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-24 22:26:20" itemprop="dateCreated datePublished" datetime="2018-01-24T22:26:20+08:00">2018-01-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-23 22:40:21" itemprop="dateModified" datetime="2019-01-23T22:40:21+08:00">2019-01-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2018/01/24/LearnJS标准库/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/01/24/LearnJS标准库/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/01/24/LearnJS标准库/" class="leancloud_visitors" data-flag-title="LeanJs「 ES5 」-- 标准库">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">17k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">16 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2018/01/24/LearnJS标准库/js.png" alt="Js"></p>
+<a id="more"></a>
+<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><h3 id="Object-1"><a href="#Object-1" class="headerlink" title="Object()"></a>Object()</h3><p><code>Object()</code>本身是一个函数，可以将任意值转换为对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>(<span class="literal">undefined</span>);</span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<p>如果要被转换的值为原始类型，<code>Object</code>会将其转换成对应的包装类型，如果要转换的值是对象，它总是返回该对象，即不用转换</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>(<span class="number">1</span>);</span><br><span class="line">obj <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line">obj <span class="keyword">instanceof</span> <span class="built_in">Number</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>(<span class="string">'foo'</span>);</span><br><span class="line">obj <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line">obj <span class="keyword">instanceof</span> <span class="built_in">String</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>(<span class="literal">true</span>);</span><br><span class="line">obj <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line">obj <span class="keyword">instanceof</span> <span class="built_in">Boolean</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>因此可以用<code>Object</code>来判断是否为对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>(arr); <span class="comment">// 返回原数组</span></span><br><span class="line">obj === arr <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> value = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>(value) <span class="comment">// 返回原对象</span></span><br><span class="line">obj === value <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>(fn); <span class="comment">// 返回原函数</span></span><br><span class="line">obj === fn <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObj</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value === <span class="built_in">Object</span>(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Object构造函数"><a href="#Object构造函数" class="headerlink" title="Object构造函数"></a>Object构造函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>new Object(value)</code>中也可以传入值，和<code>Object(value)</code>相同，只不过在语义上有所差别。前者表示生成一个对象，它的值为<code>value</code>，后者表示将<code>value</code>转换为对象</p>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>部署在<code>Object</code>对象自身的方法</p>
+<h4 id="Object-keys-amp-amp-Object-getOwnPropertyNames"><a href="#Object-keys-amp-amp-Object-getOwnPropertyNames" class="headerlink" title="Object.keys() &amp;&amp; Object.getOwnPropertyNames()"></a>Object.keys() &amp;&amp; Object.getOwnPropertyNames()</h4><p><code>Object.keys</code>方法和<code>Object.getOwnPropertyNames</code>方法都用来遍历对象的属性。</p>
+<p><code>Object.keys()</code>和<code>Object.getOwnPropertyNames()</code>方法的参数是一个对象，返回一个数组。该数组的成员都是该对象自身的（而不是继承的）所有属性名。</p>
+<p><code>Object.getOwnPropertyNames()</code>还可以遍历出不可枚举的属性，<code>Object.keys()</code>不可以</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'Hello'</span>, <span class="string">'World'</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(a) <span class="comment">// ["0", "1"]</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(a) <span class="comment">// ["0", "1", "length"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString"></a>Object.prototype.toString</h4><p><code>toString</code>方法的作用是返回一个对象的字符串形式，默认情况下返回类型字符串。</p>
+<p>数组、字符串、函数、Date对象都分别部署了自定义的<code>toString</code>方法</p>
+<p>可以用来准确的判断数据类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call(value)</span><br></pre></td></tr></table></figure>
+<p>这样可以任意调用<code>Object.prototype.toString</code>方法</p>
+<p>各种类型的返回结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">数值：返回[object Number]。</span><br><span class="line">字符串：返回[object String]。</span><br><span class="line">布尔值：返回[object Boolean]。</span><br><span class="line">undefined：返回[object Undefined]。</span><br><span class="line">null：返回[object Null]。</span><br><span class="line">数组：返回[object Array]。</span><br><span class="line">arguments 对象：返回[object Arguments]。</span><br><span class="line">函数：返回[object Function]。</span><br><span class="line">Error 对象：返回[object Error]。</span><br><span class="line">Date 对象：返回[object Date]。</span><br><span class="line">RegExp 对象：返回[object RegExp]。</span><br><span class="line">其他对象：返回[object Object]。</span><br></pre></td></tr></table></figure>
+<p>利用这个可以写出比<code>typeof</code>更加准确的类型判断函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> s = <span class="built_in">Object</span>.prototype.toString.call(value);</span><br><span class="line">  <span class="keyword">return</span> s.match(<span class="regexp">/\[object (.*?)\]/</span>)[<span class="number">1</span>].toLowerCase();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>JavaScript中<code>match</code>函数方法返回的数组有三个属性：<code>input</code>、<code>index</code>和<code>lastIndex</code>。<code>Input</code> 属性包含整个的被查找字符串。<code>Index</code> 属性包含了在整个被查找字符串中匹配的子字符串的位置。<code>LastIndex</code> 属性包含了最后一次匹配中最后一个字符的下一个位置。如果没有设置全局标志 <code>g</code>，数组的0元素包含整个匹配，而第 1 到 n 元素包含了匹配中曾出现过的任一个<strong>子匹配(在其中用过圆括号)</strong>。这相当于没有设置全局标志的 <code>exec</code> 方法。如果设置了全局标志，元素0到n中包含所有匹配</p>
+<h4 id="Object-prototype-toLocaleString"><a href="#Object-prototype-toLocaleString" class="headerlink" title="Object.prototype.toLocaleString"></a>Object.prototype.toLocaleString</h4><p>返回值和<code>Object.prototype.toString</code>相同，用来留一个出口返回针对地域的某些特定的值.</p>
+<h2 id="Array对象"><a href="#Array对象" class="headerlink" title="Array对象"></a>Array对象</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line">arr.length <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">arr[<span class="number">0</span>] <span class="comment">// undefined</span></span><br><span class="line">arr[<span class="number">1</span>] <span class="comment">// undefined</span></span><br><span class="line">arr[<span class="number">2</span>] <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span> <span class="keyword">in</span> arr <span class="comment">// false</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">in</span> arr <span class="comment">// false</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">in</span> arr <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>注意，如果参数是一个正整数，返回数组的成员都是空位。虽然读取的时候返回<code>undefined</code>，但实际上该位置没有任何值。虽然可以取到<code>length</code>属性，但是取不到键名。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="改变原数组"><a href="#改变原数组" class="headerlink" title="改变原数组"></a>改变原数组</h4><p>pop</p>
+<p><code>pop</code>方法用于删除数组的最后一个元素，并返回该元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[].pop()<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>push</p>
+<p><code>push</code>方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度</p>
+<p>shift</p>
+<p><code>shift</code>方法用于删除数组的第一个元素，并返回该元素</p>
+<p>unshift</p>
+<p><code>unshift</code>方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度</p>
+<p>reverse</p>
+<p><code>reverse</code>方法用于颠倒数组中元素的顺序，返回改变后的数组</p>
+<p>splice</p>
+<p><code>splice</code>方法用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，返回值是被删除的元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.splice(index, count_to_remove, addElement1, addElement2, ...)</span><br></pre></td></tr></table></figure>
+<p>sort</p>
+<p><code>sort</code>方法对数组成员进行排序，默认是按照字典顺序排序.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"张三"</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"李四"</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"王五"</span>, <span class="attr">age</span>: <span class="number">28</span>  &#125;</span><br><span class="line">].sort(<span class="function"><span class="keyword">function</span> (<span class="params">o1, o2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> o1.age - o2.age;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#123; name: "李四", age: 24 &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: "王五", age: 28 &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: "张三", age: 30 &#125;</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+<h4 id="不改变原数组"><a href="#不改变原数组" class="headerlink" title="不改变原数组"></a>不改变原数组</h4><p>join</p>
+<p><code>join</code>方法以参数作为分隔符，将所有数组成员组成一个字符串返回。如果不提供参数，默认用逗号分隔。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="literal">undefined</span>,<span class="literal">null</span>].join(<span class="string">'#'</span>)<span class="comment">//#</span></span><br></pre></td></tr></table></figure>
+<p>如果数组成员是<code>undefined</code>，<code>null</code>，或空位会被转换成空字符串</p>
+<p>concat</p>
+<p><code>concat</code>方法用于多个数组的合并。它将新数组的成员，添加到原数组成员的后部，然后返回一个新数组.</p>
+<p>slice</p>
+<p><code>slice</code>方法用于提取原数组的一部分，返回一个新数组.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.slice(start_index,end_index);<span class="comment">//左闭右开</span></span><br></pre></td></tr></table></figure>
+<p>也可以用来将类数组转换成数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.slice.call(arrayLike);</span><br></pre></td></tr></table></figure>
+<p>map</p>
+<p><code>map</code>方法对数组的所有成员依次调用一个函数，根据函数结果返回一个新数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,arr</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//当前成员,当前位置,数组本身</span></span><br><span class="line">&#125;,arr)<span class="comment">//花括号后的arr表示回调函数的this指向</span></span><br><span class="line"><span class="comment">//只有item是必须存在的</span></span><br></pre></td></tr></table></figure>
+<p><code>map</code>方法不跳过<code>undefined</code>和<code>null</code>，但是会跳过空位，碰到空位不执行任何函数，直接跳过.</p>
+<p>forEach</p>
+<p><code>forEach</code>方法与<code>map</code>方法很相似，也是遍历数组的所有成员，执行某种操作，但是<code>forEach</code>方法一般不返回值，只用来操作数据。如果需要有返回值，一般使用<code>map</code>方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,arr</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//当前成员,当前位置,数组本身</span></span><br><span class="line">&#125;,arr)<span class="comment">//花括号后的arr表示回调函数的this指向</span></span><br><span class="line"><span class="comment">//只有item是必须存在的</span></span><br></pre></td></tr></table></figure>
+<p>filter</p>
+<p><code>filter</code>方法的参数是一个函数，所有数组成员依次执行该函数，返回结果为<code>true</code>的成员组成一个新数组返回</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,arr</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//当前成员,当前位置,数组本身</span></span><br><span class="line">&#125;,arr)<span class="comment">//花括号后的arr表示回调函数的this指向</span></span><br><span class="line"><span class="comment">//只有item是必须存在的</span></span><br></pre></td></tr></table></figure>
+<p>some</p>
+<p><code>some</code>方法是只要有一个数组成员的返回值是<code>true</code>，则整个<code>some</code>方法的返回值就是<code>true</code>，否则<code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,arr</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//当前成员,当前位置,数组本身</span></span><br><span class="line">&#125;,arr)<span class="comment">//花括号后的arr表示回调函数的this指向</span></span><br><span class="line"><span class="comment">//只有item是必须存在的</span></span><br></pre></td></tr></table></figure>
+<p>every</p>
+<p><code>every</code>方法则是所有数组成员的返回值都是<code>true</code>，才返回<code>true</code>，否则<code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,arr</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//当前成员,当前位置,数组本身</span></span><br><span class="line">&#125;,arr)<span class="comment">//花括号后的arr表示回调函数的this指向</span></span><br><span class="line"><span class="comment">//只有item是必须存在的</span></span><br></pre></td></tr></table></figure>
+<p>reduce &amp;&amp; reduceRight</p>
+<p><code>reduce</code>方法和<code>reduceRight</code>方法依次处理数组的每个成员，最终累计为一个值。</p>
+<p>它们的差别是，<code>reduce</code>是从左到右处理（从第一个成员到最后一个成员），<code>reduceRight</code>则是从右到左（从最后一个成员到第一个成员），其他完全一样。</p>
+<p>这两个方法的第一个参数都是一个函数。该函数接受以下四个参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">累积变量，默认为数组的第一个成员</span><br><span class="line">当前变量，默认为数组的第二个成员</span><br><span class="line">当前位置（从0开始）</span><br><span class="line">原数组</span><br></pre></td></tr></table></figure>
+<p>这四个参数之中，只有前两个是必须的，后两个则是可选的。</p>
+<p>indexOf &amp;&amp; lastIndexOf</p>
+<p><code>indexOf</code>方法返回给定元素在数组中第一次出现的位置，如果没有出现则返回-1。</p>
+<p><code>lastIndexOf</code>方法返回给定元素在数组中最后一次出现的位置，如果没有出现则返回-1。</p>
+<p><code>indexOf</code>方法还可以接受第二个参数，表示搜索的开始位置。</p>
+<p>如果数组中包含<code>NaN</code>，这两个方法不适用，即无法确定数组成员是否包含<code>NaN</code></p>
+<p>这是因为这两个方法内部，使用严格相等运算符<code>===</code>进行比较，而<code>NaN</code>是唯一一个不等于自身的值</p>
+<h2 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h2><p>所谓「包装对象」，就是分别与数值、字符串、布尔值相对应的<code>Number</code>、<code>String</code>、<code>Boolean</code>三个原生对象。这三个原生对象可以把原始类型的值变成（包装成）对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> r = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>);</span><br><span class="line"><span class="keyword">typeof</span> r <span class="comment">//object</span></span><br></pre></td></tr></table></figure>
+<p>如果不作为构造函数调用（即调用不加<code>new</code>），是将其它类型转换为<code>number</code>,<code>string</code>,<code>boolean</code></p>
+<h3 id="原始类型的自动转换"><a href="#原始类型的自动转换" class="headerlink" title="原始类型的自动转换"></a>原始类型的自动转换</h3><p>原始类型的值，可以自动当作对象调用，即调用各种对象的方法和参数。这时，JavaScript引擎会自动将原始类型的值转为包装对象，<strong>在使用后立刻销毁</strong>。</p>
+<p>因为立即销毁，所以这个临时对象是只读的，无法进行修改，所以无法添加新属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str.length <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> strObj = <span class="keyword">new</span> <span class="built_in">String</span>(str)</span><br><span class="line"><span class="comment">// String &#123;</span></span><br><span class="line"><span class="comment">//   0: "a", 1: "b", 2: "c", length: 3, [[PrimitiveValue]]: "abc"</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line">strObj.length <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p><code>[[PrimitiveValue]]</code>保存字符串的原始值。这个<code>[[PrimitiveValue]]</code>内部属性，外部是无法调用，仅供<code>ValueOf</code>或<code>toString</code>这样的方法内部调用。</p>
+<h3 id="Boolean对象"><a href="#Boolean对象" class="headerlink" title="Boolean对象"></a>Boolean对象</h3><p><code>false</code>对应的包装对象的实例,布尔运算结果是<code>true</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'true'</span>);</span><br><span class="line">&#125; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>).valueOf()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'true'</span>);</span><br><span class="line">&#125; <span class="comment">// 无输出</span></span><br></pre></td></tr></table></figure>
+<p>上面代码的第一个例子之所以得到<code>true</code>，是因为<code>false</code>对应的包装对象实例是一个<strong>对象</strong>，进行逻辑运算时，被自动转化成布尔值<code>true</code>（因为所有对象对应的布尔值都是<code>true</code>）。而实例的<code>valueOf</code>方法，则返回实例对应的原始值，本例为<code>false</code>。</p>
+<h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.POSITIVE_INFINITY：正的无限，指向<span class="literal">Infinity</span>。</span><br><span class="line"><span class="built_in">Number</span>.NEGATIVE_INFINITY：负的无限，指向-<span class="literal">Infinity</span>。</span><br><span class="line"><span class="built_in">Number</span>.NaN：表示非数值，指向 <span class="literal">NaN</span>。</span><br><span class="line"><span class="built_in">Number</span>.MAX_VALUE：表示最大的正数，相应的，最小的负数为-<span class="built_in">Number</span>.MAX_VALUE。</span><br><span class="line"><span class="built_in">Number</span>.MIN_VALUE：表示最小的正数（即最接近<span class="number">0</span>的正数，在<span class="number">64</span>位浮点数体系中为<span class="number">5e-324</span>），相应的，最接近<span class="number">0</span>的负数为-<span class="built_in">Number</span>.MIN_VALUE。</span><br><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTEGER：表示能够精确表示的最大整数，即<span class="number">9007199254740991</span>。</span><br><span class="line"><span class="built_in">Number</span>.MIN_SAFE_INTEGER：表示能够精确表示的最小整数，即<span class="number">-9007199254740991</span>。</span><br></pre></td></tr></table></figure>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h4><p>接受参数可以转为相应进制的字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10</span>).toString(<span class="number">2</span>) <span class="comment">// "1010"</span></span><br><span class="line">(<span class="number">10</span>).toString(<span class="number">8</span>) <span class="comment">// "12"</span></span><br><span class="line">(<span class="number">10</span>).toString(<span class="number">16</span>) <span class="comment">// "a"</span></span><br></pre></td></tr></table></figure>
+<h4 id="toFixed"><a href="#toFixed" class="headerlink" title="toFixed"></a>toFixed</h4><p><code>toFixed</code>方法的参数为指定的小数位数，有效范围为0到20，超出这个范围将抛出<code>RangeError</code>错误。</p>
+<h4 id="toExponential"><a href="#toExponential" class="headerlink" title="toExponential"></a>toExponential</h4><p><code>toExponential</code>方法的参数表示小数点后有效数字的位数，范围为0到20，超出这个范围，会抛出一个<code>RangeError</code>。</p>
+<h4 id="toPrecision"><a href="#toPrecision" class="headerlink" title="toPrecision"></a>toPrecision</h4><p><code>toExponential</code>方法的参数表示小数点后有效数字的位数，范围为0到20，超出这个范围，会抛出一个<code>RangeError</code>。</p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h3 id="String-fromCharCode"><a href="#String-fromCharCode" class="headerlink" title="String.fromCharCode"></a>String.fromCharCode</h3><p>该方法的参数是一系列<code>Unicode</code>码点，返回对应的字符串。</p>
+<p>该方法不支持<code>Unicode</code>码点大于<code>0xFFFF</code>的字符，即传入的参数不能大于<code>0xFFFF</code>。</p>
+<h3 id="charAt"><a href="#charAt" class="headerlink" title="charAt"></a>charAt</h3><p>可以用下标代替，如果参数为负数，或大于等于字符串的长度，<code>charAt</code>返回空字符串。</p>
+<h3 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title="charCodeAt"></a>charCodeAt</h3><p><code>charCodeAt</code>方法返回给定位置字符的<code>Unicode</code>码点（十进制表示），相当于<code>String.fromCharCode()</code>的逆操作</p>
+<p>:exclamation: 注意</p>
+<p>如果没有任何参数，<code>charCodeAt</code>返回首字符的<code>Unicode</code>码点。</p>
+<p><code>charCodeAt</code>方法返回的<code>Unicode</code>码点不大于<code>65536（0xFFFF）</code>，也就是说，只返回两个字节的字符的码点。如果遇到<code>Unicode</code>码点大于<code>65536</code>的字符，必需连续使用两次<code>charCodeAt</code>，不仅读入<code>charCodeAt(i)</code>，还要读入<code>charCodeAt(i+1)</code>，将两个16字节放在一起，才能得到准确的字符。</p>
+<p>如果参数为负数，或大于等于字符串的长度，<code>charCodeAt</code>返回<code>NaN</code>。</p>
+<h3 id="indexOf-，lastIndexOf"><a href="#indexOf-，lastIndexOf" class="headerlink" title="indexOf()，lastIndexOf()"></a>indexOf()，lastIndexOf()</h3><p>这两个方法用于确定一个字符串在另一个字符串中的位置，都返回一个整数，表示匹配开始的位置。如果返回<code>-1</code>，就表示不匹配。两者的区别在于，<code>indexOf</code>从字符串头部开始匹配，<code>lastIndexOf</code>从尾部开始匹配。</p>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><p><code>concat</code>方法用于连接两个字符串，返回一个新字符串，不改变原字符串。</p>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h3><p><code>slice</code>方法用于从原字符串取出子字符串并返回，不改变原字符串。</p>
+<p>它的第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）。左闭右开</p>
+<p>如果参数是负值，表示从结尾开始倒数计算的位置，即该<strong>负值加上字符串长度</strong>。</p>
+<p>如果第一个参数大于第二个参数，slice方法返回一个空字符串。</p>
+<h3 id="substring"><a href="#substring" class="headerlink" title="substring"></a>substring</h3><p><code>substring</code>方法用于从原字符串取出子字符串并返回，不改变原字符串</p>
+<p><code>substring</code>方法的第一个参数表示子字符串的开始位置，第二个位置表示结束位置。</p>
+<p>如果第二个参数大于第一个参数，<code>substring</code>方法会自动更换两个参数的位置。</p>
+<p>如果参数是负数，<code>substring</code>方法会自动将负数转为0。</p>
+<p>不建议使用，优先使用<code>slice</code></p>
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h3><p><code>substr</code>方法用于从原字符串取出子字符串并返回，不改变原字符串。</p>
+<p><code>substr</code>方法的第一个参数是子字符串的开始位置，第二个参数是子字符串的长度。</p>
+<p>如果第一个参数是负数，表示倒数计算的字符位置。如果第二个参数是负数，将被自动转为0，因此会返回空字符串。</p>
+<h3 id="trim"><a href="#trim" class="headerlink" title="trim"></a>trim</h3><p><code>trim</code>方法用于去除字符串两端的空格，返回一个新字符串，不改变原字符串。</p>
+<p>该方法去除的不仅是空格，还包括制表符<code>\t、\v</code>、换行符<code>\n</code>和回车符<code>\r</code>。</p>
+<h3 id="toLowerCase-，toUpperCase"><a href="#toLowerCase-，toUpperCase" class="headerlink" title="toLowerCase()，toUpperCase()"></a>toLowerCase()，toUpperCase()</h3><p><code>toLowerCase</code>方法用于将一个字符串全部转为小写，<code>toUpperCase</code>则是全部转为大写。它们都返回一个新字符串，不改变原字符串。</p>
+<h3 id="localeCompare"><a href="#localeCompare" class="headerlink" title="localeCompare()"></a>localeCompare()</h3><p><code>localeCompare</code>方法用于比较两个字符串。它返回一个整数，如果小于0，表示第一个字符串小于第二个字符串；如果等于0，表示两者相等；如果大于0，表示第一个字符串大于第二个字符串。</p>
+<h3 id="match"><a href="#match" class="headerlink" title="match"></a>match</h3><p><code>match</code>方法用于确定原字符串是否匹配某个子字符串，返回一个数组，成员为匹配的第一个字符串。如果没有找到匹配，则返回<code>null</code>。</p>
+<p>返回数组还有<code>index</code>属性和<code>input</code>属性，分别表示匹配字符串开始的位置和原始字符串。</p>
+<h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><p><code>search</code>方法的用法等同于<code>match</code>，但是返回值为匹配的第一个位置。如果没有找到匹配，则返回-1。</p>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><p><code>replace</code>方法用于替换匹配的子字符串，一般情况下只替换第一个匹配</p>
+<h3 id="split"><a href="#split" class="headerlink" title="split"></a>split</h3><p><code>split</code>方法按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组。</p>
+<h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.E：常数e。</span><br><span class="line"><span class="built_in">Math</span>.LN2：<span class="number">2</span>的自然对数。</span><br><span class="line"><span class="built_in">Math</span>.LN10：<span class="number">10</span>的自然对数。</span><br><span class="line"><span class="built_in">Math</span>.LOG2E：以<span class="number">2</span>为底的e的对数。</span><br><span class="line"><span class="built_in">Math</span>.LOG10E：以<span class="number">10</span>为底的e的对数。</span><br><span class="line"><span class="built_in">Math</span>.PI：常数Pi。</span><br><span class="line"><span class="built_in">Math</span>.SQRT1_2：<span class="number">0.5</span>的平方根。</span><br><span class="line"><span class="built_in">Math</span>.SQRT2：<span class="number">2</span>的平方根。</span><br></pre></td></tr></table></figure>
+<h3 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.abs()：绝对值</span><br><span class="line"><span class="built_in">Math</span>.ceil()：向上取整</span><br><span class="line"><span class="built_in">Math</span>.floor()：向下取整</span><br><span class="line"><span class="built_in">Math</span>.max()：最大值</span><br><span class="line"><span class="built_in">Math</span>.min()：最小值</span><br><span class="line"><span class="built_in">Math</span>.pow()：指数运算</span><br><span class="line"><span class="built_in">Math</span>.sqrt()：平方根</span><br><span class="line"><span class="built_in">Math</span>.log()：自然对数</span><br><span class="line"><span class="built_in">Math</span>.exp()：e的指数</span><br><span class="line"><span class="built_in">Math</span>.round()：四舍五入</span><br><span class="line"><span class="built_in">Math</span>.random()：随机数</span><br></pre></td></tr></table></figure>
+<h4 id="Math-random"><a href="#Math-random" class="headerlink" title="Math.random"></a>Math.random</h4><p>返回任意长度的字符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">random_str</span>(<span class="params">length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ALPHABET = <span class="string">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>;</span><br><span class="line">  ALPHABET += <span class="string">'abcdefghijklmnopqrstuvwxyz'</span>;</span><br><span class="line">  ALPHABET += <span class="string">'0123456789-_'</span>;</span><br><span class="line">  <span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; length; ++i) &#123;</span><br><span class="line">    <span class="keyword">var</span> rand = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * ALPHABET.length);</span><br><span class="line">    str += ALPHABET.substring(rand, rand + <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">random_str(<span class="number">6</span>) <span class="comment">// "NdQKOr"</span></span><br></pre></td></tr></table></figure>
+<h3 id="三角函数的方法"><a href="#三角函数的方法" class="headerlink" title="三角函数的方法"></a>三角函数的方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.sin()：返回参数的正弦</span><br><span class="line"><span class="built_in">Math</span>.cos()：返回参数的余弦</span><br><span class="line"><span class="built_in">Math</span>.tan()：返回参数的正切</span><br><span class="line"><span class="built_in">Math</span>.asin()：返回参数的反正弦（弧度值）</span><br><span class="line"><span class="built_in">Math</span>.acos()：返回参数的反余弦（弧度值）</span><br><span class="line"><span class="built_in">Math</span>.atan()：返回参数的反正切（弧度值）</span><br></pre></td></tr></table></figure>
+<h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><h3 id="new-Date"><a href="#new-Date" class="headerlink" title="new Date()"></a>new Date()</h3><p><code>Date</code>对象接受从<code>1970年1月1日00:00:00 UTC</code>开始计算的毫秒数作为参数。这意味着如果将<code>Unix</code>时间戳（单位为秒）作为参数，必须将<code>Unix</code>时间戳乘以<code>1000</code>。</p>
+<p><code>Date</code>对象还接受一个日期字符串作为参数，返回所对应的时间。</p>
+<p>日期字符串的完整格式是<code>month day, year hours:minutes:seconds</code>，比如<code>December 25, 1995 13:30:00</code>。如果省略了小时、分钟或秒数，这些值会被设为0。</p>
+<p>注意，在ES5之中，如果日期采用连词线<code>-</code>格式分隔，且具有前导0，JavaScript会认为这是一个<code>ISO</code>格式的日期字符串，导致返回的时间是以<code>UTC</code>时区计算的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2014-01-01'</span>)</span><br><span class="line"><span class="comment">// Wed Jan 01 2014 08:00:00 GMT+0800 (CST)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2014-1-1'</span>)</span><br><span class="line"><span class="comment">// Wed Jan 01 2014 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，日期字符串有没有前导0，返回的结果是不一样的。如果没有前导0，JavaScript引擎假设用户处于本地时区，所以本例返回0点0分。如果有前导0（即如果你以<code>ISO</code>格式表示日期），就假设用户处于格林尼治国际标准时的时区，所以返回8点0分。但是，ES6改变了这种做法，规定凡是没有指定时区的日期字符串，一律认定用户处于本地时区。</p>
+<p>总之，对于<code>YYYY-MM-DD</code>形式的字符串，JavaScript引擎可能会将其当作<code>ISO</code>格式来解析，采用格林尼治时区作为计时标准；而对于其他格式的日期字符串，一律视为非ISO格式，采用本地时区作为计时标准。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2014-12-11'</span>)</span><br><span class="line"><span class="comment">// Thu Dec 11 2014 08:00:00 GMT+0800 (CST)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2014/12/11'</span>)</span><br><span class="line"><span class="comment">// Thu Dec 11 2014 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，第一个日期字符串是ISO格式，第二个不是，导致生成的时间不一样。</p>
+<p><code>Date</code>对象还可以接受多个整数作为参数，依次表示年、月、日、小时、分钟、秒和毫秒。如果采用这种格式，<strong>最少需要提供两个参数（年和月）</strong>，其他参数都是可选的，默认等于0。因为如果只使用「年」这一个参数，<code>Date</code>对象会将其解释为毫秒数。</p>
+<h3 id="日期的运算"><a href="#日期的运算" class="headerlink" title="日期的运算"></a>日期的运算</h3><p>类型转换时，<code>Date</code>对象的实例如果转为数值，则等于对应的毫秒数；如果转为字符串，则等于对应的日期字符串。所以，两个日期对象进行减法运算，返回的就是它们间隔的毫秒数；进行加法运算，返回的就是连接后的两个字符串。</p>
+<h3 id="Date对象的静态方法"><a href="#Date对象的静态方法" class="headerlink" title="Date对象的静态方法"></a>Date对象的静态方法</h3><h4 id="Date-now"><a href="#Date-now" class="headerlink" title="Date.now"></a>Date.now</h4><p><code>Date.now</code>方法返回当前距离1970年1月1日 00:00:00 UTC的毫秒数（Unix时间戳乘以1000）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.now() <span class="comment">// 1364026285194</span></span><br></pre></td></tr></table></figure>
+<p>如果需要比毫秒更精确的时间，可以使用<code>window.performance.now()</code>。它提供页面加载到命令运行时的已经过去的时间，可以精确到千分之一毫秒。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.performance.now() <span class="comment">// 21311140.415</span></span><br></pre></td></tr></table></figure>
+<h4 id="Date-parse"><a href="#Date-parse" class="headerlink" title="Date.parse"></a>Date.parse</h4><p><code>Date.parse</code>方法用来解析日期字符串，返回距离1970年1月1日 00:00:00的毫秒数</p>
+<p>如果解析失败，返回<code>NaN</code>。</p>
+<h4 id="Date-UTC"><a href="#Date-UTC" class="headerlink" title="Date.UTC"></a>Date.UTC</h4><p>默认情况下，<code>Date</code>对象返回的都是当前时区的时间。<code>Date.UTC</code>方法可以返回<code>UTC</code>时间（世界标准时间）。该方法接受年、月、日等变量作为参数，返回当前距离1970年1月1日 00:00:00 UTC的毫秒数。</p>
+<h3 id="Date实例对象"><a href="#Date实例对象" class="headerlink" title="Date实例对象"></a>Date实例对象</h3><h4 id="to类方法"><a href="#to类方法" class="headerlink" title="to类方法"></a>to类方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.toString : 返回一个完整的日期字符串</span><br><span class="line"><span class="built_in">Date</span>.prototype.toUTCString : 返回对应的UTC时间，也就是比北京时间晚<span class="number">8</span>个小时。</span><br><span class="line"><span class="built_in">Date</span>.prototype.toISOString : 方法返回对应时间的ISO8601写法</span><br><span class="line"><span class="built_in">Date</span>.prototype.toJSON : 符合<span class="built_in">JSON</span>格式的ISO格式的日期字符串，与toISOString方法的返回结果完全相同。</span><br><span class="line"><span class="built_in">Date</span>.prototype.toDateString : 方法返回日期字符串。</span><br><span class="line"><span class="built_in">Date</span>.prototype.toTimeString : 方法返回时间字符串。</span><br><span class="line"><span class="built_in">Date</span>.prototype.toLocaleDateString : 方法返回一个字符串，代表日期的当地写法。</span><br><span class="line"><span class="built_in">Date</span>.prototype.toLocaleTimeString : 方法返回一个字符串，代表时间的当地写法。</span><br></pre></td></tr></table></figure>
+<h4 id="get类方法"><a href="#get类方法" class="headerlink" title="get类方法"></a>get类方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">getTime()：返回距离<span class="number">1970</span>年<span class="number">1</span>月<span class="number">1</span>日<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>的毫秒数，等同于valueOf方法。</span><br><span class="line">getDate()：返回实例对象对应每个月的几号（从<span class="number">1</span>开始）。</span><br><span class="line">getDay()：返回星期几，星期日为<span class="number">0</span>，星期一为<span class="number">1</span>，以此类推。</span><br><span class="line">getYear()：返回距离<span class="number">1900</span>的年数。</span><br><span class="line">getFullYear()：返回四位的年份。</span><br><span class="line">getMonth()：返回月份（<span class="number">0</span>表示<span class="number">1</span>月，<span class="number">11</span>表示<span class="number">12</span>月）。</span><br><span class="line">getHours()：返回小时（<span class="number">0</span><span class="number">-23</span>）。</span><br><span class="line">getMilliseconds()：返回毫秒（<span class="number">0</span><span class="number">-999</span>）。</span><br><span class="line">getMinutes()：返回分钟（<span class="number">0</span><span class="number">-59</span>）。</span><br><span class="line">getSeconds()：返回秒（<span class="number">0</span><span class="number">-59</span>）。</span><br><span class="line">getTimezoneOffset()：返回当前时间与UTC的时区差异，以分钟表示，返回结果考虑到了夏令时因素。</span><br></pre></td></tr></table></figure>
+<p>返回对应的UTC时间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getUTCDate()</span><br><span class="line">getUTCFullYear()</span><br><span class="line">getUTCMonth()</span><br><span class="line">getUTCDay()</span><br><span class="line">getUTCHours()</span><br><span class="line">getUTCMinutes()</span><br><span class="line">getUTCSeconds()</span><br><span class="line">getUTCMilliseconds()</span><br></pre></td></tr></table></figure>
+<h4 id="set类"><a href="#set类" class="headerlink" title="set类"></a>set类</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setDate(date)：设置实例对象对应的每个月的几号（<span class="number">1</span><span class="number">-31</span>），返回改变后毫秒时间戳。</span><br><span class="line">setYear(year): 设置距离<span class="number">1900</span>年的年数。</span><br><span class="line">setFullYear(year [, month, date])：设置四位年份。</span><br><span class="line">setHours(hour [, min, sec, ms])：设置小时（<span class="number">0</span><span class="number">-23</span>）。</span><br><span class="line">setMilliseconds()：设置毫秒（<span class="number">0</span><span class="number">-999</span>）。</span><br><span class="line">setMinutes(min [, sec, ms])：设置分钟（<span class="number">0</span><span class="number">-59</span>）。</span><br><span class="line">setMonth(month [, date])：设置月份（<span class="number">0</span><span class="number">-11</span>）。</span><br><span class="line">setSeconds(sec [, ms])：设置秒（<span class="number">0</span><span class="number">-59</span>）。</span><br><span class="line">setTime(milliseconds)：设置毫秒时间戳。</span><br></pre></td></tr></table></figure>
+<p>对应的UTC方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setUTCDate()</span><br><span class="line">setUTCFullYear()</span><br><span class="line">setUTCHours()</span><br><span class="line">setUTCMilliseconds()</span><br><span class="line">setUTCMinutes()</span><br><span class="line">setUTCMonth()</span><br><span class="line">setUTCSeconds()</span><br></pre></td></tr></table></figure>
+<h3 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf"></a>valueOf</h3><p><code>valueOf</code>方法返回实例对象距离1970年1月1日00:00:00 UTC对应的毫秒数，该方法等同于<code>getTime</code>方法。</p>
+<h2 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h2><p>正则表达式（regular expression）是一种表达文本模式（即字符串结构）的方法，有点像字符串的模板，常常用作按照“给定模式”匹配文本的工具。比如，正则表达式给出一个 Email 地址的模式，然后用它来确定一个字符串是否为 Email 地址。JavaScript 的正则表达式体系是参照 Perl 5 建立的。</p>
+<h2 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h2><p>严格规定</p>
+<p>复合类型的值只能是数组或对象，不能是函数、正则表达式对象、日期对象。</p>
+<p>简单类型的值只有四种：字符串、数值（必须以十进制表示）、布尔值和<code>null</code>（不能使用<code>NaN</code>,<code>Infinity</code>, <code>-Infinity</code>和<code>undefined</code>）。</p>
+<p>字符串必须使用双引号表示，不能使用单引号。</p>
+<p>对象的键名必须放在双引号里面。</p>
+<p>数组或对象最后一个成员的后面，不能加逗号。</p>
+<h3 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify"></a>JSON.stringify</h3><p><code>JSON.stringify</code>方法用于将一个值转为字符串。该字符串符合<code>JSON</code>格式，并且可以被<code>JSON.parse</code>方法还原。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="literal">undefined</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;];</span><br><span class="line"><span class="built_in">JSON</span>.stringify(arr) <span class="comment">// "[null,null]"</span></span><br></pre></td></tr></table></figure>
+<p>如果数组的成员是<code>undefined</code>、函数或 XML 对象，则这些值被转成<code>null</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="regexp">/foo/</span>) <span class="comment">// "&#123;&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>正则对象会被转成空对象。</p>
+<p><code>JSON.stringify</code>方法会忽略对象的不可遍历属性。</p>
+<p><code>JSON.stringify</code>方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="string">'prop1'</span>: <span class="string">'value1'</span>,</span><br><span class="line">  <span class="string">'prop2'</span>: <span class="string">'value2'</span>,</span><br><span class="line">  <span class="string">'prop3'</span>: <span class="string">'value3'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> selectedProperties = [<span class="string">'prop1'</span>, <span class="string">'prop2'</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj, selectedProperties)</span><br><span class="line"><span class="comment">// "&#123;"prop1":"value1","prop2":"value2"&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>这个类似「白名单」的数组，只对对象的属性有效，对数组无效。</p>
+<p>第二个参数还可以是一个函数，用来更改JSON.stringify的默认行为。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">"number"</span>) &#123;</span><br><span class="line">    value = <span class="number">2</span> * value;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;, f)</span><br><span class="line"><span class="comment">// '&#123;"a": 2,"b": 4&#125;'</span></span><br></pre></td></tr></table></figure>
+<p><code>JSON.stringify</code>还可以接受第三个参数，用于增加返回的JSON字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。</p>
+<h3 id="toJSON"><a href="#toJSON" class="headerlink" title="toJSON"></a>toJSON</h3><p>如果对象有自定义的<code>toJSON</code>方法，那么<code>JSON.stringify</code>会使用这个方法的返回值作为参数，而忽略原对象的其他属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">'三'</span>,</span><br><span class="line">  lastName: <span class="string">'张'</span>,</span><br><span class="line">  fullName: <span class="string">'张三'</span>,	</span><br><span class="line"></span><br><span class="line">  toJSON: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = &#123;</span><br><span class="line">      firstName: <span class="keyword">this</span>.firstName,</span><br><span class="line">      lastName: <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user)</span><br><span class="line"><span class="comment">// "&#123;"firstName":"三","lastName":"张"&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>可以给正则定义<code>toJSON</code>方法，就可以用来转换正则了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  reg: <span class="regexp">/foo/</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不设置 toJSON 方法时</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj) <span class="comment">// "&#123;"reg":&#123;&#125;&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 toJSON 方法时</span></span><br><span class="line"><span class="built_in">RegExp</span>.prototype.toJSON = <span class="built_in">RegExp</span>.prototype.toString;</span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="regexp">/foo/</span>) <span class="comment">// ""/foo/""</span></span><br></pre></td></tr></table></figure>
+<h3 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse"></a>JSON.parse</h3><p><code>JSON.parse</code>方法用于将JSON字符串转化成对象。</p>
+<p>如果传入的字符串不是有效的JSON格式，<code>JSON.parse</code>方法将报错。</p>
+<h2 id="console对象"><a href="#console对象" class="headerlink" title="console对象"></a>console对象</h2><h3 id="浏览器实现"><a href="#浏览器实现" class="headerlink" title="浏览器实现"></a>浏览器实现</h3><p>打开开发者工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Elements：查看网页的HTML源码和CSS代码。</span><br><span class="line">Resources：查看网页加载的各种资源文件（比如代码文件、字体文件、css文件等），以及在硬盘上创建的各种内容（比如本地缓存、Cookie、Local Storage等）。</span><br><span class="line">Network：查看网页的 HTTP 通信情况。</span><br><span class="line">Sources：查看网页加载的所有源码。</span><br><span class="line">Timeline：查看各种网页行为随时间变化的情况。</span><br><span class="line">Performance：查看网页的性能情况，比如 CPU 和内存消耗。</span><br><span class="line">Console：用来运行 JavaScript 命令。</span><br></pre></td></tr></table></figure>
+<h3 id="console-log-，console-debug-，console-info"><a href="#console-log-，console-debug-，console-info" class="headerlink" title="console.log()，console.debug()，console.info()"></a>console.log()，console.debug()，console.info()</h3><p><code>console.info()</code>和<code>console.debug()</code>都是<code>console.log</code>方法的别名，用法完全一样。只不过<code>console.info</code>方法会在输出信息的前面，加上一个蓝色图标。</p>
+<p>自定义<code>console</code>方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'log'</span>, <span class="string">'info'</span>, <span class="string">'warn'</span>, <span class="string">'error'</span>].forEach(<span class="function"><span class="keyword">function</span>(<span class="params">method</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>[method] = <span class="built_in">console</span>[method].bind(</span><br><span class="line">    <span class="built_in">console</span>,</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Date</span>().toISOString()</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"出错了！"</span>);</span><br><span class="line"><span class="comment">// 2014-05-18T09:00.000Z 出错了！</span></span><br></pre></td></tr></table></figure>
+<h3 id="console-warn-console-error"><a href="#console-warn-console-error" class="headerlink" title="console.warn(),console.error()"></a>console.warn(),console.error()</h3><p><code>warn</code>方法和<code>error</code>方法也是在控制台输出信息，它们与<code>log</code>方法的不同之处在于，<code>warn</code>方法输出信息时，在最前面加一个黄色三角，表示警告；<code>error</code>方法输出信息时，在最前面加一个红色的叉，表示出错，同时会显示错误发生的堆栈。其他方面都一样。</p>
+<h3 id="console-table"><a href="#console-table" class="headerlink" title="console.table()"></a>console.table()</h3><p>对于某些复合类型的数据，<code>console.table</code>方法可以将其转为表格显示。</p>
+<h3 id="console-count"><a href="#console-count" class="headerlink" title="console.count()"></a>console.count()</h3><p><code>count</code>方法用于计数，输出它被调用了多少次。</p>
+<p>该方法可以接受一个字符串作为参数，作为标签，对执行次数进行分类。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.count(user);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"hi "</span> + user;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(<span class="string">'bob'</span>)</span><br><span class="line"><span class="comment">// bob: 1</span></span><br><span class="line"><span class="comment">// "hi bob"</span></span><br><span class="line"></span><br><span class="line">greet(<span class="string">'alice'</span>)</span><br><span class="line"><span class="comment">// alice: 1</span></span><br><span class="line"><span class="comment">// "hi alice"</span></span><br><span class="line"></span><br><span class="line">greet(<span class="string">'bob'</span>)</span><br><span class="line"><span class="comment">// bob: 2</span></span><br><span class="line"><span class="comment">// "hi bob"</span></span><br></pre></td></tr></table></figure>
+<h3 id="console-dir-，console-dirxml"><a href="#console-dir-，console-dirxml" class="headerlink" title="console.dir()，console.dirxml()"></a>console.dir()，console.dirxml()</h3><p><code>dir</code>方法用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。</p>
+<p><code>dirxml</code>方法主要用于以目录树的形式，显示 DOM 节点。</p>
+<h3 id="console-assert"><a href="#console-assert" class="headerlink" title="console.assert()"></a>console.assert()</h3><p><code>assert</code>方法主要用于程序运行过程中，进行条件判断，如果不满足条件，就显示一个错误，但不会中断程序执行。这样就相当于提示用户，内部状态不正确。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.assert(<span class="literal">false</span>, <span class="string">'判断条件不成立'</span>)</span><br><span class="line"><span class="comment">// Assertion failed: 判断条件不成立</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'判断条件不成立'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.error(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="console-time-，console-timeEnd"><a href="#console-time-，console-timeEnd" class="headerlink" title="console.time()，console.timeEnd()"></a>console.time()，console.timeEnd()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">'Array initialize'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> array= <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = array.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    array[i] = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'Array initialize'</span>);</span><br><span class="line"><span class="comment">// Array initialize: 1914.481ms</span></span><br></pre></td></tr></table></figure>
+<h3 id="console-profile-，console-profileEnd"><a href="#console-profile-，console-profileEnd" class="headerlink" title="console.profile()，console.profileEnd()"></a>console.profile()，console.profileEnd()</h3><p><code>console.profile</code>方法用来新建一个性能测试器（profile），它的参数是性能测试器的名字。</p>
+<p><code>console.profileEnd</code>方法用来结束正在运行的性能测试器。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.profile(<span class="string">'p'</span>)</span><br><span class="line"><span class="comment">// Profile 'p' started.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.profileEnd()</span><br><span class="line"><span class="comment">// Profile 'p' finished.</span></span><br></pre></td></tr></table></figure>
+<p>打开浏览器的开发者工具，在<code>profile</code>面板中，可以看到这个性能调试器的运行结果。</p>
+<h3 id="console-group-，console-groupend-，console-groupCollapsed"><a href="#console-group-，console-groupend-，console-groupCollapsed" class="headerlink" title="console.group()，console.groupend()，console.groupCollapsed()"></a>console.group()，console.groupend()，console.groupCollapsed()</h3><p><code>console.group</code>和<code>console.groupend</code>这两个方法用于将显示的信息分组。它只在输出大量信息时有用，分在一组的信息，可以用鼠标折叠/展开。</p>
+<p><code>console.groupCollapsed</code>方法与<code>console.group</code>方法很类似，唯一的区别是该组的内容，在第一次显示时是收起的（collapsed），而不是展开的。</p>
+<h3 id="console-trace-，console-clear"><a href="#console-trace-，console-clear" class="headerlink" title="console.trace()，console.clear()"></a>console.trace()，console.clear()</h3><p><code>console.trace</code>方法显示当前执行的代码在堆栈中的调用路径。</p>
+<p><code>console.clear</code>方法用于清除当前控制台的所有输出，将光标回置到第一行。如果用户选中了控制台的<code>Preserve log</code>选项，网页脚本调用<code>console.log</code>将不起作用，但手动在控制台执行该方法依然有效</p>
+<h3 id="命令行API"><a href="#命令行API" class="headerlink" title="命令行API"></a>命令行API</h3><p>具体详细内容 <a href="http://javascript.ruanyifeng.com/stdlib/console.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/stdlib/console.html</a></p>
+<h2 id="属性描述对象"><a href="#属性描述对象" class="headerlink" title="属性描述对象"></a>属性描述对象</h2><h3 id="Object-defineProperty-，Object-defineProperties"><a href="#Object-defineProperty-，Object-defineProperties" class="headerlink" title="Object.defineProperty()，Object.defineProperties()"></a>Object.defineProperty()，Object.defineProperties()</h3><p><code>Object.defineProperty</code>方法和后面的<code>Object.defineProperties</code>方法，都有性能损耗，会拖慢执行速度，不宜大量使用。</p>
+<p>这时需要注意的是，一旦定义了取值函数<code>get</code>（或存值函数<code>set</code>），就不能将<code>writable</code>设为<code>true</code>，或者同时定义<code>value</code>属性，会报错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'p'</span>, &#123;</span><br><span class="line">  value: <span class="number">123</span>,</span><br><span class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">456</span>; &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// TypeError: Invalid property.</span></span><br><span class="line"><span class="comment">// A property cannot both have accessors and be writable or have a value,</span></span><br></pre></td></tr></table></figure>
+<p>上面代码同时定义了<code>get</code>属性和<code>value</code>属性，结果就报错。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeanJs/" rel="tag"><i class="fa fa-tag"></i> LeanJs</a>
+          
+            <a href="/tags/ES5/" rel="tag"><i class="fa fa-tag"></i> ES5</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/23/LeanJS基础语法/" rel="next" title="LeanJs「 ES5 」-- 语法">
+                <i class="fa fa-chevron-left"></i> LeanJs「 ES5 」-- 语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/25/LeanJS面向对象编程/" rel="prev" title="LeanJs「 ES5 」-- 面向对象编程">
+                LeanJs「 ES5 」-- 面向对象编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Hutchins">
+            
+              <p class="site-author-name" itemprop="name">Hutchins</p>
+              <p class="site-description motion-element" itemprop="description">Never stop trying, finish and do everything you've started</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MLuminary" title="GitHub &rarr; https://github.com/MLuminary"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:haoqin89127@gmail.com" title="E-Mail &rarr; mailto:haoqin89127@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object"><span class="nav-number">1.</span> <span class="nav-text">Object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-1"><span class="nav-number">1.1.</span> <span class="nav-text">Object()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">Object构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法"><span class="nav-number">1.3.</span> <span class="nav-text">静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-keys-amp-amp-Object-getOwnPropertyNames"><span class="nav-number">1.3.1.</span> <span class="nav-text">Object.keys() &amp;&amp; Object.getOwnPropertyNames()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-prototype-toString"><span class="nav-number">1.3.2.</span> <span class="nav-text">Object.prototype.toString</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-prototype-toLocaleString"><span class="nav-number">1.3.3.</span> <span class="nav-text">Object.prototype.toLocaleString</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array对象"><span class="nav-number">2.</span> <span class="nav-text">Array对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">2.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#改变原数组"><span class="nav-number">2.2.1.</span> <span class="nav-text">改变原数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不改变原数组"><span class="nav-number">2.2.2.</span> <span class="nav-text">不改变原数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装对象"><span class="nav-number">3.</span> <span class="nav-text">包装对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始类型的自动转换"><span class="nav-number">3.1.</span> <span class="nav-text">原始类型的自动转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean对象"><span class="nav-number">3.2.</span> <span class="nav-text">Boolean对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number"><span class="nav-number">4.</span> <span class="nav-text">Number</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">4.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-1"><span class="nav-number">4.2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#toString-NaN"><span class="nav-number">4.2.1.</span> <span class="nav-text">toString</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toFixed"><span class="nav-number">4.2.2.</span> <span class="nav-text">toFixed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toExponential"><span class="nav-number">4.2.3.</span> <span class="nav-text">toExponential</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toPrecision"><span class="nav-number">4.2.4.</span> <span class="nav-text">toPrecision</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">5.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-fromCharCode"><span class="nav-number">5.1.</span> <span class="nav-text">String.fromCharCode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#charAt"><span class="nav-number">5.2.</span> <span class="nav-text">charAt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#charCodeAt"><span class="nav-number">5.3.</span> <span class="nav-text">charCodeAt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexOf-，lastIndexOf"><span class="nav-number">5.4.</span> <span class="nav-text">indexOf()，lastIndexOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat"><span class="nav-number">5.5.</span> <span class="nav-text">concat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice"><span class="nav-number">5.6.</span> <span class="nav-text">slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#substring"><span class="nav-number">5.7.</span> <span class="nav-text">substring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#substr"><span class="nav-number">5.8.</span> <span class="nav-text">substr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trim"><span class="nav-number">5.9.</span> <span class="nav-text">trim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toLowerCase-，toUpperCase"><span class="nav-number">5.10.</span> <span class="nav-text">toLowerCase()，toUpperCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localeCompare"><span class="nav-number">5.11.</span> <span class="nav-text">localeCompare()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#match"><span class="nav-number">5.12.</span> <span class="nav-text">match</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search"><span class="nav-number">5.13.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replace"><span class="nav-number">5.14.</span> <span class="nav-text">replace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#split"><span class="nav-number">5.15.</span> <span class="nav-text">split</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math"><span class="nav-number">6.</span> <span class="nav-text">Math</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-1"><span class="nav-number">6.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-2"><span class="nav-number">6.2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-random"><span class="nav-number">6.2.1.</span> <span class="nav-text">Math.random</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三角函数的方法"><span class="nav-number">6.3.</span> <span class="nav-text">三角函数的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">7.</span> <span class="nav-text">Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#new-Date"><span class="nav-number">7.1.</span> <span class="nav-text">new Date()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期的运算"><span class="nav-number">7.2.</span> <span class="nav-text">日期的运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date对象的静态方法"><span class="nav-number">7.3.</span> <span class="nav-text">Date对象的静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Date-now"><span class="nav-number">7.3.1.</span> <span class="nav-text">Date.now</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Date-parse"><span class="nav-number">7.3.2.</span> <span class="nav-text">Date.parse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Date-UTC"><span class="nav-number">7.3.3.</span> <span class="nav-text">Date.UTC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date实例对象"><span class="nav-number">7.4.</span> <span class="nav-text">Date实例对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#to类方法"><span class="nav-number">7.4.1.</span> <span class="nav-text">to类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get类方法"><span class="nav-number">7.4.2.</span> <span class="nav-text">get类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set类"><span class="nav-number">7.4.3.</span> <span class="nav-text">set类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#valueOf-NaN"><span class="nav-number">7.5.</span> <span class="nav-text">valueOf</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp对象"><span class="nav-number">8.</span> <span class="nav-text">RegExp对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON对象"><span class="nav-number">9.</span> <span class="nav-text">JSON对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-stringify"><span class="nav-number">9.1.</span> <span class="nav-text">JSON.stringify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toJSON"><span class="nav-number">9.2.</span> <span class="nav-text">toJSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-parse"><span class="nav-number">9.3.</span> <span class="nav-text">JSON.parse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#console对象"><span class="nav-number">10.</span> <span class="nav-text">console对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器实现"><span class="nav-number">10.1.</span> <span class="nav-text">浏览器实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-log-，console-debug-，console-info"><span class="nav-number">10.2.</span> <span class="nav-text">console.log()，console.debug()，console.info()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-warn-console-error"><span class="nav-number">10.3.</span> <span class="nav-text">console.warn(),console.error()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-table"><span class="nav-number">10.4.</span> <span class="nav-text">console.table()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-count"><span class="nav-number">10.5.</span> <span class="nav-text">console.count()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-dir-，console-dirxml"><span class="nav-number">10.6.</span> <span class="nav-text">console.dir()，console.dirxml()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-assert"><span class="nav-number">10.7.</span> <span class="nav-text">console.assert()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-time-，console-timeEnd"><span class="nav-number">10.8.</span> <span class="nav-text">console.time()，console.timeEnd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-profile-，console-profileEnd"><span class="nav-number">10.9.</span> <span class="nav-text">console.profile()，console.profileEnd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-group-，console-groupend-，console-groupCollapsed"><span class="nav-number">10.10.</span> <span class="nav-text">console.group()，console.groupend()，console.groupCollapsed()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-trace-，console-clear"><span class="nav-number">10.11.</span> <span class="nav-text">console.trace()，console.clear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行API"><span class="nav-number">10.12.</span> <span class="nav-text">命令行API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性描述对象"><span class="nav-number">11.</span> <span class="nav-text">属性描述对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-defineProperty-，Object-defineProperties"><span class="nav-number">11.1.</span> <span class="nav-text">Object.defineProperty()，Object.defineProperties()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hutchins</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">150k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">2:16</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz',
+    appKey: 'OsMcNeSXT83jo3CdPyJ0fVHw',
+    placeholder: 'say say what',
+    avatar: 'robohash',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'tfBOMNylBsVQxobhIkvEGve5-gzGzoHsz',
+                'X-LC-Key': 'OsMcNeSXT83jo3CdPyJ0fVHw',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
