@@ -1,5 +1,5 @@
 ---
-title: LearnJS标准库
+title: LeanJs「 ES5 」-- 标准库
 date: 2018-01-24 22:26:20
 tags:
     - LeanJs
