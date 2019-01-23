@@ -11,8 +11,6 @@ category: Note
 
 <!--more-->
 
-# 标准库
-
 ## Object
 
 ### Object()
