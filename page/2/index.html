@@ -450,7 +450,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-24 18:10:15" itemprop="dateModified" datetime="2019-01-24T18:10:15+08:00">2019-01-24</time>
+                <time title="Modified: 2019-01-24 18:11:20" itemprop="dateModified" datetime="2019-01-24T18:11:20+08:00">2019-01-24</time>
               
             
           </span>
@@ -554,51 +554,18 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>配置 babel 来兼容 es6</p>
 </blockquote>
-<h3 id="配置-babelrc"><a href="#配置-babelrc" class="headerlink" title="配置 .babelrc"></a>配置 .babelrc</h3><p>Babel 的配置文件是 <code>.babelrc</code> ，存放在根目录下。使用 babel 必须要配置此文件</p>
-<p>该文件用来设置转码规则和插件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>:[],</span><br><span class="line">  <span class="string">"plugins"</span>:[]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>presets</code> 为编码规则 ，官方推荐</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install --save-dev babel-preset-env</span><br></pre></td></tr></table></figure>
-<p>在没有任何配置选项的情况下，<code>babel-preset-env</code> 与 <code>babel-preset-latest</code>（或者 <code>babel-preset-es2015</code>，<code>babel-preset-es2016</code> 和 <code>babel-preset-es2017</code> 一起）的行为完全相同。</p>
-<p>然后将 <code>babel-preset-env</code> 加入规则</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>:[<span class="string">"env"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="babel-cli"><a href="#babel-cli" class="headerlink" title="babel-cli"></a>babel-cli</h3><p>安装命令如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install --save-dev babel-cli</span><br></pre></td></tr></table></figure>
-<p>常用命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 转码结果输出到标准输出</span><br><span class="line"><span class="meta">$</span> babel example.js</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 转码结果写入一个文件</span><br><span class="line"><span class="meta">#</span> --out-file 或 -o 参数指定输出文件</span><br><span class="line"><span class="meta">$</span> babel example.js --out-file compiled.js</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">$</span> babel example.js -o compiled.js</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 整个目录转码</span><br><span class="line"><span class="meta">#</span> --out-dir 或 -d 参数指定输出目录</span><br><span class="line"><span class="meta">$</span> babel src --out-dir lib</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">$</span> babel src -d lib</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> -s 参数生成source map文件</span><br><span class="line"><span class="meta">$</span> babel src -d lib -s</span><br></pre></td></tr></table></figure>
-<p>方面使用的话可以改写 <code>package.json</code> 的文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel-cli"</span>: <span class="string">"^6.0.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"babel src -d lib"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行一下代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm run build</span><br></pre></td></tr></table></figure>
-<p>即可将 <code>src</code> 目录下的文件转换，生成于 <code>lib</code> 目录中的同名文件</p>
-<h3 id="babel-node"><a href="#babel-node" class="headerlink" title="babel-node"></a>babel-node</h3><p><code>babel-cli</code> 提供一个 <code>babel-node</code> 命令，提供一个支持 ES6 的 REPL 环境。</p>
-<blockquote>
-<p>REPL(Read-eval-print-loop)：交互式解析器，在REPL环境下，可以定义和运行变量、函数、对象。进入 node 即进入REPL</p>
-</blockquote>
-<p>执行 <code>babel-node</code> 即进入环境，执行 <code>babel-node ES6.js</code> 可以直接运行 <code>ES6.js</code> 这个 ES6 脚本</p>
-<h3 id="babel-register"><a href="#babel-register" class="headerlink" title="babel-register"></a>babel-register</h3><p><code>babel-register</code> 模块改写 <code>require</code> 命令，为它加上一个钩子。此后，每当使用 <code>require</code> 加载 <code>.js</code>、<code>.jsx</code>、<code>.es</code> 和 <code>.es6</code> 后缀名的文件，就会先用 Babel 进行转码。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install --save-dev babel-register</span><br></pre></td></tr></table></figure>
-<p>使用时必须先加载 <code>babel-register</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"babel-register"</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"./index.js"</span>);</span><br></pre></td></tr></table></figure>
-<p>由于它是实时转码，所以只适合在开发环境使用。</p>
-<h3 id="babel-core"><a href="#babel-core" class="headerlink" title="babel-core"></a>babel-core</h3><p>如果某些代码需要调用 Babel 的 API 进行转码，就要使用 <code>babel-core</code> 模块。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install babel-core --save</span><br></pre></td></tr></table></figure>
-<p>具体调用有官方文档的介绍 <a href="http://babeljs.io/docs/usage/api/" target="_blank" rel="noopener">http://babeljs.io/docs/usage/api/</a></p>
-<p><strong>举个栗子</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> es6Code = <span class="string">'let x = n =&gt; n + 1'</span>;</span><br><span class="line"><span class="keyword">var</span> es5Code = <span class="built_in">require</span>(<span class="string">'babel-core'</span>)</span><br><span class="line">  .transform(es6Code, &#123;</span><br><span class="line">    presets: [<span class="string">'es2015'</span>]</span><br><span class="line">  &#125;)</span><br><span class="line">  .code;</span><br><span class="line"><span class="comment">// '"use strict";\n\nvar x = function x(n) &#123;\n  return n + 1;\n&#125;;'</span></span><br></pre></td></tr></table></figure>
-<h3 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h3><p>Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。</p>
-<p>举例来说，ES6在Array对象上新增了 <code>Array.from</code> 方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用 <code>babel-polyfill</code> ，为当前环境提供一个垫片。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install --save babel-polyfill</span><br></pre></td></tr></table></figure>
-<p>然后，在脚本头部，加入如下一行代码。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span>;</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'babel-polyfill'</span>);</span><br></pre></td></tr></table></figure>
-<p>Babel默认不转码的API非常多，详细清单可以查看 <code>babel-plugin-transform-runtime</code> 模块的definitions.js文件。</p>
-<h3 id="在线转换"><a href="#在线转换" class="headerlink" title="在线转换"></a>在线转换</h3><p><a href="https://babeljs.io/repl/" target="_blank" rel="noopener">https://babeljs.io/repl/</a></p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/02/18/设置babel/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
