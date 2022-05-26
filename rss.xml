@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Silence]]></title><description><![CDATA[coding is so funny]]></description><link>https://zhanghaoqin.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 25 May 2022 10:41:58 GMT</lastBuildDate><item><title><![CDATA[Observable]]></title><description><![CDATA[build your own Observable Observable 虽然是可观察对象，但是其内部并没有维护一个观察者列表，订阅 Observable 其实就像执行一个函数一样 下面是一个 Observable 的简单实用案例 从上面代码看出，Observable…]]></description><link>https://zhanghaoqin.com/source-code/observable/</link><guid isPermaLink="false">https://zhanghaoqin.com/source-code/observable/</guid><pubDate>Wed, 25 May 2022 07:20:22 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Silence]]></title><description><![CDATA[coding is so funny]]></description><link>https://zhanghaoqin.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 26 May 2022 13:28:33 GMT</lastBuildDate><item><title><![CDATA[Promise]]></title><description><![CDATA[Promise 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。 为什么需要 Promise promise…]]></description><link>https://zhanghaoqin.com/source-code/promise/</link><guid isPermaLink="false">https://zhanghaoqin.com/source-code/promise/</guid><pubDate>Thu, 26 May 2022 07:42:22 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;Promise 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;为什么需要 Promise&lt;/h2&gt;
+&lt;p&gt;promise 的出现还是为了解决回调的问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;大脑对于事情的计划方式是&lt;strong&gt;线性的、阻塞的、单线程&lt;/strong&gt;的语义，但是回调表达异步流程的方式是&lt;strong&gt;非线性的、非顺序的&lt;/strong&gt;，这使得正确推导这样的代码难度很大。难于理解的代码是坏代码，会导致坏 bug。我们需要一种更同步、更顺序、更阻塞的的方式来表达异步，就像我们的大脑一样。&lt;/li&gt;
+&lt;li&gt;最重要的是回调会受到控制反转的影响，因为&lt;strong&gt;回调暗中把控制权交给第三方&lt;/strong&gt;（通常是不受你控制的第三方工具！）来调用你代码中的 continuation。这种控制转移导致一系列麻烦的信任问题，例如调 • 调用回调过早；• 调用回调过晚（或不被调用）；• 调用回调次数过少或过多；• 未能传递所需的环境和参数；• 吞掉可能出现的错误和异常&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于第一个问题，Promise 采用链式调用的方法，并且保证顺序是从前到后执行的，非常符合人类大脑的直觉;对于第二个问题，promise 把控制权又交回给了用户手里，并且 promise 决议后就不会再次调用，解决了信任问题，这也是它名字的由来。&lt;/p&gt;
+&lt;h2&gt;Promise 规范&lt;/h2&gt;
+&lt;p&gt;如果我们要动手实现一个 Promise，那就必须明白 Promise 需要满足的需求。这里是 Promise 的&lt;a href=&quot;https://github.com/promises-aplus/promises-spec&quot;&gt;详细规范&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我们在此摘抄一下几个关键的部分&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;new Promise 时，需要传递一个 executor 执行器，执行器立刻执行，executor 接受两个参数， 分别是 resolve 和 reject&lt;/li&gt;
+&lt;li&gt;共有三个状态: pending、fulfilled、rejected。只会存在 pending -&gt; fulfilled 或 pending -&gt; rejected，并且无法再改变。&lt;/li&gt;
+&lt;li&gt;拥有 then 方法，含有两个参数：onFulfilled 和 onRejected；then 方法可以被同一个 promise 多次调用；then 方法必须返回一个 promise 对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;…&lt;/p&gt;
+&lt;p&gt;当我们按照规范手写完 Promise 时，需要验证是否正确，则只需要跑一下这个&lt;a href=&quot;https://github.com/promises-aplus/promises-tests&quot;&gt;测试工具&lt;/a&gt;即可，需要注意的是需要额外添加如下代码&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;MyPromise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;defer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MyPromise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;deferred&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; dfd &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  dfd&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MyPromise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    dfd&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;resolve &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; resolve
+    dfd&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;reject &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; reject
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; dfd
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MyPromise&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/MLuminary/subentry/tree/master/promise&quot;&gt;源码地址&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000016550260&quot;&gt;https://segmentfault.com/a/1190000016550260&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Observable]]></title><description><![CDATA[build your own Observable Observable 虽然是可观察对象，但是其内部并没有维护一个观察者列表，订阅 Observable 其实就像执行一个函数一样 下面是一个 Observable 的简单实用案例 从上面代码看出，Observable…]]></description><link>https://zhanghaoqin.com/source-code/observable/</link><guid isPermaLink="false">https://zhanghaoqin.com/source-code/observable/</guid><pubDate>Wed, 25 May 2022 07:20:22 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;build your own Observable&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Observable 虽然是可观察对象，但是其内部并没有维护一个观察者列表，订阅 Observable 其实就像执行一个函数一样&lt;/p&gt;
